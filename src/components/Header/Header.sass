@@ -1,0 +1,66 @@
+.Header
+    height: 100vh
+    margin-bottom: 6rem
+
+    &__Background-video
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        height: 100%
+        width: 100%
+        object-fit: cover
+        z-index: 1
+
+    &__Title
+        position: absolute
+        top: 50%
+        left: 50%
+        z-index: 2
+        color: white
+        text-align: center
+        transform: translate(-50%, -50%)
+
+        h1
+            font-size: 6rem
+
+        span
+            font-size: 3rem
+
+    &__Scroller
+        background-color: 2px solid blue
+        position: absolute
+        bottom: 3rem
+        left: 50%
+        z-index: 2
+        color: white
+        text-align: center
+        transform: translateX(-50%)
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+
+        & span:nth-child(1)
+            height: 18rem
+            background-color: white
+            width: .1rem
+            display: inline-block
+            margin-bottom: 2rem
+
+        & span:nth-child(2)
+            font-size: 2rem
+            text-transform: uppercase
+
+    &__Button
+        position: absolute
+        bottom: 3rem
+        height: 6rem
+        z-index: 2
+
+        &--mute
+            left: 2rem
+
+        &--fullscreen
+            right: 2rem
