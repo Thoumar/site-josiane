@@ -30,7 +30,7 @@ const renderItem = ({ type, src, alt, style }) => {
 
 const renderFirstItem = (item, { title, domain, description }) => {
     return (
-        <div className="Project-caption">
+        <div className={"Project-caption"}>
             {renderItem(item)}
             <h4>{title}</h4>
             <span>{domain}</span>

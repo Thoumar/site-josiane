@@ -23,6 +23,7 @@ const Home = () => {
                 title="Afsep"
                 domain="www.clientdomain.com"
                 description="Lorem Ipsum Dolor"
+                disposition="two-items"
                 items={
                     [
                         {
