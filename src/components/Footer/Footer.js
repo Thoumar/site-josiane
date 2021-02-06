@@ -15,10 +15,10 @@ const Footer = () => {
             </div>
             
             <div className="Footer__Side-right">
-                <a href=""><img src={""} alt={""} /></a>
-                <a href=""><img src={""} alt={""} /></a>
-                <a href=""><img src={""} alt={""} /></a>
-                <a href=""><img src={""} alt={""} /></a>
+                <a href="/"><img src={""} alt={""} /></a>
+                <a href="/"><img src={""} alt={""} /></a>
+                <a href="/"><img src={""} alt={""} /></a>
+                <a href="/"><img src={""} alt={""} /></a>
             </div>
         </footer>
     )
