@@ -5,21 +5,27 @@ const getDispositionClass = (disposition) => {
     switch (disposition) {
         case 'two-items':
             return 'Project__Two-items'
+        case 'four-items':
+            return 'Project__Four-items'
+        case 'two-items-crossed':
+            return 'Project__Two-items-crossed'
+        case 'three-items-gallery':
+            return 'Project__Three-items-gallery'
         default:
             return ""
     }
 }
 
 // Render functions
-const renderItem = ({ type, src, alt, style }) => {
+const renderItem = ({ type, src, alt }) => {
     switch (type) {
         case 'picture':
             return (
-                <img className="Project-illustration Project-illustration-image" src={src} alt={alt} style={style} />
+                <img className="Project-illustration Project-illustration-image" src={src} alt={alt} />
             )
         case 'video':
             return (
-                <video className="Project-illustration Project-illustration-video" autoPlay muted loop style={style}>
+                <video className="Project-illustration Project-illustration-video" autoPlay muted loop>
                     <source src={src} type="video/mp4" />{alt}
                 </video>
             )

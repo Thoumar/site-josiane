@@ -1,8 +1,9 @@
 .Project
-    // border: 1px solid blue
+    border: 5px solid blue
     height: 45rem
     position: relative
     margin-bottom: 15rem
+    overflow: hidden
 
     &-caption
         border-left: 1px solid grey
@@ -24,3 +25,84 @@
         display: flex
         align-items: center
         justify-content: space-around
+
+        .Project-caption > video,
+        .Project-caption > img
+            height: 50%
+
+        & > img,
+        & > video
+            height: 100%
+
+    &__Four-items
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+        justify-content: space-around
+        max-width: 768px
+        margin-right: auto
+        margin-left: auto
+
+        .Project-caption
+            width: 90%
+            height: 40rem
+            position: absolute
+            left: 0
+            top: 50%
+            bottom: 0
+            transform: translateY(-50%)
+
+        .Project-caption > video,
+        .Project-caption > img
+            width: 100%
+            object-fit: cover
+            height: calc(100% - 9rem)
+
+        & > img,
+        & > video
+            z-index: 2
+            object-fit: cover
+            width: 20%
+            height: 30%
+
+    &__Two-items-crossed
+        display: flex
+        align-items: center
+        justify-content: space-around
+
+        .Project-caption
+            position: absolute
+            left: 0
+            top: 0
+            height: 80%
+
+        .Project-caption > video,
+        .Project-caption > img
+            height: 80%
+            width: 100%
+            object-fit: cover
+
+        & > img,
+        & > video
+            width: 60%
+            height: 70%
+            position: absolute
+            bottom: 0
+            right: 0
+
+    &__Three-items-gallery
+        display: flex
+        justify-content: space-between
+
+        .Project-caption
+            height: 80%
+
+        .Project-caption > video,
+        .Project-caption > img
+            height: 25rem
+            width: 25rem
+
+        & > img,
+        & > video
+            height: 25rem
+            width: 25rem

@@ -9,6 +9,9 @@ import fullscreenIcon from './../../images/icons/fullscreen.svg';
 
 const Header = () => {
     const [soundState, setSoundState] = useState(false);
+    const handleSetSoundState = () => {
+        setSoundState(!soundState)
+    }
 
     const soundIconSrc = soundState ? soundOnIcon : soundOffIcon;
 
@@ -19,7 +22,7 @@ const Header = () => {
                 <span>Agence d'idées</span>
             </div>
 
-            <img className="Header__Button Header__Button--mute" src={soundIconSrc} alt={""} />
+            <img className="Header__Button Header__Button--mute" src={soundIconSrc} alt={""} onClick={() => { handleSetSoundState() }} />
 
             <img className="Header__Button Header__Button--fullscreen" src={fullscreenIcon} alt={""} />
 
