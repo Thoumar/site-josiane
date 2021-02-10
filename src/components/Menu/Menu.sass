@@ -1,0 +1,88 @@
+.Menu
+    padding: 10rem 0
+    top: 0
+    right: 0
+    bottom: 0
+    width: 40vw
+    z-index: 20
+    display: flex
+    position: fixed
+    align-items: center
+    background-color: #F2F2F2
+    flex-direction: column
+    justify-content: space-around
+    transition: all .4s cubic-bezier(1, 0, 0, 1)
+
+    &__Lang
+        font-size: 1.5rem
+        color: #025295
+
+    &__Social
+        margin-top: 5rem
+        color: #025295
+
+        > a
+            height: 2rem
+            display: inline-block
+            background-color: #025295
+            padding: .8rem
+            border-radius: 50%
+            margin: 0 1rem
+
+            > img
+                height: 100%
+
+    &__Item
+
+        button
+            font-size: 3rem
+            background: transparent
+            border: 0 solid transparent
+
+    &__Switcher
+        position: absolute
+        height: 4rem
+        width: 4rem
+        cursor: pointer
+        top: 0
+
+        &:before, &:after
+            position: absolute
+            top: 1.5rem
+            left: .5rem
+            content: ' '
+            height: 3rem
+            width: 2px
+            transition: all .4s cubic-bezier(1, 0, 0, 1)
+
+    &.open
+        right: 0
+
+        .Menu__Switcher
+            right: 0
+
+            &:before
+
+                background-color: #025295
+                transform: rotate(45deg)
+
+            &:after
+
+                background-color: #025295
+                transform: rotate(-45deg)
+
+    &.close
+        right: -40vw
+
+        .Menu__Switcher
+            left: -4rem
+
+            &:before
+
+                background-color: #CCCCCC
+                transform: rotate(90deg)
+
+            &:after
+
+                background-color: #CCCCCC
+                transform: rotate(-90deg) translateX(-7px)

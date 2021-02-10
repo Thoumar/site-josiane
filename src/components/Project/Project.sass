@@ -1,11 +1,18 @@
 .Project
-    border: 5px solid blue
     height: 45rem
     position: relative
     margin-bottom: 15rem
     overflow: hidden
 
+    &__Small-width
+        max-width: 768px
+        margin-right: auto
+        margin-left: auto
+
     &-caption
+        box-sizing: border-box
+        -moz-box-sizing: border-box
+        -webkit-box-sizing: border-box
         border-left: 1px solid grey
         display: flex
         flex-direction: column
@@ -39,9 +46,6 @@
         flex-direction: column
         align-items: flex-end
         justify-content: space-around
-        max-width: 768px
-        margin-right: auto
-        margin-left: auto
 
         .Project-caption
             width: 90%
@@ -106,3 +110,27 @@
         & > video
             height: 25rem
             width: 25rem
+
+    &__Two-items-crossed
+        display: flex
+        align-items: center
+        justify-content: space-around
+
+        .Project-caption
+            position: absolute
+            left: 0
+            bottom: 0
+            z-index: 1
+            height: 80%
+
+        .Project-caption > video,
+        .Project-caption > img
+            height: 75%
+            width: 80%
+
+            & > img,
+            & > video
+                position: absolute
+                top: 0
+                right: 0
+                height: 70%

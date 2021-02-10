@@ -11,6 +11,18 @@ const getDispositionClass = (disposition) => {
             return 'Project__Two-items-crossed'
         case 'three-items-gallery':
             return 'Project__Three-items-gallery'
+        case 'two-items-l-style':
+            return 'Project__Two-items-l-style'
+        default:
+            return ""
+    }
+}
+
+// Size classmatcher
+const getSizeClass = (size) => {
+    switch (size) {
+        case 'small':
+            return 'Project__Small-width'
         default:
             return ""
     }
@@ -39,18 +51,19 @@ const renderFirstItem = (item, { title, domain, description }) => {
         <div className={"Project-caption"}>
             {renderItem(item)}
             <h4>{title}</h4>
-            <span>{domain}</span>
             <span>{description}</span>
+            <span>{domain}</span>
         </div>
     )
 }
 
-const Project = ({ disposition, title, domain, description, items }) => {
+const Project = ({ disposition, title, domain, description, items, size }) => {
 
     const dispositionClass = " " + getDispositionClass(disposition)
+    const sizeClass = " " + getSizeClass(size)
 
     return (
-        <section className={"Project" + dispositionClass}>
+        <section className={"Project" + dispositionClass + sizeClass}>
             {
                 items.map((item, i) => {
                     if(i === 0) {
