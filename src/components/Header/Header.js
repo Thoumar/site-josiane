@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import './Header.sass';
 
 import backgroundVideo from './../../videos/placeholder_video.mp4';
-import soundOnIcon from './../../images/icons/sound_on.svg';
-import soundOffIcon from './../../images/icons/sound_off.svg';
-import fullscreenIcon from './../../images/icons/fullscreen.svg';
+
+import logoWhite from './../../images/logos/logo_white.png';
+import soundOnIcon from './../../images/icons/sound_on.png';
+import soundOffIcon from './../../images/icons/sound_off.png';
+import fullscreenIcon from './../../images/icons/fullscreen.png';
 
 const Header = () => {
     const [soundState, setSoundState] = useState(false);
@@ -18,7 +20,7 @@ const Header = () => {
     return (
         <header className="Header">
             <div className="Header__Title">
-                <h1>Josiane</h1>
+                <img src={logoWhite} alt="Logo Josiane" />
                 <span>Agence d'idées</span>
             </div>
 
@@ -27,7 +29,7 @@ const Header = () => {
             <img className="Header__Button Header__Button--fullscreen" src={fullscreenIcon} alt={""} />
 
             <video className="Header__Background-video" autoPlay muted loop>
-                <source src={backgroundVideo} type="video/mp4" />
+                <source src={""} type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
             </video>
 
