@@ -1,5 +1,6 @@
 [
     {
+        "path": "un-jour-ailleurs",
         "title": "Un jour ailleurs",
         "description": "Des femmes à suivre",
         "domain": "www.un-jour-ailleurs.com",
@@ -19,6 +20,7 @@
         ]
     },
     {
+        "path": "guy-hoquet",
         "title": "Guy Hoquet",
         "domain": "www.guy-hoquet.com",
         "description": "Campagne de lancement",
@@ -48,12 +50,12 @@
         ]
     },
     {
-        
+        "path": "afsep",
         "title": "AFSEP",
         "domain": "www.afsep.com",
         "description": "",
         "size": "normal",
-        "disposition": "two-items-crossed",
+        "disposition": "two-items-crossed-bottom",
         "items": [
             {
                 "type": "picture",
@@ -68,6 +70,7 @@
         ]
     },
     {
+        "path": "croustipate",
         "title": "Croustipate",
         "domain": "www.croustipate.com",
         "description": "",
@@ -92,7 +95,7 @@
         ]
     },
     {
-        
+        "path": "loue",
         "title": "Loué",
         "domain": "www.loué.com",
         "description": "",
@@ -112,6 +115,7 @@
         ]
     },
     {
+        "path": "pfdp",
         "title": "PFDP",
         "domain": "www.pfdp.com",
         "description": "",
@@ -131,6 +135,7 @@
         ]
     },
     {
+        "path": "la-cimade",
         "title": "La Cimade",
         "domain": "www.lacimade.com",
         "description": "",
@@ -150,6 +155,7 @@
         ]
     },
     {
+        "path": "farming-simulator",
         "title": "Farming Simulator",
         "domain": "www.farmingsimulator.com",
         "description": "",
@@ -169,6 +175,7 @@
         ]
     },
     {
+        "path": "fondatoin-pour-lenfance",
         "title": "Fondation pour l'enfance",
         "domain": "www.fondatoinpourlenfance.com",
         "description": "",
@@ -188,6 +195,7 @@
         ]
     },
     {
+        "path": "samu-social",
         "title": "Samu social",
         "domain": "www.samusocial.com",
         "description": "",
@@ -207,6 +215,7 @@
         ]
     },
     {
+        "path": "pikit",
         "title": "Carrefour pikit",
         "domain": "www.pikit.com",
         "description": "",
@@ -231,6 +240,7 @@
         ]
     },
     {
+        "path": "happn",
         "title": "Happn",
         "domain": "www.happn.com",
         "description": "Des femmes à suivre",

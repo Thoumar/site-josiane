@@ -3,6 +3,7 @@
     position: relative
     margin-bottom: 15rem
     overflow: hidden
+    cursor: pointer
 
     &__Small-width
         max-width: 768px
@@ -30,26 +31,29 @@
     // Variants
     &__Two-items
         display: flex
+        height: 55rem
         align-items: center
         justify-content: space-around
 
         .Project-caption > video,
         .Project-caption > img
-            height: 50%
+            height: 25rem
 
         & > img,
         & > video
-            height: 100%
+            height: 50rem
+            width: 40rem
 
     &__Four-items
         display: flex
         flex-direction: column
         align-items: flex-end
+        height: 70rem
         justify-content: space-around
 
         .Project-caption
-            width: 90%
-            height: 40rem
+            width: 60rem
+            height: 60rem
             position: absolute
             left: 0
             top: 50%
@@ -66,10 +70,11 @@
         & > video
             z-index: 2
             object-fit: cover
-            width: 20%
-            height: 30%
+            width: 20rem
+            height: 20rem
+            margin: 1rem
 
-    &__Two-items-crossed
+    &__Two-items-crossed-bottom
         display: flex
         align-items: center
         justify-content: space-around
@@ -96,41 +101,93 @@
 
     &__Three-items-gallery
         display: flex
+        height: 35rem
         justify-content: space-between
 
         .Project-caption
-            height: 80%
+            width: 30%
 
         .Project-caption > video,
         .Project-caption > img
+            width: 100%
             height: 25rem
-            width: 25rem
 
         & > img,
         & > video
+            width: 30%
             height: 25rem
-            width: 25rem
 
-    &__Two-items-crossed
+    &__Two-items-crossed-top
         display: flex
         align-items: center
         justify-content: space-around
+        height: 55rem
 
         .Project-caption
             position: absolute
             left: 0
             bottom: 0
             z-index: 1
-            height: 80%
+            height: 35rem
 
         .Project-caption > video,
         .Project-caption > img
-            height: 75%
-            width: 80%
+            width: 45rem
 
-            & > img,
-            & > video
-                position: absolute
-                top: 0
-                right: 0
-                height: 70%
+        & > img,
+        & > video
+            width: 35rem
+            position: absolute
+            top: 0
+            right: 0
+            height: 40rem
+
+    &__Two-items-crossed-bottom
+        display: flex
+        align-items: center
+        justify-content: space-around
+        height: 45rem
+
+        .Project-caption
+            position: absolute
+            top: 0
+            bottom: 0
+            z-index: 1
+            height: 35rem
+
+        .Project-caption > video,
+        .Project-caption > img
+            width: 45rem
+
+        & > img,
+        & > video
+            width: 45rem
+            position: absolute
+            bottom: 0
+            right: 0
+            height: 35rem
+
+    &__Two-items-aligned
+        display: flex
+        align-items: center
+        justify-content: space-around
+        height: 45rem
+
+        .Project-caption
+            position: absolute
+            top: 0
+            bottom: 0
+            z-index: 1
+            height: 35rem
+
+        .Project-caption > video,
+        .Project-caption > img
+            width: 45rem
+
+        & > img,
+        & > video
+            width: 45rem
+            position: absolute
+            bottom: 0
+            right: 0
+            height: 35rem

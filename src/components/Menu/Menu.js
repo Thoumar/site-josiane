@@ -2,13 +2,9 @@ import React, { useState } from 'react';
 
 import './Menu.sass';
 
-import facebookIcon from './../../images/icons/facebook.png';
-import instagramIcon from './../../images/icons/instagram.png';
-import twitterIcon from './../../images/icons/twitter.png';
-import linkedinIcon from './../../images/icons/linkedin.png';
+import Social from './../../components/Social/Social'
 
-
-const Menu = ({ handleNavigation }) => {
+const Menu = ({ handleScroll }) => {
 
     const [menuState, setMenuState] = useState({ isOpen: false })
 
@@ -19,38 +15,25 @@ const Menu = ({ handleNavigation }) => {
     return (
         <nav className={"Menu " + (menuState.isOpen ? "open" : "close" )}>
             <div className={"Menu__Switcher"} onClick={handleMenuClick}></div>
-            <div class="Menu__Item Menu__Lang">
+            <div className="Menu__Item Menu__Lang">
                 <span>FR</span> |<span> EN</span>
             </div>
-            <div class="Menu__Item">
-                <button onPress={() => handleNavigation("josiane")}>josiane ?</button>
+            <div className="Menu__Item">
+                <button onClick={() => handleScroll("josiane")}>josiane ?</button>
             </div>
-            <div class="Menu__Item">
-                <button onPress={() => handleNavigation("work")}>le travail</button>
+            <div className="Menu__Item">
+                <button onClick={() => handleScroll("work")}>le travail</button>
             </div>
-            <div class="Menu__Item">
-                <button onPress={() => handleNavigation("family")}>la famille</button>
+            <div className="Menu__Item">
+                <button onClick={() => handleScroll("family")}>la famille</button>
             </div>
-            <div class="Menu__Item">
-                <button onPress={() => handleNavigation("cousines")}>les cousines</button>
+            <div className="Menu__Item">
+                <button onClick={() => handleScroll("cousines")}>les cousines</button>
             </div>
-            <div class="Menu__Item">
-                <button onPress={() => handleNavigation("josiane")}>le contact</button>
+            <div className="Menu__Item">
+                <button onClick={() => handleScroll("josiane")}>le contact</button>
             </div>
-            <div class="Menu__Item Menu__Social">
-                <a href="#">
-                    <img src={facebookIcon} alt="Facebook link" />
-                </a>
-                <a href="#">
-                    <img src={instagramIcon} alt="Instagram link" />
-                </a>
-                <a href="#">
-                    <img src={twitterIcon} alt="Twitter link" />
-                </a>
-                <a href="#">
-                    <img src={linkedinIcon} alt="Linkdein link" />
-                </a>
-            </div>
+            <Social />
         </nav>
     )
 }
