@@ -28,10 +28,10 @@ const Menu = ({ handleScroll }) => {
                 <button onClick={() => handleScroll("family")}>la famille</button>
             </div>
             <div className="Menu__Item">
-                <button onClick={() => handleScroll("cousines")}>les cousines</button>
+                <button onClick={() => handleScroll("cousins")}>les cousines</button>
             </div>
             <div className="Menu__Item">
-                <button onClick={() => handleScroll("josiane")}>le contact</button>
+                <button onClick={() => handleScroll("contact")}>le contact</button>
             </div>
             <Social />
         </nav>

@@ -1,8 +1,8 @@
 import './Title.sass'
 
-const Title = ({ text }) => {
+const Title = ({ scrollRef, text }) => {
     return (
-        <h2 className="Title">{text}</h2>
+        <h2 className="Title" scroll-ref={scrollRef}>{text}</h2>
     )
 }
 

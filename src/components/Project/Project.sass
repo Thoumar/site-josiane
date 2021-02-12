@@ -1,9 +1,23 @@
 .Project
     height: 45rem
     position: relative
-    margin-bottom: 15rem
-    overflow: hidden
+    margin: 0 auto 15rem auto
     cursor: pointer
+    max-width: 950px
+
+    .Project-caption > video,
+    .Project-caption > img,
+    video,
+    img,
+        transition: all .3s ease-out
+        margin-left: -1px
+
+    .Project-caption > video:hover,
+    .Project-caption > img:hover,
+    video:hover,
+    img:hover,
+        transition: all .15s ease-in-out
+        transform: scale(1.05)
 
     &__Small-width
         max-width: 768px
@@ -70,25 +84,28 @@
         & > video
             z-index: 2
             object-fit: cover
-            width: 20rem
+            width: 27rem
             height: 20rem
             margin: 1rem
 
     &__Two-items-crossed-bottom
+        height: 50rem
         display: flex
         align-items: center
         justify-content: space-around
 
         .Project-caption
+            width: 55rem
             position: absolute
             left: 0
             top: 0
-            height: 80%
+            z-index: 1
+            height: 45rem
 
         .Project-caption > video,
         .Project-caption > img
-            height: 80%
-            width: 100%
+            height: 35rem
+            width: 55rem
             object-fit: cover
 
         & > img,
@@ -98,6 +115,7 @@
             position: absolute
             bottom: 0
             right: 0
+            z-index: 1
 
     &__Three-items-gallery
         display: flex
@@ -141,31 +159,6 @@
             top: 0
             right: 0
             height: 40rem
-
-    &__Two-items-crossed-bottom
-        display: flex
-        align-items: center
-        justify-content: space-around
-        height: 45rem
-
-        .Project-caption
-            position: absolute
-            top: 0
-            bottom: 0
-            z-index: 1
-            height: 35rem
-
-        .Project-caption > video,
-        .Project-caption > img
-            width: 45rem
-
-        & > img,
-        & > video
-            width: 45rem
-            position: absolute
-            bottom: 0
-            right: 0
-            height: 35rem
 
     &__Two-items-aligned
         display: flex

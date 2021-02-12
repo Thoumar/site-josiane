@@ -5,12 +5,13 @@
         "description": "Des femmes à suivre",
         "domain": "www.un-jour-ailleurs.com",
         "size": "normal",
-        "disposition": "two-items",
+        "disposition": "two_items",
         "items": [
             {
                 "type": "video",
-                "src": "https://cdn.videvo.net/videvo_files/video/free/2013-08/small_watermarked/hd0992_preview.webm",
-                "alt": "Sorry, your browser doesn't support embedded videos."
+                "src": "",
+                "alt": "Sorry, your browser doesn't support embedded videos.",
+                "background": "./images/un_jour_ailleurs/pic_1.png"
             },
             {
                 "type": "picture",
@@ -25,7 +26,7 @@
         "domain": "www.guy-hoquet.com",
         "description": "Campagne de lancement",
         "size": "small",
-        "disposition": "four-items",
+        "disposition": "four_items",
         "items": [
             {
                 "type": "picture",
@@ -55,7 +56,7 @@
         "domain": "www.afsep.com",
         "description": "",
         "size": "normal",
-        "disposition": "two-items-crossed-bottom",
+        "disposition": "two_items_crossed_bottom",
         "items": [
             {
                 "type": "picture",
@@ -75,7 +76,7 @@
         "domain": "www.croustipate.com",
         "description": "",
         "size": "normal",
-        "disposition": "three-items-gallery",
+        "disposition": "three_items_gallery",
         "items": [
             {
                 "type": "picture",
@@ -100,7 +101,7 @@
         "domain": "www.loué.com",
         "description": "",
         "size": "small",
-        "disposition": "two-items-crossed-top",
+        "disposition": "two_items_crossed_top",
         "items": [
             {
                 "type": "video",
@@ -120,7 +121,7 @@
         "domain": "www.pfdp.com",
         "description": "",
         "size": "normal",
-        "disposition": "two-items-crossed-bottom",
+        "disposition": "two_items_crossed_bottom",
         "items": [	
             {
                 "type": "picture",
@@ -140,7 +141,7 @@
         "domain": "www.lacimade.com",
         "description": "",
         "size": "normal",
-        "disposition": "two-items",
+        "disposition": "two_items",
         "items": [	
             {
                 "type": "picture",
@@ -160,7 +161,7 @@
         "domain": "www.farmingsimulator.com",
         "description": "",
         "size": "small",
-        "disposition": "two-items-crossed-bottom",
+        "disposition": "two_items_crossed_bottom",
         "items": [	
             {
                 "type": "video",
@@ -180,7 +181,7 @@
         "domain": "www.fondatoinpourlenfance.com",
         "description": "",
         "size": "normal",
-        "disposition": "two-items-crossed-top",
+        "disposition": "two_items_crossed_top",
         "items": [	
             {
                 "type": "picture",
@@ -200,7 +201,7 @@
         "domain": "www.samusocial.com",
         "description": "",
         "size": "normal",
-        "disposition": "two-items",
+        "disposition": "two_items",
         "items": [	
             {
                 "type": "picture",
@@ -220,7 +221,7 @@
         "domain": "www.pikit.com",
         "description": "",
         "size": "normal",
-        "disposition": "three-items-gallery",
+        "disposition": "three_items_gallery",
         "items": [
             {
                 "type": "picture",
@@ -245,7 +246,7 @@
         "domain": "www.happn.com",
         "description": "Des femmes à suivre",
         "size": "small",
-        "disposition": "two-items",
+        "disposition": "two_items",
         "items": [	
             {
                 "type": "picture",

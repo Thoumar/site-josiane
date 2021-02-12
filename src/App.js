@@ -57,9 +57,8 @@ function App() {
 	return (
 		<div className="App">
 			<Router>
-				<Menu />
 				<Routes />
-				<Footer />
+				<Footer scrollRef="contact" />
 			</Router>
 		</div>
 	);

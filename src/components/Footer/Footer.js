@@ -2,9 +2,9 @@ import './Footer.sass';
 
 import Social from './../../components/Social/Social'
 
-const Footer = () => {
+const Footer = ({ scrollRef }) => {
     return (
-        <footer className="Footer">
+        <footer scroll-ref={scrollRef} className="Footer">
             <h2 className="Footer__Title">Josiane</h2>
             <div className="Footer__Side Footer__Side-left">
                 <span>8 Rue Mitlon 75009 PARIS</span>
