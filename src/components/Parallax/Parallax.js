@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import './Parallax.sass';
 
 const Parallax = ({ scrollRef, title, paragraph, background }) => {
@@ -18,7 +18,6 @@ const Parallax = ({ scrollRef, title, paragraph, background }) => {
     //         parallaxContainer.style.backgroundPositionY = '50%';    
     //     }
     // });
-    
 
     return (
         <section  scroll-ref={scrollRef} className="Parallax" ref={bgParallax}>

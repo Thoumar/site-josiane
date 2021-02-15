@@ -50,34 +50,34 @@ const Home = () => {
                     scrollRef="work"
                     text={"Le travail"} />
                 {
-                    projects.map((project) => {
-                        return <Project data={project} handleClick={handleClick} />
+                    projects.map((project, index) => {
+                        if(index === 4) {
+                            console.log('test', index)
+                            return <Parallax
+                                key={index}
+                                scrollRef="family"
+                                title={"La Famille"}
+                                paragraph={textLongPlaceHolder}
+                                background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                            />
+                        } else if(index === 13) {
+                            console.log('test', index)
+                            return <Parallax
+                                key={index}
+                                scrollRef="cousins"
+                                title={"Les cousines"}
+                                paragraph={textLongPlaceHolder}
+                                background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                            />
+                        } else {
+                            console.log('test', index)
+                            return <Project
+                                key={index}
+                                data={project}
+                                handleClick={handleClick} />
+                        }
                     })
                 }
-                
-                {/* <Project data={projects[1]} handleClick={handleClick} />
-                <Project data={projects[2]} handleClick={handleClick} />
-                <Project data={projects[3]} handleClick={handleClick} />
-                <Parallax
-                    scrollRef="family"
-                    title={"La Famille"}
-                    paragraph={textLongPlaceHolder}
-                    background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                />
-                <Project data={projects[4]} handleClick={handleClick} />
-                <Project data={projects[5]} handleClick={handleClick} />
-                <Project data={projects[6]} handleClick={handleClick} />
-                <Project data={projects[7]} handleClick={handleClick} />
-                <Project data={projects[8]} handleClick={handleClick} />
-                <Project data={projects[9]} handleClick={handleClick} />
-                <Project data={projects[10]} handleClick={handleClick} />
-                <Project data={projects[11]} handleClick={handleClick} /> */}
-                <Parallax
-                    scrollRef="cousins"
-                    title={"Les cousines"}
-                    paragraph={textLongPlaceHolder}
-                    background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                />
             </main>
         )
     } else {
