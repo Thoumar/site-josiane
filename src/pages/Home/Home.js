@@ -23,9 +23,12 @@ const Home = () => {
 
     const handleClick = (path) => history.push("/" + path);
 
-    const scrolleToPosition = (position) => {
-        document.querySelector('[scroll-ref="' + position + '"]')
-            .scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+    const scrollToPosition = (position) => {
+        if(document.querySelector('[scroll-ref="' + position + '"]')) {
+            document.querySelector('[scroll-ref="' + position + '"]')
+                .scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+            setTimeout(() => {  }, 500)
+        }
     }
 
     useEffect(() => {
@@ -34,12 +37,13 @@ const Home = () => {
                 setProjects(jsonResponse)
             })
         })
-    })
+    }, [])
+
 
     if(projects.length >= 1) {
         return (
             <main className="Home">
-                <Menu handleScroll={scrolleToPosition} />
+                <Menu handleScroll={scrollToPosition} />
                 <Header />
                 <Title
                     scrollRef="josiane"
@@ -49,35 +53,33 @@ const Home = () => {
                 <Title
                     scrollRef="work"
                     text={"Le travail"} />
-                {
-                    projects.map((project, index) => {
-                        if(index === 4) {
-                            console.log('test', index)
-                            return <Parallax
-                                key={index}
-                                scrollRef="family"
-                                title={"La Famille"}
-                                paragraph={textLongPlaceHolder}
-                                background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                            />
-                        } else if(index === 13) {
-                            console.log('test', index)
-                            return <Parallax
+                { projects.map((project, index) => {
+                    if(index === 4) {
+                        return [
+                                <Parallax
+                                    key={index}
+                                    scrollRef="family"
+                                    title={"La Famille"}
+                                    paragraph={textLongPlaceHolder}
+                                    background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                                />,
+                                <Project key={index} data={project} handleClick={handleClick} />
+                            ]
+                    } else if(index === 13) {
+                        return [
+                            <Parallax
                                 key={index}
                                 scrollRef="cousins"
                                 title={"Les cousines"}
                                 paragraph={textLongPlaceHolder}
                                 background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                            />
-                        } else {
-                            console.log('test', index)
-                            return <Project
-                                key={index}
-                                data={project}
-                                handleClick={handleClick} />
-                        }
-                    })
-                }
+                            />,
+                            <Project key={index} data={project} handleClick={handleClick} />
+                        ]
+                    } else {
+                        return <Project key={index} data={project} handleClick={handleClick} />
+                    }
+                }) }
             </main>
         )
     } else {

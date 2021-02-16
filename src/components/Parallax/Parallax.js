@@ -5,19 +5,17 @@ const Parallax = ({ scrollRef, title, paragraph, background }) => {
     
     const bgParallax = useRef(null);
 
-    // window.addEventListener('scroll', function(){
-    //     console.log('scroll')
+    window.addEventListener('scroll', function(){
+        const parallaxContainer = bgParallax.current
 
-    //     const parallaxContainer = bgParallax.current
-
-    //     var scrollPosition = window.pageYOffset;
-    //     var limit = parallaxContainer.offsetTop + parallaxContainer.offsetHeight;  
-    //     if (scrollPosition > parallaxContainer.offsetTop && scrollPosition <= limit){
-    //         parallaxContainer.style.backgroundPositionY = (50 - 10*scrollPosition/limit) + '%';   
-    //     } else {
-    //         parallaxContainer.style.backgroundPositionY = '50%';    
-    //     }
-    // });
+        // var scrollPosition = window.pageYOffset;
+        // var limit = parallaxContainer.offsetTop + parallaxContainer.offsetHeight;  
+        // if (scrollPosition > parallaxContainer.offsetTop && scrollPosition <= limit){
+        //     parallaxContainer.style.backgroundPositionY = (50 - 10*scrollPosition/limit) + '%';   
+        // } else {
+        //     parallaxContainer.style.backgroundPositionY = '50%';    
+        // }
+    });
 
     return (
         <section  scroll-ref={scrollRef} className="Parallax" ref={bgParallax}>

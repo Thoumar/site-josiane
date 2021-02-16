@@ -1,5 +1,4 @@
 import './Project.sass';
-import { NavLink } from 'react-router-dom';
 
 const serverUri = 'http://localhost:1337'
 
@@ -8,18 +7,27 @@ const getDispositionClass = (disposition) => {
     switch (disposition) {
         case 'two_items':
             return 'Project__Two-items'
+        case 'two_items_overlap':
+            return 'Project__Two-items-overlap'
         case 'four_items':
             return 'Project__Four-items'
         case 'two_items_crossed_bottom':
             return 'Project__Two-items-crossed-bottom'
+        case 'two_items_crossed_bottom_spaced':
+            return 'Project__Two-items-crossed-bottom-spaced'
+        case 'two_items_crossed_bottom_squared':
+            return 'Project__Two-items-crossed-bottom-squared'
         case 'two_items_crossed_top':
             return 'Project__Two-items-crossed-top'
+        case 'two_items_crossed_top_overlap':
+            return 'Project__Two-items-crossed-top-overlap'
         case 'three_items_gallery':
             return 'Project__Three-items-gallery'
         case 'two_items_l_style':
             return 'Project__Two-items-l-style'
         default:
             return ""
+            
     }
 }
 
