@@ -10,16 +10,16 @@ import linkedinIcon from './../../images/icons/linkedin.png';
 const Social = () => {
     return (
         <div className="Social">
-            <a href="#">
+            <a href="#facebook">
                 <img src={facebookIcon} alt="Facebook link" />
             </a>
-            <a href="#">
+            <a href="#instagram">
                 <img src={instagramIcon} alt="Instagram link" />
             </a>
-            <a href="#">
+            <a href="#twitter">
                 <img src={twitterIcon} alt="Twitter link" />
             </a>
-            <a href="#">
+            <a href="#linkedin">
                 <img src={linkedinIcon} alt="Linkdein link" />
             </a>
         </div>

@@ -6,7 +6,7 @@ const Parallax = ({ scrollRef, title, paragraph, background }) => {
     const bgParallax = useRef(null);
 
     window.addEventListener('scroll', function(){
-        const parallaxContainer = bgParallax.current
+        // const parallaxContainer = bgParallax.current
 
         // var scrollPosition = window.pageYOffset;
         // var limit = parallaxContainer.offsetTop + parallaxContainer.offsetHeight;  

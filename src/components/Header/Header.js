@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 import './Header.sass';
 
-import backgroundVideo from './../../videos/placeholder_video.mp4';
-
 import logoWhite from './../../images/logos/logo_white.png';
 import soundOnIcon from './../../images/icons/sound_on.png';
 import soundOffIcon from './../../images/icons/sound_off.png';
