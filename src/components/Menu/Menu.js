@@ -4,7 +4,7 @@ import './Menu.sass';
 
 import Social from './../../components/Social/Social'
 
-const Menu = ({ handleScroll }) => {
+const Menu = ({ handleClick }) => {
 
     const [menuState, setMenuState] = useState({ isOpen: false })
 
@@ -19,19 +19,19 @@ const Menu = ({ handleScroll }) => {
                 <span>FR</span> |<span> EN</span>
             </div>
             <div className="Menu__Item">
-                <button onClick={() => handleScroll("josiane")}>josiane ?</button>
+                <button onClick={() => handleClick("josiane")}>josiane ?</button>
             </div>
             <div className="Menu__Item">
-                <button onClick={() => handleScroll("work")}>le travail</button>
+                <button onClick={() => handleClick("work")}>le travail</button>
             </div>
             <div className="Menu__Item">
-                <button onClick={() => handleScroll("family")}>la famille</button>
+                <button onClick={() => handleClick("family")}>la famille</button>
             </div>
             <div className="Menu__Item">
-                <button onClick={() => handleScroll("cousins")}>les cousines</button>
+                <button onClick={() => handleClick("cousins")}>les cousines</button>
             </div>
             <div className="Menu__Item">
-                <button onClick={() => handleScroll("contact")}>le contact</button>
+                <button onClick={() => handleClick("contact")}>le contact</button>
             </div>
             <Social />
         </nav>

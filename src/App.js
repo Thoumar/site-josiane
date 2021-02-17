@@ -12,43 +12,34 @@ import Project from './pages/Project/Project'
 
 import posed, { PoseGroup } from "react-pose";
 
-import projects from './projects.json' 
-
+import React, { useEffect, useState } from 'react'
 import './App.sass';
 
-
-const ContextRouteAnimation = posed.div({
-    enter: { opacity: 1 },
-    exit: { opacity: 0 }
-});
-
-const Page = ({ history, location, children, ...rest }) => {
-	return (
-		<PoseGroup flipMove={true}>
-			<ContextRouteAnimation key={location.pathname}>
-				<Switch location={location} {...rest}>
-					{children}
-				</Switch>
-			</ContextRouteAnimation>
-		</PoseGroup>
-	);
-};
-
 const Routes = withRouter(({ location }) => {
-	return (
-		<Page location={location}>
+    const [projects, setProjects] = useState([]);
+	
+    useEffect(() => {
+        fetch("http://localhost:1337/projects").then((response) => {
+            response.json().then((jsonResponse) => {
+                setProjects(jsonResponse)
+            })
+        })
+    }, [])
+
+    if(projects.length >= 1) {
+		return (
 			<Switch>
 				{projects.map((project, i) => {
 					return (
-						<Route key={i} path={'/' + project.slug}>
-							<Project data={project} key={i} />
-						</Route>
+						<Route key={i} path={'/' + project.path} component={() => <Project project={project} key={i} />} />
 					);
 				})}
-				<Route exact path="/" component={Home} />
+				<Route exact path="/" component={() => <Home projects={projects} />} />
 			</Switch>
-		</Page>
-	);
+		);
+	} else {
+		return <p>Loading ...</p>
+	}
 });
 
 

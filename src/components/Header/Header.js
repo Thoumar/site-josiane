@@ -7,19 +7,22 @@ import soundOnIcon from './../../images/icons/sound_on.png';
 import soundOffIcon from './../../images/icons/sound_off.png';
 import fullscreenIcon from './../../images/icons/fullscreen.png';
 
-const Header = () => {
+const Header = ({ cover, title, subtitle }) => {
     const [soundState, setSoundState] = useState(false);
     const handleSetSoundState = () => {
         setSoundState(!soundState)
     }
 
     const soundIconSrc = soundState ? soundOnIcon : soundOffIcon;
-
     return (
         <header className="Header">
             <div className="Header__Title">
-                <img src={logoWhite} alt="Logo Josiane" />
-                <span>Agence d'idées</span>
+                {
+                    title
+                    ? <h1>{title}</h1>
+                    : <img src={logoWhite} alt="Logo Josiane" />
+                }
+                <span>{subtitle}</span>
             </div>
 
             <img className="Header__Button Header__Button--mute" src={soundIconSrc} alt={""} onClick={() => { handleSetSoundState() }} />
@@ -27,7 +30,7 @@ const Header = () => {
             <img className="Header__Button Header__Button--fullscreen" src={fullscreenIcon} alt={""} />
 
             <video className="Header__Background-video" autoPlay muted loop>
-                <source src={""} type="video/mp4" />
+                <source src={cover} type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
             </video>
 

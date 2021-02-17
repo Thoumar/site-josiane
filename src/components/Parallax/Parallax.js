@@ -1,21 +1,19 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import './Parallax.sass';
 
 const Parallax = ({ scrollRef, title, paragraph, background }) => {
     
     const bgParallax = useRef(null);
 
-    window.addEventListener('scroll', function(){
-        // const parallaxContainer = bgParallax.current
+    useEffect(() => {
+        window.addEventListener('scroll', function(){
+            const parallaxContainer = bgParallax.current
+            if (parallaxContainer) {
+                parallaxContainer.style.backgroundPositionY = (window.scrollY * 0.5) + "px"; 
+            }
+        });
+    }, [])
 
-        // var scrollPosition = window.pageYOffset;
-        // var limit = parallaxContainer.offsetTop + parallaxContainer.offsetHeight;  
-        // if (scrollPosition > parallaxContainer.offsetTop && scrollPosition <= limit){
-        //     parallaxContainer.style.backgroundPositionY = (50 - 10*scrollPosition/limit) + '%';   
-        // } else {
-        //     parallaxContainer.style.backgroundPositionY = '50%';    
-        // }
-    });
 
     return (
         <section  scroll-ref={scrollRef} className="Parallax" ref={bgParallax}>

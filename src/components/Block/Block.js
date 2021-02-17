@@ -1,4 +1,4 @@
-import './Project.sass';
+import './Block.sass';
 
 const serverUri = 'http://localhost:1337'
 
@@ -6,25 +6,25 @@ const serverUri = 'http://localhost:1337'
 const getDispositionClass = (disposition) => {
     switch (disposition) {
         case 'two_items':
-            return 'Project__Two-items'
+            return 'Block__Two-items'
         case 'two_items_overlap':
-            return 'Project__Two-items-overlap'
+            return 'Block__Two-items-overlap'
         case 'four_items':
-            return 'Project__Four-items'
+            return 'Block__Four-items'
         case 'two_items_crossed_bottom':
-            return 'Project__Two-items-crossed-bottom'
+            return 'Block__Two-items-crossed-bottom'
         case 'two_items_crossed_bottom_spaced':
-            return 'Project__Two-items-crossed-bottom-spaced'
+            return 'Block__Two-items-crossed-bottom-spaced'
         case 'two_items_crossed_bottom_squared':
-            return 'Project__Two-items-crossed-bottom-squared'
+            return 'Block__Two-items-crossed-bottom-squared'
         case 'two_items_crossed_top':
-            return 'Project__Two-items-crossed-top'
+            return 'Block__Two-items-crossed-top'
         case 'two_items_crossed_top_overlap':
-            return 'Project__Two-items-crossed-top-overlap'
+            return 'Block__Two-items-crossed-top-overlap'
         case 'three_items_gallery':
-            return 'Project__Three-items-gallery'
+            return 'Block__Three-items-gallery'
         case 'two_items_l_style':
-            return 'Project__Two-items-l-style'
+            return 'Block__Two-items-l-style'
         default:
             return ""
             
@@ -35,7 +35,7 @@ const getDispositionClass = (disposition) => {
 const getSizeClass = (size) => {
     switch (size) {
         case 'small':
-            return 'Project__Small-width'
+            return 'Block__Small-width'
         default:
             return ""
     }
@@ -46,11 +46,11 @@ const renderItem = ({ ext, url, alt, background }, index) => {
     switch (ext) {
         case '.png':
             return (
-                <img className="Project-illustration Project-illustration-image" src={serverUri + url} alt={alt} key={index + "-picture-item"} />
+                <img className="Block-illustration Block-illustration-image" src={serverUri + url} alt={alt} key={index + "-picture-item"} />
             )
         case '.mp4':
             return (
-                <video className="Project-illustration Project-illustration-video"style={{ backgroundImage: "url('" + background + "')"}} autoPlay muted loop key={index + "-picture-item"}>
+                <video className="Block-illustration Block-illustration-video"style={{ backgroundImage: "url('" + background + "')"}} autoPlay muted loop key={index + "-picture-item"}>
                     <source src={serverUri + url} type="video/mp4" />{alt}
                 </video>
             )
@@ -61,7 +61,7 @@ const renderItem = ({ ext, url, alt, background }, index) => {
 
 const renderFirstItem = (item, { title, domain, short_description }, index) => {
     return (
-        <div className={"Project-caption"} key={index + "-first-item"}>
+        <div className={"Block-caption"} key={index + "-first-item"}>
             {renderItem(item)}
             <h4>{title}</h4>
             <span>{short_description}</span>
@@ -70,13 +70,13 @@ const renderFirstItem = (item, { title, domain, short_description }, index) => {
     )
 }
 
-const Project = ({ data, handleClick }) => {
+const Block = ({ data, handleClick }) => {
     const { path, title, disposition, domain,short_description, previews, size } = data
     const dispositionClass = " " + getDispositionClass(disposition)
     const sizeClass = " " + getSizeClass(size)
 
     return (
-        <section className={"Project" + dispositionClass + sizeClass} onClick={() => { handleClick(path)}}>
+        <section className={"Block" + dispositionClass + sizeClass} onClick={() => { handleClick(path)}}>
                 {
                     previews.map((item, i) => {
                         if(i === 0) {
@@ -90,4 +90,4 @@ const Project = ({ data, handleClick }) => {
     )
 };
 
-export default Project;
+export default Block;
