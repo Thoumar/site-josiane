@@ -1,6 +1,6 @@
 import './Block.sass';
 
-const serverUri = process.env.REACT_APP_BASE_URL
+const serverUri = process.env.REACT_APP_BASE_URL || "https://admin-josiane.herokuapp.com"
 
 // Disposition classmatcher
 const getDispositionClass = (disposition) => {

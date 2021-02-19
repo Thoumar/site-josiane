@@ -13,15 +13,18 @@ import Project from './pages/Project/Project'
 import React, { useEffect, useState } from 'react'
 import './App.sass';
 
+
+const serverUri = process.env.REACT_APP_BASE_URL || "https://admin-josiane.herokuapp.com"
+
 const Routes = withRouter(({ location }) => {
     const [projects, setProjects] = useState([]);
-	
+
     useEffect(() => {
-		alert(process.env.REACT_APP_BASE_URL)
-        fetch(process.env.REACT_APP_BASE_URL + "/projects").then((response) => {
+        fetch(serverUri + "/projects").then((response) => {
             response.json().then((jsonResponse) => {
-                setProjects(jsonResponse)
-            })
+				const jsonProjectsOrdered = jsonResponse.sort((a, b) => a.id < b.id )
+				setProjects(jsonProjectsOrdered)
+			})
         })
     }, [])
 
