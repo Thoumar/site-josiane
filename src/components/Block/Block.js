@@ -1,6 +1,6 @@
 import './Block.sass';
 
-const serverUri = 'http://localhost:1337'
+const serverUri = process.env.REACT_APP_BASE_URL
 
 // Disposition classmatcher
 const getDispositionClass = (disposition) => {

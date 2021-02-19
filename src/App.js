@@ -10,8 +10,6 @@ import {
 import Home from './pages/Home/Home'
 import Project from './pages/Project/Project'
 
-import posed, { PoseGroup } from "react-pose";
-
 import React, { useEffect, useState } from 'react'
 import './App.sass';
 
@@ -19,7 +17,8 @@ const Routes = withRouter(({ location }) => {
     const [projects, setProjects] = useState([]);
 	
     useEffect(() => {
-        fetch("http://localhost:1337/projects").then((response) => {
+		alert(process.env.REACT_APP_BASE_URL)
+        fetch(process.env.REACT_APP_BASE_URL + "/projects").then((response) => {
             response.json().then((jsonResponse) => {
                 setProjects(jsonResponse)
             })
