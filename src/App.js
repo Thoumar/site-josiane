@@ -22,7 +22,7 @@ const Routes = withRouter(({ location }) => {
     useEffect(() => {
         fetch(serverUri + "/projects").then((response) => {
             response.json().then((jsonResponse) => {
-				const jsonProjectsOrdered = jsonResponse.sort((a, b) => a.id < b.id )
+				const jsonProjectsOrdered = jsonResponse.sort((a, b) => a.id - b.id )
 				setProjects(jsonProjectsOrdered)
 			})
         })
