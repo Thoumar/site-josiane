@@ -46,12 +46,12 @@ const renderItem = ({ ext, url, alt, background }, index) => {
     switch (ext) {
         case '.png':
             return (
-                <img className="Block-illustration Block-illustration-image" src={serverUri + url} alt={alt} key={index + "-picture-item"} />
+                <img className="Block-illustration Block-illustration-image" src={url} alt={alt} key={index + "-picture-item"} />
             )
         case '.mp4':
             return (
                 <video className="Block-illustration Block-illustration-video"style={{ backgroundImage: "url('" + background + "')"}} autoPlay muted loop key={index + "-picture-item"}>
-                    <source src={serverUri + url} type="video/mp4" />{alt}
+                    <source src={url} type="video/mp4" />{alt}
                 </video>
             )
         default:
