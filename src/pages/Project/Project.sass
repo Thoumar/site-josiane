@@ -1,1 +1,71 @@
 
+.Project
+
+    &__Labels
+        display: block
+        position: absolute
+        right: 0
+        top: 120vh
+        font-size: 15px
+
+    &__Label
+        width: 14rem
+        display: flex
+        align-items: center
+        justify-content: center
+        padding: 2.5rem
+        font-size: 1.3rem
+        color: black
+
+        &:first-child
+            border-top: 5px solid #F2F2F2
+            border-left: 5px solid #F2F2F2
+            border-bottom: 5px solid #F2F2F2
+            margin-bottom: 10px
+
+        &:last-child
+            border-top: 2px solid #F2F2F2
+            border-left: 2px solid #F2F2F2
+            border-bottom: 2px solid #F2F2F2
+
+    &__Description
+        font-size: 2rem
+        display: flex
+        align-items: center
+        justify-content: space-around
+        position: relative
+        margin: 0 auto 15rem auto
+        cursor: pointer
+        max-width: 950px
+        border-left: 1px solid grey
+        padding: 7rem 0 1rem 3rem
+
+        > p
+            padding-right: 40%
+
+.Component
+
+    &__Carousel
+        position: relative
+        max-width: 80%
+        max-height: 55rem
+        margin: 30rem auto 15rem auto
+
+        .slick-slide img
+            width: 100%
+
+        &::before
+            content: ""
+            background-color: #F2F2F2
+            height: 120%
+            width: 80%
+            position: absolute
+            left: 50%
+            transform: translate(-50%, -50%)
+            top: 50%
+
+        .slick-slide
+            margin: 0 20px
+
+        .slick-list
+            margin: 0 -20px

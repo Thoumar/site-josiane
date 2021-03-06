@@ -1,5 +1,8 @@
 import './Project.sass';
 
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 import Slider from "react-slick";
 import ReactPlayer from 'react-player'
 import React, { useEffect } from 'react';
@@ -17,7 +20,9 @@ const getComponent = (component, componentKey) => {
         infinite: true,
         speed: 500,
         slidesToShow: 3,
-        slidesToScroll: 1
+        slidesToScroll: 3,
+        arrows: true,
+        centerMode: true,
     };
 
     const singleCarouselSettings = {
@@ -25,7 +30,9 @@ const getComponent = (component, componentKey) => {
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        arrows: true,
+        centerMode: true,
     };
 
     switch(component.__component) {
@@ -34,7 +41,7 @@ const getComponent = (component, componentKey) => {
                 <div className="Component__Carousel">
                     <Slider {...multiCarouselSettings}>
                         {
-                            component.Pictures.map((pic, key) => <img key={componentKey + key} src={pic.url} alt="carousel item" />)
+                            component.Pictures.map((pic, key) => <div><img key={componentKey + key} src={pic.url} alt="carousel item" /></div>)
                         }
                     </Slider>
                 </div>
@@ -81,7 +88,12 @@ const Project = (data) => {
             <Menu handleClick={handleRedirection} />
             <Header cover={cover} title={title} subtitle={subtitle} />
 
-            <div className="Description">
+            <div className="Project__Labels">
+                <div className="Project__Label">AWARD</div>
+                <div className="Project__Label">RP | eRP</div>
+            </div>
+
+            <div className="Project__Description">
                 <p>
                 Challenge
                 Moderniser l’image de la marque et rajeunir sa cible de recrutement sans pour autant perdre sa cible business actuelle.
@@ -91,7 +103,7 @@ const Project = (data) => {
                 En se démarquant d’une mode conçue pour être éphémère, Un Jour Ailleurs suit et habille la femme dans la richesse de son quotidien de femme plurielle.
 
                 Dispositif
-                La nouvelle plateforme de marque a vu le jour lors de campagnes d’affichages  offline et digital ainsi qu’en presse et sur les réseaux sociaux.
+                La nouvelle plateforme de marque a vu le jour lors de campagnes d’affichages  offline et digital ainsi qu’en presse et sur les réseaux sociaux.
                 </p>
             </div>
 
@@ -101,16 +113,6 @@ const Project = (data) => {
                     : null
                 
             }
-
-            <div className="Project__Labels">
-                <div className="Project__Label">AWARD</div>
-                <div className="Project__Label">RP | eRP</div>
-            </div>
-
-
-            <div className="Project__Carousel">
-                
-            </div>
         </div>
     )
 }
