@@ -1,0 +1,53 @@
+.Block
+    &__Two-items-crossed-top-overlap
+        display: flex
+        height: 65rem
+        align-items: center
+        justify-content: space-around
+
+        .Block-caption
+            height: 45rem
+            width: 55rem
+            position: absolute
+            bottom: 0
+            left: 0
+            z-index: 2
+
+        .Block-caption > video,
+        .Block-caption > img
+            object-fit: cover
+
+        & > img,
+        & > video
+            top: 0
+            right: 0
+            z-index: 1
+            width: 55rem
+            height: 50rem
+            object-fit: contain
+            position: absolute
+            object-position: right
+
+@media screen and (max-width: 768px)
+    .Block
+        &__Two-items-crossed-top-overlap
+            height: auto
+            flex-direction: column-reverse
+
+            .Block-caption
+                min-width: auto
+                position: relative
+                height: auto
+                width: 90%
+
+            .Block-caption > video,
+            .Block-caption > img
+                height: auto
+                width: auto
+
+            & > img,
+            & > video
+                position: relative
+                height: auto
+                width: 90%
+                margin-bottom: 2rem

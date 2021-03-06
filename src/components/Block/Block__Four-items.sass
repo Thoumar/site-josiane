@@ -1,0 +1,55 @@
+.Block
+    &__Four-items
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+        height: 70rem
+        justify-content: space-around
+
+        .Block-caption
+            width: 60rem
+            height: 60rem
+            position: absolute
+            left: 0
+            top: 50%
+            bottom: 0
+            transform: translateY(-50%)
+
+        .Block-caption > video,
+        .Block-caption > img
+            width: 100%
+            object-fit: cover
+            height: calc(100% - 9rem)
+
+        & > img,
+        & > video
+            z-index: 2
+            object-fit: cover
+            width: 27rem
+            height: 20rem
+            margin: 1rem
+
+@media screen and (max-width: 768px)
+    .Block
+        &__Four-items
+            height: auto
+            align-items: center
+            flex-direction: column-reverse
+
+            .Block-caption
+                min-width: auto
+                height: auto
+                width: 90%
+                position: relative
+                transform: translateY(0)
+
+            .Block-caption > video,
+            .Block-caption > img
+                height: auto
+                width: auto
+
+            & > img,
+            & > video
+                height: auto
+                width: 90%
+                margin-bottom: 2rem

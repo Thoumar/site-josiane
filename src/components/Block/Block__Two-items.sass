@@ -1,0 +1,42 @@
+.Block
+    &__Two-items
+        display: flex
+        height: 55rem
+        align-items: center
+        justify-content: space-around
+
+        .Block-caption
+            min-width: 35rem
+
+        .Block-caption > video,
+        .Block-caption > img
+            height: 30rem
+            width: 35rem
+            object-fit: cover
+
+        & > img,
+        & > video
+            height: 50rem
+            width: 40rem
+
+@media screen and (max-width: 768px)
+    .Block
+        &__Two-items
+            height: auto
+            flex-direction: column-reverse
+
+            .Block-caption
+                min-width: auto
+                height: auto
+                width: 90%
+
+            .Block-caption > video,
+            .Block-caption > img
+                height: auto
+                width: auto
+
+            & > img,
+            & > video
+                height: auto
+                width: 90%
+                margin-bottom: 2rem

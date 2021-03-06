@@ -1,4 +1,13 @@
 import './Block.sass';
+import './Block__Two-items.sass';
+import './Block__Two-items-overlap.sass';
+import './Block__Four-items.sass';
+import './Block__Two-items-crossed-bottom.sass';
+import './Block__Three-items-gallery.sass';
+import './Block__Two-items-crossed-top.sass';
+import './Block__Two-items-crossed-top-overlap.sass';
+import './Block__Two-items-crossed-bottom-spaced.sass';
+
 
 // Disposition classmatcher
 const getDispositionClass = (disposition) => {
