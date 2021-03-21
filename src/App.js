@@ -1,4 +1,4 @@
-import Footer from './components/Footer/Footer';
+import { useLoading, BallTriangle } from '@agney/react-loading';
 
 import {
 	BrowserRouter as Router,
@@ -10,47 +10,106 @@ import {
 import Home from './pages/Home/Home'
 import Project from './pages/Project/Project'
 
+import { useHistory } from "react-router-dom"
 import React, { useEffect, useState } from 'react'
 import './App.sass';
+
+import ScrollReveal from 'scrollreveal'
 
 
 const serverUri = process.env.REACT_APP_BASE_URL || "https://admin-josiane.herokuapp.com"
 
 const Routes = withRouter(({ location }) => {
+	const [isLoading, setLoadingState] = useState(true)
+	const [locationKeys, setLocationKeys] = useState([])
+	
+    const history = useHistory();
+
+    const handleClick = (data) => {
+		const path = data ? data.path : ""
+		ScrollReveal().destroy();
+		setTimeout(() => {
+			setLoadingState(true)
+			setTimeout(() => {
+				history.push("/" + path);
+				setLoadingState(false)
+			}, 1000)
+		}, 1000)
+    }
+
     const [projects, setProjects] = useState([]);
 
+	const { containerProps, indicatorEl } = useLoading({
+		loading: true,
+		indicator: <BallTriangle width="50" />,
+	});
+
     useEffect(() => {
-        fetch(serverUri + "/projects").then((response) => {
-            response.json().then((jsonResponse) => {
+		fetch(serverUri + "/projects").then((response) => {
+			response.json().then((jsonResponse) => {
 				const jsonProjectsOrdered = jsonResponse.sort((a, b) => a.id - b.id )
 				setProjects(jsonProjectsOrdered)
+				setLoadingState(false)
 			})
-        })
-    }, [])
+		})
+		history.listen(location => {
+			if (history.action === 'PUSH') {
+				setLocationKeys([ location.key ])
+			}
+			if (history.action === 'POP') {
+				if (locationKeys[1] === location.key) {
+					setLocationKeys(([ _, ...keys ]) => keys)
+					ScrollReveal().destroy();
+					setTimeout(() => {
+						setLoadingState(true)
+						setTimeout(() => {
+							history.push("/");
+							setLoadingState(false)
+						}, 1200)
+					}, 2000)
+				} else {
+					setLocationKeys((keys) => [ location.key, ...keys ])
+					ScrollReveal().destroy();
+					setTimeout(() => {
+						setLoadingState(true)
+						setTimeout(() => {
+							history.push("/");
+							setLoadingState(false)
+						}, 1200)
+					}, 2000)
+				}
+			}
+		})
+    }, [locationKeys, history])
 
-    if(projects.length >= 1) {
-		return (
-			<Switch>
-				{projects.map((project, i) => {
-					return (
-						<Route key={i} path={'/' + project.path} component={() => <Project project={project} key={i} />} />
-					);
-				})}
-				<Route exact path="/" component={() => <Home projects={projects} />} />
-			</Switch>
-		);
-	} else {
-		return <p>Loading ...</p>
-	}
+	return [
+		<section
+			{...containerProps}
+			className={"Loader " + (isLoading ? "loading" : "loaded")}
+			style={{height: "100vh", display: " flex"}}
+		>
+			{indicatorEl}
+		</section>,
+		<Switch>
+			{projects.map((project, i) => {
+				return (
+					<Route key={i} path={'/' + project.path} component={() => <Project goToPage={() => handleClick(null)} project={project} key={i} />} />
+				);
+			})}
+			<Route exact path="/" component={() => <Home projects={projects} goToPage={(data) => handleClick(data)} />} />
+		</Switch>
+	];
 });
 
 
-function App() {
+const App = () => {
+	
+	
+
 	return (
 		<div className="App">
 			<Router>
 				<Routes />
-				<Footer scrollRef="contact" />
 			</Router>
 		</div>
 	);

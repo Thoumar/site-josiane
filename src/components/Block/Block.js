@@ -8,7 +8,6 @@ import './Block__Two-items-crossed-top.sass';
 import './Block__Two-items-crossed-top-overlap.sass';
 import './Block__Two-items-crossed-bottom-spaced.sass';
 
-
 // Disposition classmatcher
 const getDispositionClass = (disposition) => {
     switch (disposition) {

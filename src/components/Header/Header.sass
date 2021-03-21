@@ -1,6 +1,20 @@
 .Header
     height: 100vh
 
+    &__Background-image
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        height: 100%
+        width: 100%
+        z-index: 1
+        background-size: cover
+
+        img
+            object-fit: cover
+
     &__Background-video
         position: absolute
         top: 0
@@ -13,6 +27,9 @@
         z-index: 1
         background-size: cover
         background-color: #d2d2d2
+
+        &.fullscreen
+            z-index: 20
 
         video
             object-fit: cover
@@ -81,9 +98,11 @@
 
         &--mute
             left: 2rem
+            z-index: 21
 
         &--fullscreen
             right: 2rem
+            z-index: 21
 
     video
         height: 100vh
