@@ -70,7 +70,7 @@ const renderFirstItem = (item, { title, domain, short_description }, index) => {
         <div className={"Block-caption"} key={index + "-first-item"}>
             {renderItem(item)}
             <h4>{title}</h4>
-            <span>{short_description}</span>
+            <span dangerouslySetInnerHTML={{__html: short_description}}></span>
             <span>{domain}</span>
         </div>
     )

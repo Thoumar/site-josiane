@@ -55,7 +55,7 @@ const Header = ({ cover, title, subtitle, type }) => {
                     ]
                     : (
                         <div className={"Header__Background-image"}>
-                            <img height="100%" width="100%" src={cover.url}  />
+                            <img height="100%" width="100%" src={cover.url} alt="Background" />
                         </div>
                     )
             }
