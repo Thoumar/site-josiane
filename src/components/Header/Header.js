@@ -20,16 +20,35 @@ const Header = ({ cover, title, subtitle, type }) => {
     
     const handleSetFullScreenState = () => {
         setFullScreenState(!fullScreenState)
+        if(!fullScreenState) {
+            if (document.querySelector(".Header__Background-video").requestFullscreen) {
+                document.querySelector(".Header__Background-video").requestFullscreen();
+            } else if (document.querySelector(".Header__Background-video").webkitRequestFullscreen) {
+                document.querySelector(".Header__Background-video").webkitRequestFullscreen();
+            } else if (document.querySelector(".Header__Background-video").msRequestFullscreen) {
+                document.querySelector(".Header__Background-video").msRequestFullscreen();
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
     }
 
     const soundIconSrc = soundState ? soundOnIcon : soundOffIcon;
 
     useEffect(() => {
         window.onscroll = () => {
-            if(document.querySelector("#root > div > div > header > div.Header__Scroller")) {
+            if(document.querySelector(".Header__Scroller")) {
                 console.log(window.outerHeight, window.scrollY / 100)
-                document.querySelector("#root > div > div > header > div.Header__Scroller").style.opacity = 1 - (window.scrollY / window.outerHeight)
-                document.querySelector("#root > div > div > header > div.Header__Scroller").style.transform = "translateX(-50%) translateY(" + window.scrollY / 10 + "px)"
+                document.querySelector(".Header__Scroller").style.opacity = 1 - (window.scrollY / window.outerHeight) * 2
+                document.querySelector(".Header__Scroller").style.transform = "translateX(-50%) translateY(" + window.scrollY / 5 + "px)"
             }
         };
     }, [])
@@ -46,14 +65,13 @@ const Header = ({ cover, title, subtitle, type }) => {
             </div>
             {
                 cover.url.indexOf('.mp4') > -1
-                    ? [
-                        <img className="Header__Button Header__Button--mute" src={soundIconSrc} alt={""} onClick={() => { handleSetSoundState() }} />,
-                        <img className="Header__Button Header__Button--fullscreen" src={fullscreenIcon} alt={""} onClick={() => { handleSetFullScreenState() }} />,
+                    ? (
                         <div className={fullScreenState ? "Header__Background-video fullscreen" : "Header__Background-video"}>
+                            <img className="Header__Button Header__Button--mute" src={soundIconSrc} alt={""} onClick={() => { handleSetSoundState() }} />
+                            <img className="Header__Button Header__Button--fullscreen" src={fullscreenIcon} alt={""} onClick={() => { handleSetFullScreenState() }} />
                             <ReactPlayer  playing={true} muted={!soundState} loop url={cover.url} width='100%' height='100%' />
                         </div>
-                    ]
-                    : (
+                    ) : (
                         <div className={"Header__Background-image"}>
                             <img height="100%" width="100%" src={cover.url} alt="Background" />
                         </div>

@@ -28,12 +28,10 @@ const Routes = withRouter(({ location }) => {
     const handleClick = (data) => {
 		const path = data ? data.path : ""
 		ScrollReveal().destroy();
+		setLoadingState(true)
 		setTimeout(() => {
-			setLoadingState(true)
-			setTimeout(() => {
-				history.push("/" + path);
-				setLoadingState(false)
-			}, 1000)
+			history.push("/" + path);
+			setLoadingState(false)
 		}, 1000)
     }
 
@@ -52,35 +50,7 @@ const Routes = withRouter(({ location }) => {
 				setLoadingState(false)
 			})
 		})
-		history.listen(location => {
-			if (history.action === 'PUSH') {
-				setLocationKeys([ location.key ])
-			}
-			if (history.action === 'POP') {
-				if (locationKeys[1] === location.key) {
-					setLocationKeys(([ _, ...keys ]) => keys)
-					ScrollReveal().destroy();
-					setTimeout(() => {
-						setLoadingState(true)
-						setTimeout(() => {
-							history.push("/");
-							setLoadingState(false)
-						}, 1200)
-					}, 2000)
-				} else {
-					setLocationKeys((keys) => [ location.key, ...keys ])
-					ScrollReveal().destroy();
-					setTimeout(() => {
-						setLoadingState(true)
-						setTimeout(() => {
-							history.push("/");
-							setLoadingState(false)
-						}, 1200)
-					}, 2000)
-				}
-			}
-		})
-    }, [locationKeys, history])
+    }, [])
 
 	return [
 		<section

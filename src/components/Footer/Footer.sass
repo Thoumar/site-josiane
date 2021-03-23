@@ -4,6 +4,7 @@
     align-items: center
     justify-content: center
     flex-wrap: wrap
+    font-size: 13px
 
     &__Title
         display: inline-block
@@ -17,8 +18,16 @@
         &-left
             align-items: flex-end
 
+            > span
+                border-right: 1px solid grey
+                margin: 1rem 0 1rem 1rem
+                padding-right: 1rem
+
         &-right
             align-items: flex-start
+
+            > span
+                margin: 1rem
 
     &__Bottom
         width: 100%
@@ -26,3 +35,16 @@
         align-items: center
         justify-content: center
         margin-bottom: 5rem
+
+@media screen and (max-width: 768px)
+    .Footer
+
+        &__Side
+
+            &-left
+                align-items: center
+
+            > span
+                border-right: none
+            &-right
+                align-items: center

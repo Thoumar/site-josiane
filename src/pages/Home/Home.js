@@ -21,7 +21,6 @@ const Home = ({ projects, goToPage }) => {
         if(document.querySelector('[scroll-ref="' + position + '"]')) {
             document.querySelector('[scroll-ref="' + position + '"]')
                 .scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
-            setTimeout(() => {  }, 500)
         }
     }
 

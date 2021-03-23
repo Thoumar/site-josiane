@@ -9,15 +9,13 @@
     &-caption > img,
     video,
     img,
-        transition: all .3s ease-out
-        margin-left: -1px
+        margin-left: -2px
 
+    &:hover
     &-caption > video:hover,
     &-caption > img:hover,
     video:hover,
-    img:hover,
-        transition: all .15s ease-in-out !important
-        transform: scale(1.05) !important
+    img:hover
 
     &__Small-width
         max-width: 768px
@@ -28,19 +26,29 @@
         box-sizing: border-box
         -moz-box-sizing: border-box
         -webkit-box-sizing: border-box
-        border-left: 1px solid grey
+        border-left: 2px solid #EAEAEA
         display: flex
         flex-direction: column
         font-size: 1.5rem
 
         h4
             text-align: left
-            padding-left: 5rem
+            padding-left: 2rem
+            text-transform: uppercase
+            font-size: 1.5rem
+            margin-top: 3rem
+            color: #7F7F7F
+            font-weight: 500
+            letter-spacing: 3px
 
-        span
-            display: inline-block
+        p
             text-align: left
-            padding-left: 5rem
+            padding-left: 2rem
+            font-size: 1.5rem
+            margin: 0
+            color: #7F7F7F
+            font-weight: 500
+            letter-spacing: 3px
 
     // Variants
 

@@ -77,17 +77,6 @@
         max-width: 80%
         max-height: 55rem
         margin: 30rem auto 15rem auto
-        // overflow:hidden; 
-        // padding-bottom:56.25%; 
-        // position:relative; 
-        // height:0;
-
-        // iframe
-        //     left:0; 
-        //     top:0; 
-        //     height:100%;
-        //     width:100%;
-        //     position:absolute;
 
 .Carousel__Image
     max-width: 32rem
@@ -134,3 +123,38 @@
     top: 3rem
     left: 3rem
     cursor: pointer
+
+@media screen and (max-width: 768px)
+
+    .Project
+
+        &__Labels
+            margin-top: 2rem
+            top: auto
+            position: relative
+            display: flex
+            flex-direction: column
+            appearance: 15px
+            justify-content: center
+            align-items: center
+
+        &__Label
+            border-right: 5px solid #F2F2F2
+
+        &__Description
+            margin: auto
+            max-width: none
+            padding: 2rem
+
+            > p
+                padding: 0
+
+    .Component__Carousel, .Component__Single-carousel
+        position: relative
+        max-width: 80%
+        max-height: 55rem
+        margin: 10rem auto 15rem auto
+
+    .Component__Video
+        position: relative
+        margin: 10rem auto 15rem auto

@@ -35,7 +35,7 @@ const getComponent = (component, componentKey) => {
             return (
                 <div className="Component__Carousel">
                     <Carousel
-                        itemsToShow={3}
+                        itemsToShow={window.innerWidth > 768 ? 3 : 1 }
                         pagination={false}
                         outerSpacing={5}
                         renderArrow={myArrow}>

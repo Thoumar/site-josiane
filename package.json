@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "html-react-parser": "^1.2.4",
     "styled-components": "^5.2.1"
   }
 }

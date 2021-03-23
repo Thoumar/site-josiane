@@ -8,6 +8,8 @@ import './Block__Two-items-crossed-top.sass';
 import './Block__Two-items-crossed-top-overlap.sass';
 import './Block__Two-items-crossed-bottom-spaced.sass';
 
+import parse from 'html-react-parser'
+
 // Disposition classmatcher
 const getDispositionClass = (disposition) => {
     switch (disposition) {
@@ -70,8 +72,8 @@ const renderFirstItem = (item, { title, domain, short_description }, index) => {
         <div className={"Block-caption"} key={index + "-first-item"}>
             {renderItem(item)}
             <h4>{title}</h4>
-            <span dangerouslySetInnerHTML={{__html: short_description}}></span>
-            <span>{domain}</span>
+            {parse(short_description)}
+            {parse(`<p>${domain}</p>`)}
         </div>
     )
 }
