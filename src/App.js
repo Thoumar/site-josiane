@@ -1,27 +1,20 @@
+import { useHistory } from "react-router-dom"
+import React, { useEffect, useState } from 'react'
+import ScrollReveal from 'scrollreveal'
 import { useLoading, BallTriangle } from '@agney/react-loading';
-
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	withRouter
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router-dom";
 
 import Home from './pages/Home/Home'
 import Project from './pages/Project/Project'
 
-import { useHistory } from "react-router-dom"
-import React, { useEffect, useState } from 'react'
 import './App.sass';
 
-import ScrollReveal from 'scrollreveal'
 
 
 const serverUri = process.env.REACT_APP_BASE_URL || "https://admin-josiane.herokuapp.com"
 
 const Routes = withRouter(({ location }) => {
 	const [isLoading, setLoadingState] = useState(true)
-	const [locationKeys, setLocationKeys] = useState([])
 	
     const history = useHistory();
 
