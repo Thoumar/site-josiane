@@ -1,9 +1,12 @@
 .Block
-    height: 45rem
+    // height: 45rem
     position: relative
-    margin: 0 auto 15rem auto
+    // margin: 0 auto 15rem auto
     cursor: pointer
     max-width: 950px
+
+    &.hide
+        display: none
 
     &-caption > video,
     &-caption > img,
@@ -76,61 +79,6 @@
             bottom: 0
             right: 0
             height: 35rem
-
-    &__Two-items-overlap
-        height: 55rem
-        display: flex
-        align-items: center
-        justify-content: space-around
-
-        .Block-caption
-            height: 50rem
-            width: 48rem
-            position: absolute
-            bottom: 0
-            left: 0
-            z-index: 1
-
-        .Block-caption > video,
-        .Block-caption > img
-            height: 45rem
-            object-fit: cover
-
-        & > img,
-        & > video
-            margin-left: -5rem
-            height: 50rem
-            width: 40rem
-            position: absolute
-            bottom: 0
-            right: 0
-            z-index: 1
-
-    &__Two-items-crossed-bottom-squared
-        display: flex
-        height: 55rem
-        align-items: center
-        justify-content: space-around
-
-        .Block-caption
-            position: absolute
-            left: 0
-            top: 0
-            z-index: 2
-
-        .Block-caption > video,
-        .Block-caption > img
-            width: 45rem
-            height: 45rem
-
-        & > img,
-        & > video
-            height: 45rem
-            width: 45rem
-            position: absolute
-            bottom: 0
-            right: 0
-            z-index: 1
 
 @media screen and (max-width: 768px)
     .Block

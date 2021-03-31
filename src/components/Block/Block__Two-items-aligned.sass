@@ -1,0 +1,25 @@
+.Block
+    &__Two-items-aligned
+        display: flex
+        align-items: center
+        justify-content: space-around
+        height: 45rem
+
+        .Block-caption
+            position: absolute
+            top: 0
+            bottom: 0
+            z-index: 1
+            height: 35rem
+
+        .Block-caption > video,
+        .Block-caption > img
+            width: 45rem
+
+        & > img,
+        & > video
+            width: 45rem
+            position: absolute
+            bottom: 0
+            right: 0
+            height: 35rem

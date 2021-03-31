@@ -46,7 +46,6 @@ const Header = ({ cover, title, subtitle, type }) => {
     useEffect(() => {
         window.onscroll = () => {
             if(document.querySelector(".Header__Scroller")) {
-                console.log(window.outerHeight, window.scrollY / 100)
                 document.querySelector(".Header__Scroller").style.opacity = 1 - (window.scrollY / window.outerHeight) * 2
                 document.querySelector(".Header__Scroller").style.transform = "translateX(-50%) translateY(" + window.scrollY / 5 + "px)"
             }

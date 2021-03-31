@@ -1,5 +1,6 @@
 import './Block.sass';
 import './Block__Two-items.sass';
+import './Block__Two-items-aligned.sass';
 import './Block__Two-items-overlap.sass';
 import './Block__Four-items.sass';
 import './Block__Two-items-crossed-bottom.sass';
@@ -7,6 +8,7 @@ import './Block__Three-items-gallery.sass';
 import './Block__Two-items-crossed-top.sass';
 import './Block__Two-items-crossed-top-overlap.sass';
 import './Block__Two-items-crossed-bottom-spaced.sass';
+import './Block__Two-items-crossed-bottom-squared.sass';
 
 import parse from 'html-react-parser'
 
@@ -78,13 +80,14 @@ const renderFirstItem = (item, { title, domain, short_description }, index) => {
     )
 }
 
-const Block = ({ data, handleClick }) => {
+const Block = ({ show, data, handleClick }) => {
     const { path, title, disposition, domain,short_description, previews, size } = data
     const dispositionClass = " " + getDispositionClass(disposition)
     const sizeClass = " " + getSizeClass(size)
+    const showClass = " " + (show ? "" : "hide")
 
     return (
-        <section className={"Block" + dispositionClass + sizeClass} onClick={() => { handleClick(path)}}>
+        <section className={"Block" + dispositionClass + sizeClass + showClass} onClick={() => { handleClick(path)}}>
                 {
                     previews.map((item, i) => {
                         if(i === 0) {

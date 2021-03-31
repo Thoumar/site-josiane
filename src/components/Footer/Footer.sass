@@ -5,11 +5,17 @@
     justify-content: center
     flex-wrap: wrap
     font-size: 13px
+    flex-direction: column
 
     &__Title
         display: inline-block
-        width: 100%
+        width: 8rem
         text-align: center
+
+    &__Content
+        display: flex
+        width: 100%
+        margin-top: 2rem
 
     &__Side
         display: flex
@@ -17,6 +23,7 @@
 
         &-left
             align-items: flex-end
+            width: 50%
 
             > span
                 border-right: 1px solid grey
@@ -25,6 +32,7 @@
 
         &-right
             align-items: flex-start
+            width: 50%
 
             > span
                 margin: 1rem
