@@ -4,16 +4,14 @@ import Isotope from "./../../components/Isotope/Isotope";
 import logoBlue from './../../images/logos/logo_blue.png';
 import Menu from './../../components/Menu/Menu';
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 
-const Work = ({ navigation, projects, goToPage}) => {
+const Work = ({ projects }) => {
+    const history = useHistory();
 	const { pathname } = useLocation();
-    const [menuState, setMenuState] = useState({ isOpen: false })
+    const [menuState, setMenuState] = useState({ isOpen: false });
 
-    const handleLinkClick = (position) => {
-        setMenuState({ isOpen: false })
-        goToPage()
-    }
+    const handleLinkClick = (position) => setMenuState({ isOpen: false });
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -21,12 +19,11 @@ const Work = ({ navigation, projects, goToPage}) => {
 
     const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen })
 
-
     return (
         <div className="Work">
             <Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
-            <img className="Logo_Blue" src={logoBlue} onClick={() => { goToPage() }} alt="Josiane Logo" />
-            <Isotope projects={projects} goToPage={goToPage} />
+            <img className="Logo_Blue" src={logoBlue} onClick={() => { history.push("/") }} alt="Josiane Logo" />
+            <Isotope projects={projects} />
         </div>
     )
 }

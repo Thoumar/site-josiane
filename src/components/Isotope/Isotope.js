@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import  IsoTope from "isotope-layout";
+import { useHistory } from 'react-router-dom';
 
 import './Isotope.sass'
 
 const Isotope = ({ projects, goToPage }) => {
     // init one ref to store the future isotope object
     const isotope = useRef()
+    const history = useHistory()
     // store the filter keyword in a state
     const [filterKey, setFilterKey] = useState('*')
 
@@ -44,10 +46,12 @@ const Isotope = ({ projects, goToPage }) => {
                         projects.map((project, i) => {
                             const filteringClassName = project.filters ? " " + project.filters : ""
                             return (
-                                <div key={i} className={"filter-item" + filteringClassName} onClick={() => { goToPage(project) }} 
-                                style={{
-                                    backgroundImage: "url(" + project.cover.url + ")",
-                                    backgroundSize: "cover"
+                                <div
+                                    key={i}
+                                    className={"filter-item" + filteringClassName} onClick={() => { history.push(project.path) }} 
+                                    style={{
+                                        backgroundImage: "url(" + project.cover.url + ")",
+                                        backgroundSize: "cover"
                                 }}>
                                     <span>{ project.title }</span>
                                 </div>

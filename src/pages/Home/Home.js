@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Header from './../../components/Header/Header';
 import Footer from './../../components/Footer/Footer';
@@ -11,11 +11,13 @@ import Parallax from '../../components/Parallax/Parallax';
 import './Home.sass'
 
 import ScrollReveal from 'scrollreveal'
+import { useHistory } from 'react-router';
 
 // Placeholders
 const textLongPlaceHolder = "Yeah, lots of people did. Stop! Don't shoot fire stick in space canoe! Cause explosive decompression! Oh, I always feared he might run off like this. Why, why, why didn't I break his legs? Goodbye, friends. I never thought I'd die like this. But I always really hoped.";
 
 const Home = ({ projects, goToPage }) => {
+    const history = useHistory()
 
     const [menuState, setMenuState] = useState({ isOpen: false })
     const [showAllProjects, setShowAllProjects] = useState(false)
@@ -70,7 +72,11 @@ const Home = ({ projects, goToPage }) => {
                     projects.map((project, index) => {
                         if(index === 3) {
                             return [
-                                <Block key={index} show={true} data={project} handleClick={() => { goToPage(project) }} />,
+                                <Block
+                                    key={index}
+                                    show={true}
+                                    data={project}
+                                    handleClick={() => { history.push(project.path) }} />,
                                 <Parallax
                                     key={index + "p"}
                                     scrollRef="family"
@@ -80,7 +86,7 @@ const Home = ({ projects, goToPage }) => {
                                 ]
                         } else if(index === 11) {
                             return [
-                                <Block key={index} show={true} data={project} handleClick={() => { goToPage(project) }} />,
+                                <Block key={index} show={true} data={project} handleClick={() => { history.push(project.path) }} />,
                                 <Parallax
                                     key={index + "p"}
                                     scrollRef="cousins"
@@ -91,12 +97,12 @@ const Home = ({ projects, goToPage }) => {
                         } else if(index === 12) {
                             return [
                                 <button key={index+"btn"} className="LoadMore__Btn" style={{ display: showAllProjects ? "none" : "block" }}onClick={handleShowMoreProjects}>Load more</button>,
-                                <Block show={showAllProjects} key={index} data={project} handleClick={() => { goToPage(project) }} />
+                                <Block show={showAllProjects} key={index} data={project} handleClick={() => { history.push(project.path) }} />
                             ]
                         } else if(index >= 13) {
-                            return (<Block show={showAllProjects} key={index} data={project} handleClick={() => { goToPage(project) }} />)
+                            return (<Block show={showAllProjects} key={index} data={project} handleClick={() => { history.push(project.path) }} />)
                         } else {
-                            return <Block show={true} key={index} data={project} handleClick={() => { goToPage(project) }} />
+                            return <Block show={true} key={index} data={project} handleClick={() => { history.push(project.path) }} />
                         }
                     }) }
 				<Footer scrollRef="contact" />

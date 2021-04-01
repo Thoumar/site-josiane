@@ -8,7 +8,7 @@ import Carousel, { consts } from 'react-elastic-carousel';
 import React, { useEffect, useState } from 'react';
 
 import logoBlue from './../../images/logos/logo_blue.png';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 
 import Footer from './../../components/Footer/Footer';
 import Header from './../../components/Header/Header';
@@ -54,12 +54,8 @@ const ProjectCarousel = ({ data }) => (
 const ProjectVideo = ({ data }) => {
     const [soundState, setSoundState] = useState(false);
     const [fullScreenState, setFullScreenState] = useState(false);
-
     
-    const handleSetSoundState = () => {
-        setSoundState(!soundState)
-    }
-
+    const handleSetSoundState = () => setSoundState(!soundState)
     
     const handleSetFullScreenState = () => {
         setFullScreenState(!fullScreenState)
@@ -131,7 +127,8 @@ const getComponent = (component, componentKey) => {
     }
 }
 
-const Project = ({ project, goToPage }) => {
+const Project = ({ project }) => {
+    const history  = useHistory()
 
 	const { pathname } = useLocation();
     const [menuState, setMenuState] = useState({ isOpen: false })
@@ -144,7 +141,7 @@ const Project = ({ project, goToPage }) => {
 
     const handleLinkClick = (position) => {
         setMenuState({ isOpen: false })
-        goToPage() // Add setting to go to home with scroll position to land on
+        history.pushState("/")
     }
 
     const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen })
@@ -152,7 +149,12 @@ const Project = ({ project, goToPage }) => {
     return (
         <div className="Project">
             <Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
-            <img className="Logo_Blue" src={logoBlue} onClick={() => { goToPage() }} alt="Josiane Logo" />
+            <img
+                className="Logo_Blue"
+                src={logoBlue}
+                onClick={() => history.push("/")}
+                alt="Josiane Logo"
+            />
             <Header cover={cover} title={title} subtitle={subtitle} />
 
             <div className="Project__Labels">
