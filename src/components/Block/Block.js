@@ -1,3 +1,4 @@
+import React from 'react'
 import './Block.sass';
 import './Block__Two-items.sass';
 import './Block__Two-items-aligned.sass';
@@ -10,7 +11,10 @@ import './Block__Two-items-crossed-top-overlap.sass';
 import './Block__Two-items-crossed-bottom-spaced.sass';
 import './Block__Two-items-crossed-bottom-squared.sass';
 
+import ReactPlayer from 'react-player'
+
 import parse from 'html-react-parser'
+
 
 // Disposition classmatcher
 const getDispositionClass = (disposition) => {
@@ -51,6 +55,14 @@ const getSizeClass = (size) => {
     }
 }
 
+const VideoItem = ({ url, background }) => {
+    return (
+        <div className={"Block-illustration Block-illustration-video"} style={{ backgroundImage: "url('" + background + "')"}}>
+            <ReactPlayer controls playing={true} muted={true} loop url={url} width='100%' height='100%' />
+        </div>
+    )
+}
+
 // Render functions
 const renderItem = ({ ext, url, alt, background }, index) => {
     switch (ext) {
@@ -59,11 +71,7 @@ const renderItem = ({ ext, url, alt, background }, index) => {
                 <img className="Block-illustration Block-illustration-image" src={url} alt={alt} key={index + "-picture-item"} />
             )
         case '.mp4':
-            return (
-                <video className="Block-illustration Block-illustration-video"style={{ backgroundImage: "url('" + background + "')"}} autoPlay muted loop key={index + "-picture-item"}>
-                    <source src={url} type="video/mp4" />{alt}
-                </video>
-            )
+            return (<VideoItem url={url} background={background} />)
         default:
             return null
     }
@@ -80,14 +88,13 @@ const renderFirstItem = (item, { title, domain, short_description }, index) => {
     )
 }
 
-const Block = ({ show, data, handleClick }) => {
+const Block = ({ data, handleClick }) => {
     const { path, title, disposition, domain,short_description, previews, size } = data
     const dispositionClass = " " + getDispositionClass(disposition)
     const sizeClass = " " + getSizeClass(size)
-    const showClass = " " + (show ? "" : "hide")
 
     return (
-        <section className={"Block" + dispositionClass + sizeClass + showClass} onClick={() => { handleClick(path)}}>
+        <section className={"Block" + dispositionClass + sizeClass} onClick={() => { handleClick(path)}}>
                 {
                     previews.map((item, i) => {
                         if(i === 0) {

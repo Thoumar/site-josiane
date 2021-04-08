@@ -4,25 +4,19 @@ import { useHistory } from 'react-router-dom';
 
 import './Isotope.sass'
 
-const Isotope = ({ projects, goToPage }) => {
-    // init one ref to store the future isotope object
+const Isotope = ({ projects, scrollRef }) => {
     const isotope = useRef()
     const history = useHistory()
-    // store the filter keyword in a state
     const [filterKey, setFilterKey] = useState('*')
 
-    
-  // initialize an Isotope object with configs
     useEffect(() => {
         isotope.current = new IsoTope('.filter-container', {
-        itemSelector: '.filter-item',
-        layoutMode: 'fitRows',
+            itemSelector: '.filter-item',
+            layoutMode: 'fitRows',
         })
-        // cleanup
         return () => isotope.current.destroy()
     }, [])
 
-    // handling filter key change
     useEffect(() => {
         filterKey === '*'
         ? isotope.current.arrange({filter: `*`})
@@ -33,29 +27,50 @@ const Isotope = ({ projects, goToPage }) => {
 
     if(true) {
         return (
-            <div className="Isotope">
+            <div className="Isotope" scroll-ref={scrollRef}>
                 <ul className="Isotope__Menu">
-                    <li onClick={handleFilterKeyChange('*')}>Show All</li>
-                    <li onClick={handleFilterKeyChange('most_viewed')}>Most viewed</li>
-                    <li onClick={handleFilterKeyChange('care')}>Care</li>
-                    <li onClick={handleFilterKeyChange('advertising')}>Advertising</li>
-                    <li onClick={handleFilterKeyChange('activation')}>Activation</li>
+                    <li onClick={handleFilterKeyChange('*')}>Tout le travail</li>
+                    <li onClick={handleFilterKeyChange('campagnes')}>Les campagnes</li>
+                    <li onClick={handleFilterKeyChange('causes')}>Les grandes causes</li>
+                    <li onClick={handleFilterKeyChange('activations')}>Les activations</li>
                 </ul>
                 <ul className="filter-container">
                     {
                         projects.map((project, i) => {
-                            const filteringClassName = project.filters ? " " + project.filters : ""
-                            return (
-                                <div
-                                    key={i}
-                                    className={"filter-item" + filteringClassName} onClick={() => { history.push(project.path) }} 
-                                    style={{
-                                        backgroundImage: "url(" + project.cover.url + ")",
-                                        backgroundSize: "cover"
-                                }}>
-                                    <span>{ project.title }</span>
-                                </div>
-                            )
+                            console.log(project)
+                            switch (project.cover.ext) {
+                                case '.png':
+                                    return (
+                                        <div
+                                            key={i}
+                                            className={"filter-item" + (project.filters ? " " + project.filters : "")}
+                                            onClick={() => { history.push(project.path) }} 
+                                            style={{
+                                                backgroundImage: "url(" + project.cover.url + ")",
+                                                backgroundSize: "cover"
+                                            }}>
+                                            <span>{ project.title }</span>
+                                        </div>
+                                    )
+                                case '.mp4':
+                                    return (
+                                        <div
+                                            key={i}
+                                            className={"filter-item" + (project.filters ? " " + project.filters : "")}
+                                            onClick={() => { history.push(project.path) }} 
+                                            style={{
+                                                backgroundImage: "url(" + project.cover.url + ")",
+                                                backgroundSize: "cover"
+                                            }}>
+                                            <video controls autoPlay muted width="100%" height="100%">
+                                                <source src={project.cover.url} />
+                                            </video>
+                                            <span>{ project.title }</span>
+                                        </div>
+                                    )
+                                default:
+                                    return null
+                            }
                         })
                     }
                 </ul>

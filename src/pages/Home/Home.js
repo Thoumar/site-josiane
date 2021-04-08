@@ -7,6 +7,7 @@ import Title from './../../components/Title/Title';
 import Paragraph from './../../components/Paragraph/Paragraph';
 import Block from '../../components/Block/Block';
 import Parallax from '../../components/Parallax/Parallax';
+import Isotope from '../../components/Isotope/Isotope';
 
 import './Home.sass'
 
@@ -16,14 +17,21 @@ import { useHistory } from 'react-router';
 // Placeholders
 const textLongPlaceHolder = "Yeah, lots of people did. Stop! Don't shoot fire stick in space canoe! Cause explosive decompression! Oh, I always feared he might run off like this. Why, why, why didn't I break his legs? Goodbye, friends. I never thought I'd die like this. But I always really hoped.";
 
-const Home = ({ projects, goToPage }) => {
+const Home = ({ projects }) => {
     const history = useHistory()
 
     const [menuState, setMenuState] = useState({ isOpen: false })
     const [showAllProjects, setShowAllProjects] = useState(false)
 
     const handleLinkClick = (position) => {
-        if(document.querySelector('[scroll-ref="' + position + '"]')) {
+        if(position === 'work') {
+            setShowAllProjects(true)
+            setTimeout(function () {
+                setMenuState({ isOpen: false })
+                document.querySelector('[scroll-ref="work"]')
+                .scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+            }, 400)
+        } else if(document.querySelector('[scroll-ref="' + position + '"]')) {
             setMenuState({ iOpen: false })
             document.querySelector('[scroll-ref="' + position + '"]')
                 .scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
@@ -66,7 +74,6 @@ const Home = ({ projects, goToPage }) => {
                 <Paragraph
                     text={textLongPlaceHolder} />
                 <Title
-                    scrollRef="work"
                     text={"Le travail"} /> 
                 {
                     projects.map((project, index) => {
@@ -74,7 +81,6 @@ const Home = ({ projects, goToPage }) => {
                             return [
                                 <Block
                                     key={index}
-                                    show={true}
                                     data={project}
                                     handleClick={() => { history.push(project.path) }} />,
                                 <Parallax
@@ -86,7 +92,7 @@ const Home = ({ projects, goToPage }) => {
                                 ]
                         } else if(index === 11) {
                             return [
-                                <Block key={index} show={true} data={project} handleClick={() => { history.push(project.path) }} />,
+                                <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />,
                                 <Parallax
                                     key={index + "p"}
                                     scrollRef="cousins"
@@ -95,16 +101,21 @@ const Home = ({ projects, goToPage }) => {
                                     background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
                             ]
                         } else if(index === 12) {
-                            return [
-                                <button key={index+"btn"} className="LoadMore__Btn" style={{ display: showAllProjects ? "none" : "block" }}onClick={handleShowMoreProjects}>Load more</button>,
-                                <Block show={showAllProjects} key={index} data={project} handleClick={() => { history.push(project.path) }} />
-                            ]
+                            return <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />
                         } else if(index >= 13) {
-                            return (<Block show={showAllProjects} key={index} data={project} handleClick={() => { history.push(project.path) }} />)
+                            return (<Block key={index} data={project} handleClick={() => { history.push(project.path) }} />)
                         } else {
-                            return <Block show={true} key={index} data={project} handleClick={() => { history.push(project.path) }} />
+                            return <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />
                         }
                     }) }
+
+                    {
+                        !showAllProjects ? <button className="LoadMore__Btn" onClick={handleShowMoreProjects}>Voir tout le travail</button> : null
+                    }
+
+                    {
+                        showAllProjects ? <Isotope scrollRef="work" projects={projects} /> : null
+                    }
 				<Footer scrollRef="contact" />
             </main>
         )

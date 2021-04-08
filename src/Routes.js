@@ -6,7 +6,6 @@ import { BrowserRouter as Switch, Route } from "react-router-dom";
 // Pages
 import Home from './pages/Home/Home';
 import Project from './pages/Project/Project';
-import Work from './pages/Work/Work';
 
 // Components
 import Loader from './components/Loader/Loader'
@@ -18,17 +17,26 @@ const Routes = () => {
 	const [isLoading, setLoadingState] = useState(true)
     const [projects, setProjects] = useState([]);
 
-    const setProjectList = () => projects.map((project, i) => (
+    const setProjectList = () => projects.map((project, i) => {
+		const randProjects = []
+
+		for (var j = 0; j < 3; j++) {
+			var rand = projects[Math.floor(Math.random() * projects.length)];
+			randProjects.push(rand);
+		}
+						
+		return (
             <Route
                 key={"r" + i}
                 path={'/' + project.path}>
 				<Project
 					project={project}
+					others={randProjects}
 					key={"p" + i}
 				/>
 			</Route>
         )
-    )
+	});
 
     useEffect(() => fetch(serverUri + "/projects").then((response) => {
         response.json().then((jsonResponse) => {
@@ -42,16 +50,7 @@ const Routes = () => {
 		<Loader loading={isLoading} />,
 		<Switch>
 			<Route exact path="/">
-				<Home
-					projects={projects}
-					// goToPage={(data) => handleGoToPage(data)}
-				/>
-			</Route>
-			<Route path="/work">
-				<Work
-					projects={projects}
-					// goToPage={(data) => handleGoToPage(data)}
-				/>
+				<Home projects={projects} />
 			</Route>
 			{
 				setProjectList()

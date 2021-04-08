@@ -27,13 +27,54 @@
         font-size: 1.5rem
         position: relative
         margin: 0 auto 15rem auto
-        cursor: pointer
+        color: #7F7F7F
         max-width: 80%
-        border-left: 1px solid grey
-        padding: 15rem 0 1rem 3rem
+        border-left: 2px solid #EAEAEA
+        padding: 4.5rem 0 0 3rem
 
         > p
             padding-right: 40%
+            margin: 0
+
+    &__Suggestions
+        margin: 0 auto 10rem auto
+        width: 80%
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-around
+        padding: 0
+
+        .suggestion-item
+            position: relative
+            cursor: pointer
+            overflow: hidden
+            display: block
+            padding: 1rem
+            width: 33.33%
+            height: 20rem
+            box-sizing: border-box
+            border: 3px solid white
+
+            span
+                height: 100%
+                width: 100%
+                font-size: 2rem
+                font-weight: bold
+                color: white
+                background-color: rgba(0, 0, 0, 0.5)
+                display: flex
+                position: absolute
+                top: 0
+                left: 0
+                justify-content: center
+                align-items: center
+                transform: translateY(-100%)
+                opacity: 0
+                transition: all .3s ease
+
+        .suggestion-item:hover span
+            opacity: 1
+            transform: translateY(0)
 
 .Component
 
@@ -71,7 +112,7 @@
         position: relative
         width: 80%
         max-width: 120rem
-        margin: 30rem auto 15rem auto
+        margin: 15rem auto
 
 .Carousel__Image
     max-width: 32rem
@@ -153,3 +194,8 @@
     .Component__Video
         position: relative
         margin: 10rem auto 15rem auto
+
+.Component__Single-carousel > div > div > div > div > div > div > div > div
+    display: flex
+    align-items: center
+    justify-content: center

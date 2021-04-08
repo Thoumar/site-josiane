@@ -14,8 +14,8 @@ const Footer = ({ scrollRef }) => {
                 </div>
                 
                 <div className="Footer__Side Footer__Side-right">
-                    <span>01 83 75 04 21</span>
-                    <span>Brief/Rp : laurent@josiane.fr</span>
+                    <span>06 76 53 87 71</span>
+                    <span>Brief/RP : laurent@josiane.fr</span>
                 </div>
             </div>
             <div className="Footer__Bottom">

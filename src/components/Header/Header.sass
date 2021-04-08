@@ -61,7 +61,6 @@
             margin-top: 5px
 
     &__Scroller
-        background-color: 2px solid blue
         position: absolute
         bottom: 3rem
         left: 50%
@@ -75,7 +74,7 @@
         flex-direction: column
 
         & span:nth-child(1)
-            height: 13rem
+            height: 10rem
             background-color: white
             width: .1rem
             display: inline-block
@@ -97,11 +96,15 @@
         cursor: pointer
 
         &--mute
-            left: 2rem
+            left: 6rem
             z-index: 21
 
         &--fullscreen
             right: 2rem
+            z-index: 21
+
+        &--play
+            left: 2rem
             z-index: 21
 
     video

@@ -1,12 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 
 import './Menu.sass';
 
 import Social from './../../components/Social/Social';
 
 const Menu = ({ onLinkClick, onSwitchClick, isOpen }) => {
-    const history = useHistory();
 
     return (
         <nav className={"Menu " + (isOpen ? "open" : "close" )}>
@@ -18,7 +16,7 @@ const Menu = ({ onLinkClick, onSwitchClick, isOpen }) => {
                 <button onClick={() => onLinkClick("josiane")}>josiane</button>
             </div>
             <div className="Menu__Item">
-                <button onClick={() => { history.push("/work"); }}>le travail</button>
+                <button onClick={() => onLinkClick("work")}>le travail</button>
             </div>
             <div className="Menu__Item">
                 <button onClick={() => onLinkClick("family")}>la famille</button>
