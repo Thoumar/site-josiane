@@ -1,0 +1,41 @@
+.Scroller
+    left: 50%
+    z-index: 2
+    bottom: 3rem
+    height: 20rem
+    color: #fff
+    display: flex
+    font-weight: 100
+    text-align: center
+    position: absolute
+    align-items: center
+    flex-direction: column
+    justify-content: space-between
+    transform: translateX(-50%)
+    font-size: 1.1rem
+    font-weight: 100
+    text-transform: uppercase
+    letter-spacing: 4px
+    margin-top: 5px
+
+    &::before
+        content: ""
+        display: block
+        width: 1px
+        height: 120px
+        background: #fff
+        -webkit-animation: move-line 2s linear infinite
+        animation: move-line 2s linear infinite
+
+@keyframes move-line
+    0%,to
+        -webkit-clip-path: inset(0 0 0 0)
+        clip-path: inset(0 0 0 0)
+
+    49%
+        -webkit-clip-path: inset(0 0 100% 0)
+        clip-path: inset(0 0 100% 0)
+
+    50%
+        -webkit-clip-path: inset(100% 0 0 0)
+        clip-path: inset(100% 0 0 0)

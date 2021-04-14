@@ -1,38 +1,30 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import ReactPlayer from 'react-player';
+import Scroller from './../Scroller/Scroller'
+import Video from './../Video/Video'
 
 import './Header.sass';
 
-import logoWhite from './../../images/logos/logo_white.png';
-
-
-const Header = ({ cover, title, subtitle, type }) => {
-    useEffect(() => {
-        window.onscroll = () => {
-            if(document.querySelector(".Header__Scroller")) {
-                document.querySelector(".Header__Scroller").style.opacity = 1 - (window.scrollY / window.outerHeight) * 2
-                document.querySelector(".Header__Scroller").style.transform = "translateX(-50%) translateY(" + window.scrollY / 5 + "px)"
-            }
-        };
-    }, [])
-
+const Header = ({ cover, title, subtitle }) => {
     return (
         <header className="Header">
             <div className="Header__Title">
-                {
+            {
                     title
                     ? <h1>{title}</h1>
-                    : <img src={logoWhite} alt="Logo Josiane" />
+                    : null
                 }
-                <span>{subtitle}</span>
+                {
+                    subtitle
+                    ? <span>{subtitle}</span>
+                    : null
+                }
+                
             </div>
             {
                 cover.url.indexOf('.mp4') > -1
                     ? (
-                        <div className="Header__Background-video fullscreen">
-                            <ReactPlayer controls playing={true} muted={true} loop url={cover.url} width='100%' height='100%' />
-                        </div>
+                        <Video source={cover.url} />
                     ) : (
                         <div className={"Header__Background-image"}>
                             <img height="100%" width="100%" src={cover.url} alt="Background" />
@@ -40,10 +32,10 @@ const Header = ({ cover, title, subtitle, type }) => {
                     )
             }
             
-            <div className="Header__Scroller">
-                <span></span>
-                <span>Scroll</span>
-            </div>
+
+
+
+            <Scroller text="Scroll" />
         </header>
     )
 };

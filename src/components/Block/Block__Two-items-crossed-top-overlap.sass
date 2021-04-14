@@ -1,29 +1,28 @@
 .Block
     &__Two-items-crossed-top-overlap
         display: flex
-        height: 65rem
+        height: 70rem
         align-items: center
         justify-content: space-around
         margin: 0 auto 15rem auto
 
         .Block-caption
-            width: 55rem
+            width: 68%
             position: absolute
             bottom: 0
             left: 0
             z-index: 2
 
-        .Block-caption > video,
+        .Block-caption > .Video,
         .Block-caption > img
             object-fit: cover
 
         & > img,
-        & > video
+        & > .Video
             top: 0
             right: 0
             z-index: 1
-            width: 55rem
-            height: 50rem
+            width: 45%
             object-fit: contain
             position: absolute
             object-position: right
@@ -40,13 +39,13 @@
                 height: auto
                 width: 90%
 
-            .Block-caption > video,
+            .Block-caption > .Video,
             .Block-caption > img
                 height: auto
                 width: auto
 
             & > img,
-            & > video
+            & > .Video
                 position: relative
                 height: auto
                 width: 90%

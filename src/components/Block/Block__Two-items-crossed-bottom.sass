@@ -6,22 +6,21 @@
         margin: 0 auto 15rem auto
 
         .Block-caption
+            width: 52%
             z-index: 2
 
-        .Block-caption > video,
+        .Block-caption > .Video,
         .Block-caption > img
-            height: 45rem
-            width: 45rem
+            width: 100%
             object-fit: cover
 
         & > img,
         & > video
-            width: 50rem
-            height: 50rem
+            width: 55%
             position: absolute
-            bottom: 0
+            top: 15rem
             right: 0
-            z-index: 1
+            z-index: 2
 
 @media screen and (max-width: 768px)
     .Block
@@ -35,13 +34,13 @@
                 height: auto
                 width: 90%
 
-            .Block-caption > video,
+            .Block-caption > .Video,
             .Block-caption > img
                 height: auto
                 width: auto
 
             & > img,
-            & > video
+            & > .Video
                 position: relative
                 height: auto
                 width: 90%

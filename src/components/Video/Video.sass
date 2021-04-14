@@ -1,0 +1,70 @@
+
+.Video
+    position: relative
+    height: 100%
+    width: 100%
+    object-fit: cover
+    z-index: 1
+    background-size: cover
+    background-color: #d2d2d2
+
+    &__Controls
+        position: absolute
+        left: 0
+        bottom: 0
+        right: 0
+        opacity: 0
+        transition: .3s ease
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        z-index: 1
+
+    &__Button
+        position: absolute
+        bottom: 5rem
+        height: 2rem
+        width: 2rem
+        z-index: 2
+        cursor: pointer
+
+        &--mute
+            left: 11rem
+            z-index: 21
+
+        &--fullscreen
+            right: 5rem
+            z-index: 21
+
+        &--play
+            left: 7rem
+            z-index: 21
+
+    &__Slider
+        width: 100%
+        max-width: 70%
+        left: 50%
+        position: absolute
+        transform: translateX(-50%)
+        height: 50px
+        bottom: 3.2rem
+
+    &__Track
+        top: 20px
+        height: 3px
+        background-color: white
+
+    &__Thumb
+        top: 12px
+        width: 5px
+        height: 20px
+        line-height: 38px
+        background-color: white
+        border-radius: 2px
+
+    video
+        object-fit: cover
+
+.Video:hover .Video__Controls
+    opacity: 1

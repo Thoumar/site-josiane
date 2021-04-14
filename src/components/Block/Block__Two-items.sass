@@ -1,24 +1,21 @@
 .Block
     &__Two-items
         display: flex
-        height: 55rem
         margin: 0 auto 10rem auto
         align-items: center
-        justify-content: space-around
+        justify-content: space-between
 
         .Block-caption
-            min-width: 35rem
+            width: 50%
 
-        .Block-caption > video,
-        .Block-caption > img
-            height: 40rem
-            width: 45rem
-            object-fit: cover
-
-        & > img,
-        & > video
+        & > .Video
             height: 50rem
             width: 40rem
+
+        & > img
+            width: 45%
+            margin: 6rem
+            box-shadow: 0 0 20px 5px #efefef
 
 @media screen and (max-width: 768px)
     .Block
@@ -31,13 +28,13 @@
                 height: auto
                 width: 90%
 
-            .Block-caption > video,
+            .Block-caption > .Video,
             .Block-caption > img
                 height: auto
                 width: auto
 
             & > img,
-            & > video
+            & > .Video
                 height: auto
                 width: 90%
                 margin-bottom: 2rem

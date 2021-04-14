@@ -7,8 +7,8 @@ import ReactPlayer from 'react-player';
 import Carousel, { consts } from 'react-elastic-carousel';
 import React, { useEffect, useState } from 'react';
 
+import Logo from './../../components/Logo/Logo';
 
-import logoBlue from './../../images/logos/logo_blue.png';
 import { useLocation, useHistory } from 'react-router-dom';
 
 import Footer from './../../components/Footer/Footer';
@@ -50,7 +50,6 @@ const ProjectCarousel = ({ data }) => (
 )
 
 const ProjectVideo = ({ data }) => {
-    console.log(data)
     return (
         <div className="Component__Video">
             <ReactPlayer
@@ -122,12 +121,7 @@ const Project = ({ project, others }) => {
     return (
         <div className="Project">
             <Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
-            <img
-                className="Logo_Blue"
-                src={logoBlue}
-                onClick={() => history.push("/")}
-                alt="Josiane Logo"
-            />
+            <Logo color="blue" />
             <Header cover={cover} title={title} subtitle={subtitle} />
             <div className="Project__Description" dangerouslySetInnerHTML={{__html: long_description}}>
             </div>

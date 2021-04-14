@@ -1,30 +1,29 @@
 .Block
     &__Four-items
+        max-width: 870px
         display: flex
         flex-direction: column
         align-items: flex-end
         margin: 0 auto 15rem auto
-        height: 70rem
         justify-content: space-around
 
         .Block-caption
-            width: 60rem
+            width: 64rem
             position: absolute
             left: 0
             top: 5rem
 
-        .Block-caption > video,
+        .Block-caption > .Video,
         .Block-caption > img
             width: 100%
             object-fit: cover
             height: calc(100% - 9rem)
 
         & > img,
-        & > video
+        & > .Video
             z-index: 2
             object-fit: cover
-            width: 27rem
-            height: 20rem
+            height: 22rem
             margin: 1rem
 
 @media screen and (max-width: 768px)
@@ -41,13 +40,13 @@
                 position: relative
                 transform: translateY(0)
 
-            .Block-caption > video,
+            .Block-caption > .Video,
             .Block-caption > img
                 height: auto
                 width: auto
 
             & > img,
-            & > video
+            & > .Video
                 height: auto
                 width: 90%
                 margin-bottom: 2rem

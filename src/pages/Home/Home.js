@@ -7,7 +7,7 @@ import Title from './../../components/Title/Title';
 import Paragraph from './../../components/Paragraph/Paragraph';
 import Block from '../../components/Block/Block';
 import Parallax from '../../components/Parallax/Parallax';
-import Isotope from '../../components/Isotope/Isotope';
+import Logo from './../../components/Logo/Logo';
 
 import './Home.sass'
 
@@ -21,17 +21,9 @@ const Home = ({ projects }) => {
     const history = useHistory()
 
     const [menuState, setMenuState] = useState({ isOpen: false })
-    const [showAllProjects, setShowAllProjects] = useState(false)
 
     const handleLinkClick = (position) => {
-        if(position === 'work') {
-            setShowAllProjects(true)
-            setTimeout(function () {
-                setMenuState({ isOpen: false })
-                document.querySelector('[scroll-ref="work"]')
-                .scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
-            }, 400)
-        } else if(document.querySelector('[scroll-ref="' + position + '"]')) {
+        if(document.querySelector('[scroll-ref="' + position + '"]')) {
             setMenuState({ iOpen: false })
             document.querySelector('[scroll-ref="' + position + '"]')
                 .scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
@@ -41,8 +33,6 @@ const Home = ({ projects }) => {
     }
 
     const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen })
-
-    const handleShowMoreProjects = () => setShowAllProjects(true)
 
     useEffect(() => {
         if(window.scrollY === 0) {
@@ -66,8 +56,15 @@ const Home = ({ projects }) => {
     if(projects.length >= 1) {
         return (
             <main className="Home">
-                <Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
-                <Header subtitle={"Agence d’idées"}  cover={{ url: "https://res.cloudinary.com/thoumar/video/upload/v1616334851/1_Farming_Simulator_19_Farming_and_furious_d598ade095.mp4" }} />
+                <Menu
+                    onLinkClick={handleLinkClick}
+                    onSwitchClick={handleSwitchClick}
+                    isOpen={menuState.isOpen}
+                />
+                <Logo color="blue" />
+                <Header
+                    cover={{ url: "https://res.cloudinary.com/thoumar/video/upload/v1616334851/1_Farming_Simulator_19_Farming_and_furious_d598ade095.mp4" }}
+                />
                 <Title
                     scrollRef="josiane"
                     text={"La maman des marques"} />
@@ -108,14 +105,6 @@ const Home = ({ projects }) => {
                             return <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />
                         }
                     }) }
-
-                    {
-                        !showAllProjects ? <button className="LoadMore__Btn" onClick={handleShowMoreProjects}>Voir tout le travail</button> : null
-                    }
-
-                    {
-                        showAllProjects ? <Isotope scrollRef="work" projects={projects} /> : null
-                    }
 				<Footer scrollRef="contact" />
             </main>
         )

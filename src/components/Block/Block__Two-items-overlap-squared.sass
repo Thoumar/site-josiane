@@ -1,0 +1,42 @@
+.Block
+    &__Two-items-overlap
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        margin: 0 auto 15rem auto
+
+        .Block-caption > .Video,
+        .Block-caption > img
+            width: 100%
+
+        & > img,
+        & > .Video
+            width: 51%
+            position: absolute
+            top: 6rem
+            right: 0
+
+@media screen and (max-width: 768px)
+    .Block
+        &__Two-items-overlap
+            height: auto
+            flex-direction: column-reverse
+
+            .Block-caption
+                min-width: auto
+                position: relative
+                height: auto
+                width: 90%
+
+            .Block-caption > .Video,
+            .Block-caption > img
+                height: auto
+                width: auto
+
+            & > img,
+            & > .Video
+                position: relative
+                height: auto
+                width: 90%
+                margin-left: 0
+                margin-bottom: 2rem

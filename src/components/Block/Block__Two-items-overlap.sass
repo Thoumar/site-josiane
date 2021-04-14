@@ -5,17 +5,16 @@
         justify-content: flex-start
         margin: 0 auto 15rem auto
 
-        .Block-caption > video,
+        .Block-caption > .Video,
         .Block-caption > img
-            width: 55rem
+            width: 100%
 
         & > img,
-        & > video
-            width: 55rem
+        & > .Video
+            width: 51%
             position: absolute
-            top: -8rem
+            top: 6rem
             right: 0
-            height: 40rem
 
 @media screen and (max-width: 768px)
     .Block
@@ -29,13 +28,13 @@
                 height: auto
                 width: 90%
 
-            .Block-caption > video,
+            .Block-caption > .Video,
             .Block-caption > img
                 height: auto
                 width: auto
 
             & > img,
-            & > video
+            & > .Video
                 position: relative
                 height: auto
                 width: 90%

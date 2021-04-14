@@ -6,6 +6,7 @@ import { BrowserRouter as Switch, Route } from "react-router-dom";
 // Pages
 import Home from './pages/Home/Home';
 import Project from './pages/Project/Project';
+import Work from './pages/Work/Work';
 
 // Components
 import Loader from './components/Loader/Loader'
@@ -51,6 +52,9 @@ const Routes = () => {
 		<Switch>
 			<Route exact path="/">
 				<Home projects={projects} />
+			</Route>
+			<Route exact path="/work">
+				<Work projects={projects} />
 			</Route>
 			{
 				setProjectList()

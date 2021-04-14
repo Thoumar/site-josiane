@@ -3,6 +3,7 @@ import './Block.sass';
 import './Block__Two-items.sass';
 import './Block__Two-items-aligned.sass';
 import './Block__Two-items-overlap.sass';
+import './Block__Two-items-overlap-squared.sass';
 import './Block__Four-items.sass';
 import './Block__Two-items-crossed-bottom.sass';
 import './Block__Three-items-gallery.sass';
@@ -11,7 +12,7 @@ import './Block__Two-items-crossed-top-overlap.sass';
 import './Block__Two-items-crossed-bottom-spaced.sass';
 import './Block__Two-items-crossed-bottom-squared.sass';
 
-import ReactPlayer from 'react-player'
+import Video from './../Video/Video';
 
 import parse from 'html-react-parser'
 
@@ -23,6 +24,8 @@ const getDispositionClass = (disposition) => {
             return 'Block__Two-items'
         case 'two_items_overlap':
             return 'Block__Two-items-overlap'
+        case 'two_items_overlap_squared':
+            return 'Block__Two-items-overlap-squared'
         case 'four_items':
             return 'Block__Four-items'
         case 'two_items_crossed_bottom':
@@ -58,7 +61,7 @@ const getSizeClass = (size) => {
 const VideoItem = ({ url, background }) => {
     return (
         <div className={"Block-illustration Block-illustration-video"} style={{ backgroundImage: "url('" + background + "')"}}>
-            <ReactPlayer controls playing={true} muted={true} loop url={url} width='100%' height='100%' />
+            <Video source={url} />
         </div>
     )
 }
