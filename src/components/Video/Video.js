@@ -59,16 +59,16 @@ const Video = ({ source }) => {
         // setState({ ...state, played: parseFloat(newValue / 100) });
     };
 
-    const handleSeekMouseDown = (e) => {
-        setState({ ...state, seeking: true });
-    };
+    // const handleSeekMouseDown = (e) => {
+    //     setState({ ...state, seeking: true });
+    // };
     
-    const handleSeekMouseUp = (e, newValue) => {
-        console.log({ value: e.target });
-        setState({ ...state, seeking: false });
-        // console.log(sliderRef.current.value)
-        playerRef.current.seekTo(newValue / 100);
-    };
+    // const handleSeekMouseUp = (e, newValue) => {
+    //     console.log({ value: e.target });
+    //     setState({ ...state, seeking: false });
+    //     // console.log(sliderRef.current.value)
+    //     playerRef.current.seekTo(newValue / 100);
+    // };
 
     const handleSetFullScreenState = () => {
         setFullScreenState(!fullScreenState)
