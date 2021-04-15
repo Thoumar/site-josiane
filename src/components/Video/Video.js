@@ -56,19 +56,19 @@ const Video = ({ source }) => {
 
     const handleSeekChange = (newValue) => {
         playerRef.current.seekTo(newValue / 100);
-        // setState({ ...state, played: parseFloat(newValue / 100) });
     };
 
-    // const handleSeekMouseDown = (e) => {
-    //     setState({ ...state, seeking: true });
-    // };
+    const handleSeekMouseDown = (e) => {
+        console.log("Down");
+        setState({ ...state, seeking: true });
+    };
     
-    // const handleSeekMouseUp = (e, newValue) => {
-    //     console.log({ value: e.target });
-    //     setState({ ...state, seeking: false });
-    //     // console.log(sliderRef.current.value)
-    //     playerRef.current.seekTo(newValue / 100);
-    // };
+    const handleSeekMouseUp = (e, newValue) => {
+        console.log("Up");
+        console.log({ value: e.target });
+        setState({ ...state, seeking: false });
+        playerRef.current.seekTo(newValue / 100);
+    };
 
     const handleSetFullScreenState = () => {
         setFullScreenState(!fullScreenState)
@@ -106,6 +106,8 @@ const Video = ({ source }) => {
                         <ReactSlider
                             className="Video__Slider"
                             thumbClassName="Video__Thumb"
+                            onMouseDown={handleSeekMouseDown}
+                            onMouseUp={handleSeekMouseUp}
                             trackClassName="Video__Track"
                             value={played * 100}
                             onChange={handleSeekChange}

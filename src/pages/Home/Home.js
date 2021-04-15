@@ -27,6 +27,8 @@ const Home = ({ projects }) => {
             setMenuState({ iOpen: false })
             document.querySelector('[scroll-ref="' + position + '"]')
                 .scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+        } else if(position === "work") {
+            history.push("/work") 
         } else {
             setMenuState({ isOpen: false })
         }
