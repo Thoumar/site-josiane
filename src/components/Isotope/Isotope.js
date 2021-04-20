@@ -29,15 +29,14 @@ const Isotope = ({ projects, scrollRef }) => {
         return (
             <div className="Isotope" scroll-ref={scrollRef}>
                 <ul className="Isotope__Menu">
-                    <li onClick={handleFilterKeyChange('*')}>Tout le travail</li>
-                    <li onClick={handleFilterKeyChange('campagnes')}>Les campagnes</li>
-                    <li onClick={handleFilterKeyChange('causes')}>Les grandes causes</li>
-                    <li onClick={handleFilterKeyChange('activations')}>Les activations</li>
+                    <li className={filterKey === "*" ? "active" : ""} onClick={handleFilterKeyChange('*')}>Tout le travail</li>
+                    <li className={filterKey === "campagnes" ? "active" : ""} onClick={handleFilterKeyChange('campagnes')}>Les campagnes</li>
+                    <li className={filterKey === "causes" ? "active" : ""} onClick={handleFilterKeyChange('causes')}>Les grandes causes</li>
+                    <li className={filterKey === "activations" ? "active" : ""} onClick={handleFilterKeyChange('activations')}>Les activations</li>
                 </ul>
                 <ul className="filter-container">
                     {
                         projects.map((project, i) => {
-                            console.log(project)
                             switch (project.cover.ext) {
                                 case '.png':
                                     return (

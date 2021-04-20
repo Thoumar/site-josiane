@@ -59,13 +59,10 @@ const Video = ({ source }) => {
     };
 
     const handleSeekMouseDown = (e) => {
-        console.log("Down");
         setState({ ...state, seeking: true });
     };
     
     const handleSeekMouseUp = (e, newValue) => {
-        console.log("Up");
-        console.log({ value: e.target });
         setState({ ...state, seeking: false });
         playerRef.current.seekTo(newValue / 100);
     };
@@ -115,7 +112,6 @@ const Video = ({ source }) => {
                                 value={played * 100}
                                 onChange={handleSeekChange}
                                 renderThumb={(props, state) => {
-                                    console.log(state.valueNow)
                                     return (
                                         <div {...props}></div>
                                     )

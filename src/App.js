@@ -1,12 +1,13 @@
 // React and Librairies
-import React from 'react'
+import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 
 // Components
-import Routes from './Routes'
+import Routes from './Routes';
 
 // Style
 import './App.sass';
+import './fonts/HelveticaNeue.ttf';
 
 const App = () => {
 	return (

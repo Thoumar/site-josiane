@@ -3,8 +3,6 @@ import './Parallax.sass';
 
 const Parallax = ({ scrollRef, title, paragraph, background }) => {
 
-    console.log(background)
-    
     const bgParallax = useRef(null);
 
     useEffect(() => {

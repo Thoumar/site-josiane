@@ -48,14 +48,19 @@ const Home = ({ projects, peoples }) => {
     const [showIsotope, setShowIsotope] = useState(false)
 
     const handleLinkClick = (position) => {
+        console.log(position)
         if(document.querySelector('[scroll-ref="' + position + '"]')) {
             setMenuState({ iOpen: false })
             document.querySelector('[scroll-ref="' + position + '"]')
                 .scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
         } else if(position === "work") {
-            history.push("/work") 
-        } else {
-            setMenuState({ isOpen: false })
+            setShowIsotope(true)
+            setTimeout(function () {
+                setMenuState({ iOpen: false })
+                document.querySelector('[scroll-ref="' + position + '"]')
+                    .scrollIntoView({behavior: "smooth", block: "top", inline: "center"});
+
+            }, 200)
         }
     }
 
@@ -116,14 +121,14 @@ const Home = ({ projects, peoples }) => {
                     <img className={"Cta__Arrow Cta__Arrow--right" + (showIsotope ? " reverse" : "")} src={arrowIcon} alt="Arrow icon" />
                 </div>
                 {
-                    showIsotope ? <Isotope projects={projects} /> : null
+                    showIsotope ? <Isotope scrollRef="work" projects={projects} /> : null
                 }
                 <Title
                     alt="La Famille"
                     text={"Le famille"}
                     content={titleLaFamille} /> 
 
-                <div className="Family">
+                <div className="Family" scroll-ref="family">
                     <div className="Family__Text">
                         <h4>AGENCE D’IDÉE</h4>
                         <p>
@@ -149,7 +154,7 @@ const Home = ({ projects, peoples }) => {
                             {
                                 peoples.map((person, key) => {
                                     return (
-                                        <div className="Person">
+                                        <div className="Person" key={key}>
                                             <img className="Person__Picture" src={person.profilePicture.url} alt="Parallax Background" />
                                             <div className="Personn__Text">
                                                 <h4 className="Person__Name">{person.name}</h4>

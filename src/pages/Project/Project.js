@@ -59,7 +59,6 @@ const ProjectCarousel = ({ data }) => (
 )
 
 const ProjectVideo = ({ data }) => {
-    console.log(data)
     return (
         <div className="Component__Video">
             {
@@ -156,12 +155,13 @@ const Project = ({ project, others }) => {
             <div className="Project__Suggestions">
                 {
                     others.map((item, k) => {
-                        console.log(project)
                         switch (item.cover.ext) {
                             case '.png':
                                 return (
                                     <div
-                                        className="suggestion-item" onClick={() => { history.push(item.path) }} 
+                                    key={k}
+                                        className="suggestion-item"
+                                        onClick={() => { history.push(item.path) }} 
                                         style={{
                                             backgroundImage: "url(" + item.cover.url + ")",
                                             backgroundSize: "cover"
@@ -172,6 +172,7 @@ const Project = ({ project, others }) => {
                             case '.mp4':
                                     return (
                                         <div
+                                            key={k}
                                             className="suggestion-item"
                                             onClick={() => { history.push(item.path) }}>
                                             <span>{ item.title }</span>
