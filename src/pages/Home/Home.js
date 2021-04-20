@@ -103,49 +103,21 @@ const Home = ({ projects, peoples }) => {
                     text={"Le travail"}
                     content={titleLeTravail} /> 
                 {
-                    projects.map((project, index) => {
-                        // if(index === 3) {
-                            return [
-                                <Block
-                                    key={index}
-                                    data={project}
-                                    handleClick={() => { history.push(project.path) }} />,
-                                // <Parallax
-                                //     key={index + "p"}
-                                //     scrollRef="family"
-                                //     title={"La Famille"}
-                                //     paragraph={textLongPlaceHolder}
-                                //     background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
-                                ]
-                        // } else if(index === 11) {
-                        //     return [
-                        //         <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />,
-                        //         <Parallax
-                        //             key={index + "p"}
-                        //             scrollRef="cousins"
-                        //             title={"Les cousines"}
-                        //             paragraph={textLongPlaceHolder}
-                        //             background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
-                        //     ]
-                        // } else if(index === 12) {
-                        //     return <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />
-                        // } else if(index >= 13) {
-                        //     return (<Block key={index} data={project} handleClick={() => { history.push(project.path) }} />)
-                        // } else {
-                        //     return <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />
-                        // }
-                    }) }
-
-                    <div className="Cta" onClick={() => setShowIsotope(!showIsotope)}>
-                        <img className={"Cta__Arrow Cta__Arrow--left" + (showIsotope ? " reverse" : "")} src={arrowIcon} alt="Arrow icon" />
-                        <div className="Cta__Text">TOUT LE<br />TRAVAIL</div>
-                        <img className={"Cta__Arrow Cta__Arrow--right" + (showIsotope ? " reverse" : "")} src={arrowIcon} alt="Arrow icon" />
-                    </div>
-
-                    {
-                        showIsotope ? <Isotope projects={projects} /> : null
-                    }
-                    
+                    projects.map((project, index) =>
+                        <Block
+                            key={index}
+                            data={project}
+                            handleClick={() => { history.push(project.path) }} />
+                    )
+                }
+                <div className="Cta" onClick={() => setShowIsotope(!showIsotope)}>
+                    <img className={"Cta__Arrow Cta__Arrow--left" + (showIsotope ? " reverse" : "")} src={arrowIcon} alt="Arrow icon" />
+                    <div className="Cta__Text">TOUT LE<br />TRAVAIL</div>
+                    <img className={"Cta__Arrow Cta__Arrow--right" + (showIsotope ? " reverse" : "")} src={arrowIcon} alt="Arrow icon" />
+                </div>
+                {
+                    showIsotope ? <Isotope projects={projects} /> : null
+                }
                 <Title
                     alt="La Famille"
                     text={"Le famille"}
@@ -178,7 +150,7 @@ const Home = ({ projects, peoples }) => {
                                 peoples.map((person, key) => {
                                     return (
                                         <div className="Person">
-                                            <img className="Person__Picture" src={person.profilePicture} />
+                                            <img className="Person__Picture" src={person.profilePicture.url} />
                                             <div className="Personn__Text">
                                                 <h4 className="Person__Name">{person.name}</h4>
                                                 <p className="Person__Description">{person.description}</p>
@@ -190,10 +162,8 @@ const Home = ({ projects, peoples }) => {
                         </Carousel>
                     </div>
                 </div>
-
                 
                 <Logo color="cousines" type="static" />
-
                 
                 <Parallax
                     title={"FAMILLE D’EXPERTS"}

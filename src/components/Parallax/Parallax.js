@@ -11,14 +11,14 @@ const Parallax = ({ scrollRef, title, paragraph, background }) => {
         window.addEventListener('scroll', function(){
             const parallaxContainer = bgParallax.current
             if (parallaxContainer) {
-                parallaxContainer.style.backgroundPositionY = (window.scrollY * 0.5) + "px"; 
+                parallaxContainer.style.backgroundPositionY = (window.scrollY * 0.7) + "px"; 
             }
         });
     }, [])
 
 
     return (
-        <section  scroll-ref={scrollRef} className="Parallax" ref={bgParallax} style={{ background: "url(" + window.location.host + background + ")" }}>
+        <section  scroll-ref={scrollRef} className="Parallax" ref={bgParallax} style={{ backgroundImage: "url(" + background + ")" }}>
             <h2 className="Parallax__Title">{title}</h2>
             <p className="Parallax__Paragraph">{paragraph}</p>
         </section>

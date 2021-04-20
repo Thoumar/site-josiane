@@ -49,7 +49,7 @@ const Routes = () => {
 			})
 		})
 		
-		fetch(serverUri + "/peoples").then((response) => {
+		fetch(serverUri + "/people").then((response) => {
 			response.json().then((jsonResponse) => {
 				setPeoples(jsonResponse)
 			})
