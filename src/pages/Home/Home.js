@@ -150,7 +150,7 @@ const Home = ({ projects, peoples }) => {
                                 peoples.map((person, key) => {
                                     return (
                                         <div className="Person">
-                                            <img className="Person__Picture" src={person.profilePicture.url} />
+                                            <img className="Person__Picture" src={person.profilePicture.url} alt="Parallax Background" />
                                             <div className="Personn__Text">
                                                 <h4 className="Person__Name">{person.name}</h4>
                                                 <p className="Person__Description">{person.description}</p>
