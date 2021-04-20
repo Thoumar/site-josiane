@@ -1,26 +1,51 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
-import Header from './../../components/Header/Header';
-import Footer from './../../components/Footer/Footer';
 import Menu from './../../components/Menu/Menu';
-import Title from './../../components/Title/Title';
-import Paragraph from './../../components/Paragraph/Paragraph';
-import Block from '../../components/Block/Block';
-import Parallax from '../../components/Parallax/Parallax';
 import Logo from './../../components/Logo/Logo';
+import Block from '../../components/Block/Block';
+import Title from './../../components/Title/Title';
+import Footer from './../../components/Footer/Footer';
+import Header from './../../components/Header/Header';
+import Isotope from './../../components/Isotope/Isotope';
+import Paragraph from './../../components/Paragraph/Paragraph';
+import Parallax from './../../components/Parallax/Parallax';
 
-import './Home.sass'
+import titleLeTravail from './../../images/titles/le_travail.svg'
+import titleMamaDesMarques from './../../images/titles/maman_des_marques.svg';
+import titleLaFamille from './../../images/titles/la_famille.svg'
 
-import ScrollReveal from 'scrollreveal'
+import arrowIcon from './../../images/icons/arrow.svg';
+
+import paraBackground from './../../images/backgrounds/parallax_background.png';
+
+import Carousel, { consts } from 'react-elastic-carousel';
+
+import './Home.sass';
+
+import ScrollReveal from 'scrollreveal';
 import { useHistory } from 'react-router';
 
-// Placeholders
-const textLongPlaceHolder = "Yeah, lots of people did. Stop! Don't shoot fire stick in space canoe! Cause explosive decompression! Oh, I always feared he might run off like this. Why, why, why didn't I break his legs? Goodbye, friends. I never thought I'd die like this. But I always really hoped.";
+import arrowRight from './../../images/icons/arrow_right.png'
+import arrowLeft from './../../images/icons/arrow_left.png';
 
-const Home = ({ projects }) => {
+// Placeholders
+const textLongPlaceHolder = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea";
+
+const Home = ({ projects, peoples }) => {
+
+    const arrows = ({ type, onClick, isEdge }) => {
+    const pointer = type === consts.PREV ? <img src={arrowLeft} alt="Arrow" /> : <img src={arrowRight} alt="Arrow" />
+    return (
+        <button onClick={onClick} style={{ display: isEdge ? "none" : "block" }}>
+            {pointer}
+        </button>
+    )
+}
+
     const history = useHistory()
 
     const [menuState, setMenuState] = useState({ isOpen: false })
+    const [showIsotope, setShowIsotope] = useState(false)
 
     const handleLinkClick = (position) => {
         if(document.querySelector('[scroll-ref="' + position + '"]')) {
@@ -63,50 +88,118 @@ const Home = ({ projects }) => {
                     onSwitchClick={handleSwitchClick}
                     isOpen={menuState.isOpen}
                 />
-                <Logo color="blue" />
+                <Logo color="blue" type="flying" />
                 <Header
                     cover={{ url: "https://res.cloudinary.com/thoumar/video/upload/v1616334851/1_Farming_Simulator_19_Farming_and_furious_d598ade095.mp4" }}
                 />
                 <Title
                     scrollRef="josiane"
-                    text={"La maman des marques"} />
+                    alt="Maman des marques"
+                    content={titleMamaDesMarques} />
                 <Paragraph
                     text={textLongPlaceHolder} />
                 <Title
-                    text={"Le travail"} /> 
+                    alt="Maman des marques"
+                    text={"Le travail"}
+                    content={titleLeTravail} /> 
                 {
                     projects.map((project, index) => {
-                        if(index === 3) {
+                        // if(index === 3) {
                             return [
                                 <Block
                                     key={index}
                                     data={project}
                                     handleClick={() => { history.push(project.path) }} />,
-                                <Parallax
-                                    key={index + "p"}
-                                    scrollRef="family"
-                                    title={"La Famille"}
-                                    paragraph={textLongPlaceHolder}
-                                    background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
+                                // <Parallax
+                                //     key={index + "p"}
+                                //     scrollRef="family"
+                                //     title={"La Famille"}
+                                //     paragraph={textLongPlaceHolder}
+                                //     background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
                                 ]
-                        } else if(index === 11) {
-                            return [
-                                <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />,
-                                <Parallax
-                                    key={index + "p"}
-                                    scrollRef="cousins"
-                                    title={"Les cousines"}
-                                    paragraph={textLongPlaceHolder}
-                                    background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
-                            ]
-                        } else if(index === 12) {
-                            return <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />
-                        } else if(index >= 13) {
-                            return (<Block key={index} data={project} handleClick={() => { history.push(project.path) }} />)
-                        } else {
-                            return <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />
-                        }
+                        // } else if(index === 11) {
+                        //     return [
+                        //         <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />,
+                        //         <Parallax
+                        //             key={index + "p"}
+                        //             scrollRef="cousins"
+                        //             title={"Les cousines"}
+                        //             paragraph={textLongPlaceHolder}
+                        //             background="https://images.unsplash.com/photo-1612446350755-6dc705c693d8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
+                        //     ]
+                        // } else if(index === 12) {
+                        //     return <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />
+                        // } else if(index >= 13) {
+                        //     return (<Block key={index} data={project} handleClick={() => { history.push(project.path) }} />)
+                        // } else {
+                        //     return <Block key={index} data={project} handleClick={() => { history.push(project.path) }} />
+                        // }
                     }) }
+
+                    <div className="Cta" onClick={() => setShowIsotope(!showIsotope)}>
+                        <img className={"Cta__Arrow Cta__Arrow--left" + (showIsotope ? " reverse" : "")} src={arrowIcon} alt="Arrow icon" />
+                        <div className="Cta__Text">TOUT LE<br />TRAVAIL</div>
+                        <img className={"Cta__Arrow Cta__Arrow--right" + (showIsotope ? " reverse" : "")} src={arrowIcon} alt="Arrow icon" />
+                    </div>
+
+                    {
+                        showIsotope ? <Isotope projects={projects} /> : null
+                    }
+                    
+                <Title
+                    alt="La Famille"
+                    text={"Le famille"}
+                    content={titleLaFamille} /> 
+
+                <div className="Family">
+                    <div className="Family__Text">
+                        <h4>AGENCE D’IDÉE</h4>
+                        <p>
+                            Ni une agence de publicité. 
+                            Ni une agence digitale. 
+                            Ni une agence intégrée.
+                            Une agence. Avec plein d’idées dedans.
+                            Avant même d’avoir des idées pour les marques, josiane pense qu’il faut d’abord
+                            avoir une certaine idée de la société dans laquelle on veut les faire émerger.
+                            josiane s’engage à faire émerger 
+                            des idées qui construisent les marques 
+                            et la société et veut inscrire 
+                            de nouveaux symboles porteurs 
+                            de progrès social dans la culture publicitaire.
+                        </p>
+                    </div>
+                    <div className="Family__Carousel">
+                        <Carousel
+                            itemsToShow={1}
+                            pagination={false}
+                            outerSpacing={5}
+                            renderArrow={arrows}>
+                            {
+                                peoples.map((person, key) => {
+                                    return (
+                                        <div className="Person">
+                                            <img className="Person__Picture" src={person.profilePicture} />
+                                            <div className="Personn__Text">
+                                                <h4 className="Person__Name">{person.name}</h4>
+                                                <p className="Person__Description">{person.description}</p>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </Carousel>
+                    </div>
+                </div>
+
+                
+                <Logo color="cousines" type="static" />
+
+                
+                <Parallax
+                    title={"FAMILLE D’EXPERTS"}
+                    paragraph={"Les Cousines de Josiane, c’est une famille de 100 experts indépendants aux parcours particulièrement riches et variés. Seules ou à plusieurs, elles répondent aux nouveaux enjeux du marketing et de la communication auxquels les entreprises font face aujourd’hui."}
+                    background={paraBackground} />
+
 				<Footer scrollRef="contact" />
             </main>
         )

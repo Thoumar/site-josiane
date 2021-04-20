@@ -1,17 +1,21 @@
 .Block
     &__Two-items-crossed-top-overlap
         display: flex
-        height: 83rem
+        min-height: 83rem
         align-items: center
         justify-content: space-around
-        margin: 0 auto 15rem auto
+        margin: 0 auto 23rem auto
+        max-width: 117rem
 
         .Block-caption
             width: 68%
             position: absolute
-            bottom: 0
+            top: 23rem
             left: 0
             z-index: 2
+
+            h4
+                margin-top: 5.5rem
 
         .Block-caption > .Video,
         .Block-caption > img
@@ -22,7 +26,7 @@
             top: 0
             right: 0
             z-index: 1
-            width: 45%
+            width: 44%
             object-fit: contain
             position: absolute
             object-position: right

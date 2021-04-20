@@ -6,7 +6,6 @@
     object-fit: cover
     z-index: 1
     background-size: cover
-    background-color: #d2d2d2
 
     &__Controls
         position: absolute
@@ -16,39 +15,28 @@
         opacity: 0
         transition: .3s ease
         display: flex
-        flex-direction: row
         align-items: center
         justify-content: space-between
         z-index: 1
+        height: 9rem
 
     &__Button
-        position: absolute
-        bottom: 5rem
-        height: 2rem
-        width: 2rem
-        z-index: 2
+        height: 3rem
+        width: 3rem
         cursor: pointer
 
         &--mute
-            left: 11rem
-            z-index: 21
+            margin-left: 2.5rem
 
         &--fullscreen
-            right: 5rem
-            z-index: 21
+            margin-right: 4.9rem
 
         &--play
-            left: 7rem
-            z-index: 21
+            margin-left: 3.5rem
 
     &__Slider
-        width: 100%
-        max-width: 70%
-        left: 50%
-        position: absolute
-        transform: translateX(-50%)
+        width: 120rem
         height: 50px
-        bottom: 3.2rem
 
     &__Track
         top: 20px

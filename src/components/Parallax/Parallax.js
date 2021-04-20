@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import './Parallax.sass';
 
 const Parallax = ({ scrollRef, title, paragraph, background }) => {
+
+    console.log(background)
     
     const bgParallax = useRef(null);
 
@@ -16,7 +18,7 @@ const Parallax = ({ scrollRef, title, paragraph, background }) => {
 
 
     return (
-        <section  scroll-ref={scrollRef} className="Parallax" ref={bgParallax}>
+        <section  scroll-ref={scrollRef} className="Parallax" ref={bgParallax} style={{ background: "url(" + window.location.host + background + ")" }}>
             <h2 className="Parallax__Title">{title}</h2>
             <p className="Parallax__Paragraph">{paragraph}</p>
         </section>

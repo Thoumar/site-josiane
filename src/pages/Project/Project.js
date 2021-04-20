@@ -3,7 +3,6 @@ import './Project.sass';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-import ReactPlayer from 'react-player';
 import Carousel, { consts } from 'react-elastic-carousel';
 import React, { useEffect, useState } from 'react';
 
@@ -17,6 +16,7 @@ import Menu from './../../components/Menu/Menu';
 
 import arrowRight from './../../images/icons/arrow_right.png'
 import arrowLeft from './../../images/icons/arrow_left.png';
+import Video from '../../components/Video/Video';
 
 const arrows = ({ type, onClick, isEdge }) => {
     const pointer = type === consts.PREV ? <img src={arrowLeft} alt="Arrow" /> : <img src={arrowRight} alt="Arrow" />
@@ -31,6 +31,15 @@ const Picture = ({ className, url }) => <div><img className={className} src={url
 
 const ProjectCarousel = ({ data }) => (
     <div className="Component__Carousel">
+            {
+                data.title && data.description
+                    ? (
+                        <div className="Component__Carousel-caption">
+                            <h4>{data.title}</h4>
+                            <p>{data.description}</p>
+                        </div>
+                    ) : null
+            }
         <Carousel
             itemsToShow={window.innerWidth > 768 ? (data.itemsToShow || 3) : 1 }
             pagination={false}
@@ -50,22 +59,36 @@ const ProjectCarousel = ({ data }) => (
 )
 
 const ProjectVideo = ({ data }) => {
+    console.log(data)
     return (
         <div className="Component__Video">
-            <ReactPlayer
-                width="100%"
-                height="100%"
-                playing={true}
-                loop
-                controls
-                muted={true}
-                url={data.Source.url} />
+            {
+                data.title && data.description
+                    ? (
+
+                        <div className="Component__Video-caption">
+                            <h4>{data.title}</h4>
+                            <p>{data.description}</p>
+                        </div>
+                    ) : null
+            }
+            <Video source={data.Source.url} />
         </div>
     )
 }
 
 const ProjectSingleCarousel = ({ data }) => (
     <div className="Component__Single-carousel">
+        {
+                data.title && data.description
+                    ? (
+
+                        <div className="Component__Single-carousel-caption">
+                            <h4>{data.title}</h4>
+                            <p>{data.description}</p>
+                        </div>
+                    ) : null
+            }
         <Carousel
             itemsToShow={data.itemsToShow || 3}
             pagination={false}

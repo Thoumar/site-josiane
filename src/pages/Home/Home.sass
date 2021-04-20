@@ -4,57 +4,117 @@
 
 .Home > *:not(.Parallax)
 
-// .LoadMore__Btn
-//     line-height: 50px
-//     height: 50px
-//     text-align: center
-//     width: 250px
-//     cursor: pointer
-//     border: none
-//     margin-bottom: 10rem
-//     color: #FFF
-//     transition: all 0.3s
-//     position: relative
+.Cta
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-bottom: 12rem
 
-//     & span
-//         transition: all 0.3s
+    &__Text
+        font-size: 1.3rem
+        color: rgba(0, 0, 0, 0.5)
+        height: 10rem
+        width: 30rem
+        border: 5px solid #F2F2F2
+        display: inline-flex
+        justify-content: center
+        align-items: center
+        letter-spacing: rgba(0, 0, 0, 0.5)
+        line-height: rgba(0, 0, 0, 0.5)
 
-//     &::before
-//         content: ''
-//         position: absolute
-//         bottom: 0
-//         left: 0
-//         width: 100%
-//         height: 100%
-//         z-index: 1
-//         opacity: 0
-//         transition: all 0.3s
-//         border-top-width: 1px
-//         border-bottom-width: 1px
-//         border-top-style: solid
-//         border-bottom-style: solid
-//         border-top-color: #025295
-//         border-bottom-color: #025295
-//         transform: scale(0.1, 1)
+    &__Arrow
+        height: 4rem
+        transition: all ease .6s
 
-//     &:hover span
-//         letter-spacing: 2px
+        &--right
+            margin-left: 3rem
 
-//     &:hover::before
-//         opacity: 1
-//         transform: scale(1, 1)
+        &--left
+            margin-right: 3rem
 
-//     &::after
-//         content: ''
-//         position: absolute
-//         bottom: 0
-//         left: 0
-//         width: 100%
-//         height: 100%
-//         z-index: 1
-//         transition: all 0.3s
-//         background-color: rgba(255,255,255,0.1)
+        &--right.reverse
+            transform: rotate(-180deg)
 
-//     &:hover::after
-//         opacity: 0
-//         transform: scale(0.1, 1)
+        &--left.reverse
+            transform: rotate(180deg)
+
+.Family
+    display: flex
+    justify-content: space-around
+    align-items: center
+    flex-direction: row
+    max-width: 145rem
+    margin: 0 auto 21rem auto
+
+    &__Text
+        width: 26%
+        text-align: left
+
+        h4
+            font-size: 2rem
+            color: #025295
+            margin-top: 6.5rem
+        p
+            font-size: 2.5rem
+
+    &__Carousel
+        width: 52%
+        height: 50rem
+        margin-top: 5rem
+        position: relative
+
+        &::after
+            content: ""
+
+        .rec-carousel
+            .rec-carousel-item
+                display: flex
+                justify-content: center
+                align-items: center
+
+            button:nth-child(1)
+                z-index: 1
+                position: absolute
+                left: 0
+                top: 50%
+                transform: translate(-30%, -50%)
+                border: none
+                background: transparent
+                cursor: pointer
+
+            button:nth-child(3)
+                z-index: 1
+                position: absolute
+                top: 50%
+                right: 0
+                transform: translate(30%, -50%)
+                border: none
+                background: transparent
+                cursor: pointer
+
+.Person
+    display: flex
+    justify-content: center
+    padding: 0 3rem
+    align-items: center
+
+    &__Picture
+        background: red
+        height: 50rem
+        width: 40rem
+        margin-right: 2rem
+
+    &__Text
+
+    &__Name
+        text-align: left
+        font: italic normal bold 40px/29px HelveticaNeue
+        letter-spacing: 0.8px
+        margin: 1rem
+        color: #000000
+
+    &__Description
+        text-align: left
+        font: normal normal 300 25px/27px HelveticaNeue
+        letter-spacing: 0.5px
+        color: #000000

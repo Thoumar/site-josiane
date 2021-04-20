@@ -17,6 +17,7 @@ const Routes = () => {
 
 	const [isLoading, setLoadingState] = useState(true)
     const [projects, setProjects] = useState([]);
+    const [peoples, setPeoples] = useState([]);
 
     const setProjectList = () => projects.map((project, i) => {
 		const randProjects = []
@@ -39,19 +40,27 @@ const Routes = () => {
         )
 	});
 
-    useEffect(() => fetch(serverUri + "/projects").then((response) => {
-        response.json().then((jsonResponse) => {
-            const jsonProjectsOrdered = jsonResponse.sort((a, b) => a.id - b.id )
-            setProjects(jsonProjectsOrdered)
-            setLoadingState(false)
-        })
-    }), [])
+    useEffect(() => {
+		fetch(serverUri + "/projects").then((response) => {
+			response.json().then((jsonResponse) => {
+				const jsonProjectsOrdered = jsonResponse.sort((a, b) => a.order - b.order ).filter(project => project.order)
+				setProjects(jsonProjectsOrdered)
+				setLoadingState(false)
+			})
+		})
+		
+		fetch(serverUri + "/peoples").then((response) => {
+			response.json().then((jsonResponse) => {
+				setPeoples(jsonResponse)
+			})
+		})
+	}, [])
 
 	return [
 		<Loader loading={isLoading} />,
 		<Switch>
 			<Route exact path="/">
-				<Home projects={projects} />
+				<Home projects={projects} peoples={peoples} />
 			</Route>
 			<Route exact path="/work">
 				<Work projects={projects} />

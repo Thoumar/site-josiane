@@ -99,27 +99,31 @@ const Video = ({ source }) => {
     return (
         <div className="Video">
             <div className="Video__Controls">
-                <img className="Video__Button Video__Button--play" src={playIconSrc} alt={""} onClick={() => { handlePlayPause() }} />
-                <img className="Video__Button Video__Button--mute" src={soundIconSrc} alt={""} onClick={() => { handleSetSoundState() }} />
-                {
-                    fullScreenState ? (
-                        <ReactSlider
-                            className="Video__Slider"
-                            thumbClassName="Video__Thumb"
-                            onMouseDown={handleSeekMouseDown}
-                            onMouseUp={handleSeekMouseUp}
-                            trackClassName="Video__Track"
-                            value={played * 100}
-                            onChange={handleSeekChange}
-                            renderThumb={(props, state) => {
-                                console.log(state.valueNow)
-                                return (
-                                    <div {...props}></div>
-                                )
-                            }}
-                        />
+                <div>
+                    <img className="Video__Button Video__Button--play" src={playIconSrc} alt={""} onClick={() => { handlePlayPause() }} />
+                    <img className="Video__Button Video__Button--mute" src={soundIconSrc} alt={""} onClick={() => { handleSetSoundState() }} />
+                </div>
+                <div>
+                    {
+                        fullScreenState ? (
+                            <ReactSlider
+                                className="Video__Slider"
+                                thumbClassName="Video__Thumb"
+                                onMouseDown={handleSeekMouseDown}
+                                onMouseUp={handleSeekMouseUp}
+                                trackClassName="Video__Track"
+                                value={played * 100}
+                                onChange={handleSeekChange}
+                                renderThumb={(props, state) => {
+                                    console.log(state.valueNow)
+                                    return (
+                                        <div {...props}></div>
+                                    )
+                                }}
+                            />
                         ) : null
                     }
+                </div>
                 <img className="Video__Button Video__Button--fullscreen" src={fullscreenIcon} alt={""} onClick={() => { handleSetFullScreenState() }} />
             </div>
             <ReactPlayer

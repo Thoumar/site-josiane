@@ -1,6 +1,5 @@
 .Block
     &__Four-items
-        max-width: 870px
         display: flex
         flex-direction: column
         align-items: flex-end
@@ -8,10 +7,13 @@
         justify-content: space-around
 
         .Block-caption
-            width: 64rem
+            width: 73.5%
             position: absolute
             left: 0
-            top: 5rem
+            top: 8rem
+
+            h4
+                margin-top: 5rem
 
         .Block-caption > .Video,
         .Block-caption > img
@@ -23,8 +25,8 @@
         & > .Video
             z-index: 2
             object-fit: cover
-            height: 22rem
-            margin: 1rem
+            height: 31rem
+            margin: 1rem 0rem
 
 @media screen and (max-width: 768px)
     .Block

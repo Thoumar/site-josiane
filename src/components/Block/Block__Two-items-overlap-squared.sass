@@ -1,26 +1,32 @@
 .Block
-    &__Two-items-overlap
+    &__Two-items-overlap-squared
         display: flex
         align-items: center
         justify-content: flex-start
-        margin: 0 auto 15rem auto
+        margin: 0 auto 22rem auto
+        max-width: 122rem
+        transform: translateX(2rem)
+
+        .Block-caption
+            h4
+                margin-top: 1.5rem
 
         .Block-caption > .Video,
         .Block-caption > img
-            width: 100%
+            transform: translateY(-3rem)
 
         & > img,
         & > .Video
             right: 0
-            top: 50%
-            width: 51%
+            top: 65%
+            width: 63%
             position: absolute
             transform: translateY(-60%)
             z-index: 2
 
 @media screen and (max-width: 768px)
     .Block
-        &__Two-items-overlap
+        &__Two-items-overlap-squared
             height: auto
             flex-direction: column-reverse
 

@@ -1,18 +1,17 @@
 .Menu
     padding: 10rem 0
     top: 0
-    right: 0
+    right: -30vw
     bottom: 0
-    width: 100%
+    width: 30vw
     z-index: 21
     display: flex
     position: fixed
     overflow: hidden
-    align-items: start
+    align-items: center
     flex-direction: column
     justify-content: space-around
     transition: all .6s cubic-bezier(1, 0, 0, 1)
-    top: 100vh
 
     &__Lang
         margin-left: 15rem
@@ -22,7 +21,6 @@
 
     &__Item:not(.Menu__Lang)
         cursor: pointer
-        margin-left: 15rem
         position: relative
 
         button
@@ -60,13 +58,13 @@
     &__Switcher
         position: fixed
         z-index: 1080
-        top: 5rem
-        right: 5rem
+        top: 5.5rem
+        right: 3.6rem
         display: flex
         align-items: center
         outline: 0
-        height: 28px
-        width: 40px
+        height: 0.6rem
+        width: 3rem
         border: 0
         padding: 0
         background: 0 0
@@ -75,7 +73,7 @@
 
         &:before, &:after
             content: ""
-            width: 40px
+            width: 2.5rem
             height: 2px
             position: absolute
             background: #fff
@@ -83,15 +81,15 @@
             will-change: transform
 
         &:before
-            transform: translateY(-6px)
+            transform: translateY(-3px)
 
         &:after
-            transform: translateY(6px)
+            transform: translateY(5px)
 
     // Menu is open
     &.open
         background-color: #F2F2F2
-        top: 0vh
+        right: 0vw
 
         .Menu__Switcher
 

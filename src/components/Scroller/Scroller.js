@@ -17,9 +17,6 @@ const Scroller = ({ text }) => {
         <div
             className="Scroller"
             style={{ opacity: 1, visibility: "inherit" }}>
-            <svg width="17" height="10" xmlns="http://www.w3.org/2000/svg" className="explore__icon">
-                <path d="M8.5 9.444L17 0 8.613 2.952 0 0z" fill="#FFF" fillRule="evenodd"></path>
-            </svg>
             {text}
         </div>
     )
