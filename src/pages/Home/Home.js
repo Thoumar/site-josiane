@@ -11,7 +11,7 @@ import Paragraph from './../../components/Paragraph/Paragraph';
 import Parallax from './../../components/Parallax/Parallax';
 
 import titleLeTravail from './../../images/titles/le_travail.svg'
-import titleMamaDesMarques from './../../images/titles/maman_des_marques.svg';
+import titleMamamDesMarques from './../../images/titles/maman_des_marques.svg';
 import titleLaFamille from './../../images/titles/la_famille.svg'
 
 import arrowIcon from './../../images/icons/arrow.svg';
@@ -93,16 +93,19 @@ const Home = ({ projects, peoples }) => {
                     onSwitchClick={handleSwitchClick}
                     isOpen={menuState.isOpen}
                 />
-                <Logo color="blue" type="flying" />
+
                 <Header
                     cover={{ url: "https://res.cloudinary.com/thoumar/video/upload/v1616334851/1_Farming_Simulator_19_Farming_and_furious_d598ade095.mp4" }}
                 />
+
+                <Logo color="blue" type="sticky" />
+                
                 <Title
                     scrollRef="josiane"
                     alt="Maman des marques"
-                    content={titleMamaDesMarques} />
+                    content={titleMamamDesMarques} />
                 <Paragraph
-                    text={textLongPlaceHolder} />
+                    htmlText={"Josiane redonne du bon sens.<br />Aux marques en quête d’idées pour grandir durablement.<br />A la société en recherche de valeurs et d’actes porteurs de progrès.<br />Au modèle des agences tenu de se réinventer. <br />C’est peut-être pour cela que Josiane a été élue agence challenger de l’année."} />
                 <Title
                     alt="Maman des marques"
                     text={"Le travail"}
@@ -132,17 +135,12 @@ const Home = ({ projects, peoples }) => {
                     <div className="Family__Text">
                         <h4>AGENCE D’IDÉE</h4>
                         <p>
-                            Ni une agence de publicité. 
-                            Ni une agence digitale. 
-                            Ni une agence intégrée.
-                            Une agence. Avec plein d’idées dedans.
-                            Avant même d’avoir des idées pour les marques, josiane pense qu’il faut d’abord
-                            avoir une certaine idée de la société dans laquelle on veut les faire émerger.
-                            josiane s’engage à faire émerger 
-                            des idées qui construisent les marques 
-                            et la société et veut inscrire 
-                            de nouveaux symboles porteurs 
-                            de progrès social dans la culture publicitaire.
+                            Comme nos clients, nos collaborateurs n’ont pas choisi Josiane par hasard.
+                            Passés par de grandes entreprises 
+                            et agences, ils souhaitent revenir 
+                            à l’essentiel pour retrouver du bon sens, du lien, et le goût des idées.<br /><br />
+
+                            C’est ça Josiane : une famille pour grandir et faire grandir.
                         </p>
                     </div>
                     <div className="Family__Carousel">
@@ -156,8 +154,9 @@ const Home = ({ projects, peoples }) => {
                                     return (
                                         <div className="Person" key={key}>
                                             <img className="Person__Picture" src={person.profilePicture.url} alt="Parallax Background" />
-                                            <div className="Personn__Text">
+                                            <div className="Person__Text">
                                                 <h4 className="Person__Name">{person.name}</h4>
+                                                <span className="Person__Position">{person.position}</span>
                                                 <p className="Person__Description">{person.description}</p>
                                             </div>
                                         </div>
@@ -172,7 +171,7 @@ const Home = ({ projects, peoples }) => {
                 
                 <Parallax
                     title={"FAMILLE D’EXPERTS"}
-                    paragraph={"Les Cousines de Josiane, c’est une famille de 100 experts indépendants aux parcours particulièrement riches et variés. Seules ou à plusieurs, elles répondent aux nouveaux enjeux du marketing et de la communication auxquels les entreprises font face aujourd’hui."}
+                    htmlText={"Les Cousines entrechoquent les cultures grâce à 100 personnalités – et pas une de plus – reconnues pour leurs expériences et expertises qui répondent aux nouveaux enjeux de transformation des entreprises :  - Stratégie d’entreprise (Business model, Corporate, RSE) - Stratégie opérationnelle (Data & transformation digitale, Marketing 360°, Communications spécialisées) - Conduite du changement (Coaching, Formation, Transformation des organisations)."}
                     background={paraBackground} />
 
 				<Footer scrollRef="contact" />

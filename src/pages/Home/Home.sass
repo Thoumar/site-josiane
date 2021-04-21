@@ -8,7 +8,7 @@
     display: inline-flex
     justify-content: center
     align-items: center
-    margin-bottom: 15rem
+    margin-bottom: 13rem
 
     &__Text
         font-size: 1.3rem
@@ -40,14 +40,14 @@
 
 .Family
     display: flex
-    justify-content: space-around
+    justify-content: space-between
     align-items: center
     flex-direction: row
     max-width: 145rem
-    margin: 0 auto 21rem auto
+    margin: 0 auto 17rem auto
 
     &__Text
-        width: 26%
+        width: 30%
         text-align: left
 
         h4
@@ -58,7 +58,7 @@
             font-size: 2.5rem
 
     &__Carousel
-        width: 52%
+        width: 65%
         height: 50rem
         margin-top: 5rem
         position: relative
@@ -67,10 +67,10 @@
             content: ""
             background-color: #F8F8F8
             position: absolute
-            right: 2rem
-            top: -5rem
-            bottom: -5rem
-            left: 30rem
+            right: 3rem
+            top: -6rem
+            bottom: -8rem
+            left: 36rem
 
         .rec-carousel
             .rec-carousel-item
@@ -106,21 +106,32 @@
 
     &__Picture
         object-fit: cover
-        height: 50rem
-        width: 40rem
-        margin-right: 2rem
+        height: 52rem
+        width: 34rem
 
     &__Text
+        min-width: 40rem
+        display: block
+        padding-left: 5rem
 
     &__Name
         text-align: left
-        font: italic normal bold 40px/29px HelveticaNeue
+        font: italic bold 40px/30px HelveticaNeue
         letter-spacing: 0.8px
-        margin: 1rem
         color: #000000
+        margin-top: 1rem
+        margin-bottom: .5rem
+
+    &__Position
+        text-align: left
+        font: italic 300 25px/30px HelveticaNeue
+        letter-spacing: 0.5px
+        color: #000000
+        width: 100%
+        display: inline-block
 
     &__Description
         text-align: left
-        font: normal normal 300 25px/27px HelveticaNeue
-        letter-spacing: 0.5px
+        font: normal 300 24px/30px HelveticaNeue
+        letter-spacing: 0.48px
         color: #000000

@@ -1,9 +1,9 @@
 import './Paragraph.sass';
 
-const Paragraph = ({ text }) => {
+const Paragraph = ({ htmlText }) => {
     return (
         <section className="Paragraph">
-            <p className="Paragraph__Text">{text}</p>
+            <p className="Paragraph__Text" dangerouslySetInnerHTML={{ __html: htmlText }}></p>
         </section>
     )
 };

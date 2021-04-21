@@ -8,6 +8,7 @@ import './Block__Four-items.sass';
 import './Block__Two-items-crossed-bottom.sass';
 import './Block__Three-items-gallery.sass';
 import './Block__Two-items-crossed-top.sass';
+import './Block__Two-items-overlap-inline.sass';
 import './Block__Two-items-crossed-top-overlap.sass';
 import './Block__Two-items-crossed-bottom-spaced.sass';
 import './Block__Two-items-crossed-bottom-squared.sass';
@@ -42,6 +43,8 @@ const getDispositionClass = (disposition) => {
             return 'Block__Three-items-gallery'
         case 'two_items_l_style':
             return 'Block__Two-items-l-style'
+        case 'two_items_overlap_inline':
+            return 'Block__Two-items-overlap-inline' 
         default:
             return ""
             

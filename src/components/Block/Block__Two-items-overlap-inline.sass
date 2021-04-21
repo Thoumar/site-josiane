@@ -1,37 +1,36 @@
 .Block
-    &__Two-items-crossed-bottom
+    &__Two-items-overlap-inline
         display: flex
         align-items: center
         justify-content: flex-start
-        margin: 0 auto 19rem auto
+        margin: 0 auto 18rem auto
+        max-width: 97rem
 
         .Block-caption
-            width: 51%
-            z-index: 2
-            margin-left: 3rem
-            margin-top: 3rem
+            width: 58%
 
             h4
-                margin-top: 7rem
+                margin-top: 5rem
 
         .Block-caption > .Video,
         .Block-caption > img
-            width: 100%
+            height: 56rem
             object-fit: cover
 
         & > img,
-        & > video
-
-            margin-right: 3rem
-            width: 52.5%
-            position: absolute
-            top: 23rem
+        & > .Video
+            height: 46rem
             right: 0
+            top: 48%
+            width: 50%
+            position: absolute
+            transform: translateY(-60%)
             z-index: 2
+            object-fit: cover
 
 @media screen and (max-width: 768px)
     .Block
-        &__Two-items-crossed-bottom
+        &__Two-items-overlap
             height: auto
             flex-direction: column-reverse
 
@@ -51,4 +50,5 @@
                 position: relative
                 height: auto
                 width: 90%
+                margin-left: 0
                 margin-bottom: 2rem
