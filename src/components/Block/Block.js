@@ -76,6 +76,10 @@ const renderItem = ({ ext, url, alt, background }, index) => {
             return (
                 <img className="Block-illustration Block-illustration-image" src={url} alt={alt} key={index + "-picture-item"} />
             )
+        case '.jpg':
+            return (
+                <img className="Block-illustration Block-illustration-image" src={url} alt={alt} key={index + "-picture-item"} />
+            )
         case '.mp4':
             return (<VideoItem url={url} background={background} />)
         default:
