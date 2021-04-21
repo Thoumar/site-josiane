@@ -42,7 +42,7 @@ const Logo = ({ color, type, isUnderHeader }) => {
 
     return (
         <img
-            className={"Logo" + " " + type}
+            className={"Logo " + type}
             style={{ top: height + "vh" }}
             ref={logoRef}
             src={logoSrc}
