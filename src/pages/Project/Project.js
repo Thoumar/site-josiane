@@ -142,10 +142,26 @@ const Project = ({ project, others }) => {
 
     return (
         <div className="Project">
-            <Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
-            <Logo color="blue" />
-            <Header cover={cover} title={title} subtitle={subtitle} />
-            <div className="Project__Description" dangerouslySetInnerHTML={{__html: long_description}}>
+            <Menu
+                onLinkClick={handleLinkClick}
+                onSwitchClick={handleSwitchClick}
+                isOpen={menuState.isOpen}
+            />
+
+            <Logo
+                color="blue"
+                type="sticky"
+                isUnderHeader={false}
+            />
+
+            <Header
+                cover={cover} title={title}
+                subtitle={subtitle}
+            />
+
+            <div
+                className="Project__Description"
+                dangerouslySetInnerHTML={{__html: long_description}}>
             </div>
 
             {

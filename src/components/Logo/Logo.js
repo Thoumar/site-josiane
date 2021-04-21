@@ -7,15 +7,18 @@ import { useHistory } from 'react-router-dom';
 
 import './Logo.sass'
 
-const Logo = ({ color, type }) => {
+const Logo = ({ color, type, isUnderHeader }) => {
 
-    var logoRef = useRef(null)
+    const logoRef = useRef(null)
     const history  = useHistory()
+
+    const height = isUnderHeader ? 105 : 4
+    const flyingTreshold = isUnderHeader ?  window.innerHeight - 10 : 0
 
     if(type === "sticky") {
         window.onscroll = () => {
-            // console.log(window.pageYOffset, window.innerHeight, logoRef.current)
-            if (window.pageYOffset > window.innerHeight - 10) {
+            console.log(window.pageYOffset > flyingTreshold)
+            if (window.pageYOffset > flyingTreshold) {
                 logoRef.current.classList.add("flying");
             } else {
                 logoRef.current.classList.remove("flying");
@@ -40,6 +43,7 @@ const Logo = ({ color, type }) => {
     return (
         <img
             className={"Logo" + " " + type}
+            style={{ top: height + "vh" }}
             ref={logoRef}
             src={logoSrc}
             onClick={() => history.push("/")}

@@ -28,9 +28,6 @@ import { useHistory } from 'react-router';
 import arrowRight from './../../images/icons/arrow_right.png'
 import arrowLeft from './../../images/icons/arrow_left.png';
 
-// Placeholders
-const textLongPlaceHolder = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea";
-
 const Home = ({ projects, peoples }) => {
 
     const arrows = ({ type, onClick, isEdge }) => {
@@ -98,14 +95,17 @@ const Home = ({ projects, peoples }) => {
                     cover={{ url: "https://res.cloudinary.com/thoumar/video/upload/v1616334851/1_Farming_Simulator_19_Farming_and_furious_d598ade095.mp4" }}
                 />
 
-                <Logo color="blue" type="sticky" />
+                <Logo color="blue" type="sticky" isUnderHeader={true} />
                 
                 <Title
                     scrollRef="josiane"
                     alt="Maman des marques"
+                    withMarginTop={true}
                     content={titleMamamDesMarques} />
+
                 <Paragraph
                     htmlText={"Josiane redonne du bon sens.<br />Aux marques en quête d’idées pour grandir durablement.<br />A la société en recherche de valeurs et d’actes porteurs de progrès.<br />Au modèle des agences tenu de se réinventer. <br />C’est peut-être pour cela que Josiane a été élue agence challenger de l’année."} />
+                
                 <Title
                     alt="Maman des marques"
                     text={"Le travail"}
@@ -167,7 +167,7 @@ const Home = ({ projects, peoples }) => {
                     </div>
                 </div>
                 
-                <Logo color="cousines" type="static" />
+                <Logo color="cousines" type="static" isUnderHeader={true} />
                 
                 <Parallax
                     title={"FAMILLE D’EXPERTS"}

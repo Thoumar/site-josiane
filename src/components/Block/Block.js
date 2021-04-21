@@ -95,6 +95,7 @@ const renderFirstItem = (item, { title, domain, short_description }, index) => {
 }
 
 const Block = ({ data, handleClick }) => {
+    console.log(data)
     const { path, title, disposition, domain,short_description, previews, size } = data
     const dispositionClass = " " + getDispositionClass(disposition)
     const sizeClass = " " + getSizeClass(size)

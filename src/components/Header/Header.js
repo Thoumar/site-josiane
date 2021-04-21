@@ -24,7 +24,7 @@ const Header = ({ cover, title, subtitle }) => {
             <div className="Header__Title">
                 { title ? <h1>{title}</h1> : null }
                 { subtitle ? <span>{subtitle}</span> : null }
-                <img src={logoBlueFull} alt="Logo Josiane" />
+                { title || subtitle ? null : <img src={logoBlueFull} alt="Logo Josiane" /> }
             </div>
             { backgroundMedia }
             <Scroller text="Scroll" />

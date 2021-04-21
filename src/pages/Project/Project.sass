@@ -28,11 +28,16 @@
         position: relative
         margin: 0 auto 15rem auto
         color: #7F7F7F
-        max-width: 80%
+        max-width: 148rem
         border-left: 2px solid #EAEAEA
-        padding: 4.5rem 0 0 3rem
+        padding: 20rem 0 0 2rem
 
-        > p
+        h4
+            margin: 2rem 0 0 0
+            display: inline-block
+            height: auto
+
+        p
             padding-right: 40%
             margin: 0
 
@@ -51,7 +56,7 @@
             display: block
             padding: 1rem
             width: 33.33%
-            height: 20rem
+            height: auto
             box-sizing: border-box
             border: 3px solid white
 
@@ -81,23 +86,10 @@
     &__Carousel,
     &__Single-carousel
         position: relative
-        max-width: 80%
-        max-height: 55rem
-        margin: 30rem auto 15rem auto
+        margin: 30rem auto 28rem auto
 
         .slick-slide img
             width: 100%
-
-        &::before
-            content: ""
-            background-color: #F2F2F2
-            height: 120%
-            width: 80%
-            position: absolute
-            left: 50%
-            transform: translate(-50%, -50%)
-            top: 50%
-            z-index: -1
 
         .slick-slide
             margin: 0 20px
@@ -110,14 +102,13 @@
         justify-content: center
         align-items: center
         position: relative
-        width: 80%
-        max-width: 120rem
+        max-width: 150rem
         margin: 15rem auto
         flex-direction: column
 
         &-caption
             width: 100%
-            padding-bottom: 5rem
+            padding-bottom: 14rem
             border-left: 2px solid #EAEAEA
 
             h4
@@ -139,19 +130,31 @@
                 letter-spacing: 3px
 
 .Carousel__Image
-    max-width: 32rem
     box-shadow: 0px 5px 20px 4px rgba(158, 158, 158, 0.2)
 
 .Carousel__Single-Image
-    max-width: 80%
-    transform: scale(1.4)
+    // max-width: 80%
+    // transform: scale(1.4)
 
 .Component__Carousel
+    min-height: 70rem
+
+    &::before
+        content: ""
+        background-color: #F2F2F2
+        height: 118%
+        width: 118rem
+        position: absolute
+        left: 50%
+        transform: translate(-50%, -42%)
+        top: 50%
+        z-index: -1
+
     &-caption
         position: absolute
         top: -12rem
-        left: 2rem
-        height: 20rem
+        left: 4rem
+        height: 100%
         border-left: 2px solid #EAEAEA
 
         h4
@@ -203,15 +206,24 @@
             cursor: pointer
 
 .Component__Single-carousel
+    max-width: 150rem
+
+    &::before
+        content: ""
+        background-color: #F2F2F2
+        height: 76rem
+        width: 100%
+        position: absolute
+        left: 50%
+        transform: translate(-50%, -50%)
+        top: 50%
+        z-index: -1
 
     &-caption
-        width: 80%
-        margin: 0 auto
-        left: 50%
+        width: 100%
         position: absolute
         top: -12rem
-        height: 20rem
-        transform: translateX(-50%)
+        height: 100%
         border-left: 2px solid #EAEAEA
 
         h4
@@ -289,8 +301,6 @@
 
     .Component__Carousel, .Component__Single-carousel
         position: relative
-        max-width: 80%
-        max-height: 55rem
         margin: 10rem auto 15rem auto
 
     .Component__Video
@@ -301,3 +311,6 @@
     display: flex
     align-items: center
     justify-content: center
+
+.Component__Carousel > .rec.rec-carousel-wrapper > div
+    margin-top: 10rem
