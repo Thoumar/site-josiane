@@ -45,7 +45,20 @@ const Isotope = ({ projects, scrollRef }) => {
                                             className={"filter-item" + (project.filters ? " " + project.filters : "")}
                                             onClick={() => { history.push(project.path) }} 
                                             style={{
-                                                backgroundImage: "url(" + project.cover.url + ")",
+                                                backgroundImage: "url(" + project.isotope_cover.url + ")",
+                                                backgroundSize: "cover"
+                                            }}>
+                                            <span>{ project.title }</span>
+                                        </div>
+                                    )
+                                case '.jpg':
+                                    return (
+                                        <div
+                                            key={i}
+                                            className={"filter-item" + (project.filters ? " " + project.filters : "")}
+                                            onClick={() => { history.push(project.path) }} 
+                                            style={{
+                                                backgroundImage: "url(" + project.isotope_cover.url + ")",
                                                 backgroundSize: "cover"
                                             }}>
                                             <span>{ project.title }</span>
@@ -58,11 +71,11 @@ const Isotope = ({ projects, scrollRef }) => {
                                             className={"filter-item" + (project.filters ? " " + project.filters : "")}
                                             onClick={() => { history.push(project.path) }} 
                                             style={{
-                                                backgroundImage: "url(" + project.cover.url + ")",
+                                                backgroundImage: "url(" + project.isotope_cover.url + ")",
                                                 backgroundSize: "cover"
                                             }}>
                                             <video controls autoPlay muted width="100%" height="100%">
-                                                <source src={project.cover.url} />
+                                                <source src={project.isotope_cover.url} />
                                             </video>
                                             <span>{ project.title }</span>
                                         </div>
