@@ -17,7 +17,6 @@ const Logo = ({ color, type, isUnderHeader }) => {
 
     if(type === "sticky") {
         window.onscroll = () => {
-            console.log(window.pageYOffset > flyingTreshold)
             if (window.pageYOffset > flyingTreshold) {
                 logoRef.current.classList.add("flying");
             } else {

@@ -30,9 +30,25 @@
             height: 31rem
             margin: 1rem 0rem
 
+@media screen and (max-width: 1024px)
+    .Block
+        &__Four-items
+
+            .Block-caption
+
+                h4
+
+            .Block-caption > .Video,
+            .Block-caption > img
+
+            & > img,
+            & > .Video
+                height: 28rem
+
 @media screen and (max-width: 768px)
     .Block
         &__Four-items
+            transform: unset
             height: auto
             align-items: center
             flex-direction: column-reverse
@@ -40,7 +56,7 @@
             .Block-caption
                 min-width: auto
                 height: auto
-                width: 90%
+                width: 100%
                 position: relative
                 transform: translateY(0)
 
@@ -52,5 +68,5 @@
             & > img,
             & > .Video
                 height: auto
-                width: 90%
+                width: 100%
                 margin-bottom: 2rem

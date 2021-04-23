@@ -31,7 +31,7 @@
 
 @media screen and (max-width: 768px)
     .Block
-        &__Two-items-overlap
+        &__Two-items-overlap-inline
             height: auto
             flex-direction: column-reverse
 
@@ -39,17 +39,25 @@
                 min-width: auto
                 position: relative
                 height: auto
-                width: 90%
+                width: 100%
 
             .Block-caption > .Video,
             .Block-caption > img
                 height: auto
                 width: auto
+                top: unset
+                left: unset
+                right: unset
+                transform: unset
 
             & > img,
             & > .Video
                 position: relative
                 height: auto
-                width: 90%
+                width: 100%
                 margin-left: 0
                 margin-bottom: 2rem
+                top: unset
+                left: unset
+                right: unset
+                transform: unset

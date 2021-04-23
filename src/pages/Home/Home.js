@@ -45,7 +45,6 @@ const Home = ({ projects, peoples }) => {
     const [showIsotope, setShowIsotope] = useState(false)
 
     const handleLinkClick = (position) => {
-        console.log(position)
         if(document.querySelector('[scroll-ref="' + position + '"]')) {
             setMenuState({ iOpen: false })
             document.querySelector('[scroll-ref="' + position + '"]')

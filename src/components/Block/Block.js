@@ -1,4 +1,5 @@
 import React from 'react'
+
 import './Block.sass';
 import './Block__Two-items.sass';
 import './Block__Two-items-aligned.sass';
@@ -89,7 +90,14 @@ const renderItem = ({ ext, url, alt, background }, index) => {
 
 const renderFirstItem = (item, { title, domain, short_description }, index) => {
     return (
-        <div className={"Block-caption"} key={index + "-first-item"}>
+        // <Parallax className="Block-caption" y={[20, -20]} tagOuter="div" key={index + "-first-item"}>
+        //     {renderItem(item)}
+        //     <h4>{title}</h4>
+        //     {parse(short_description)}
+        //     {parse(`<p>${domain}</p>`)}
+        // </Parallax>
+        
+        <div className="Block-caption" key={index + "-first-item"}>
             {renderItem(item)}
             <h4>{title}</h4>
             {parse(short_description)}

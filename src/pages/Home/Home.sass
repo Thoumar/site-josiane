@@ -9,6 +9,7 @@
     justify-content: center
     align-items: center
     margin-bottom: 27rem
+    width: 100%
 
     &__Text
         font-size: 1.3rem
@@ -44,6 +45,7 @@
     align-items: center
     flex-direction: row
     max-width: 145rem
+    width: 80%
     margin: 0 auto 17rem auto
 
     &__Text
@@ -54,6 +56,7 @@
             font-size: 2rem
             color: #025295
             margin-top: 6.5rem
+
         p
             font-size: 2.5rem
 
@@ -110,7 +113,7 @@
         width: 34rem
 
     &__Text
-        min-width: 40rem
+        min-width: 35rem
         display: block
         padding-left: 5rem
 
@@ -135,3 +138,39 @@
         font: normal 300 24px/30px HelveticaNeue
         letter-spacing: 0.48px
         color: #000000
+
+@media screen and (max-width: 465px)
+    .Cta
+        margin-bottom: 10rem
+
+@media screen and (max-width: 768px)
+    .Family
+        height: auto
+        flex-direction: column
+
+        &__Text
+            width: 100%
+
+        &__Carousel
+            width: 100%
+            height: auto
+            margin-top: 10rem
+
+@media screen and (max-width: 1440px)
+    .Family__Carousel::before
+        content: ""
+        background-color: #F8F8F8
+        position: absolute
+        right: 3rem
+        top: -4rem
+        bottom: -15rem
+        left: 20rem
+
+.Person
+    &__Description
+        font-size: 2rem
+
+    &__Text
+        min-width: 35rem
+        padding-left: 3rem
+        padding-right: 3rem

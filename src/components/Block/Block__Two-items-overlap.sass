@@ -8,6 +8,7 @@
         transform: translateX(-1rem)
 
         .Block-caption
+            width: 80rem
 
             h4
                 margin-top: 5rem
@@ -30,12 +31,18 @@
         &__Two-items-overlap
             height: auto
             flex-direction: column-reverse
+            transform: unset
 
             .Block-caption
                 min-width: auto
                 position: relative
                 height: auto
-                width: 90%
+                width: 100%
+                top: unset
+                left: unset
+                right: unset
+                bottom: unset
+                transform: unset
 
             .Block-caption > .Video,
             .Block-caption > img
@@ -46,6 +53,11 @@
             & > .Video
                 position: relative
                 height: auto
-                width: 90%
+                width: 100%
                 margin-left: 0
                 margin-bottom: 2rem
+                top: unset
+                left: unset
+                right: unset
+                bottom: unset
+                transform: unset

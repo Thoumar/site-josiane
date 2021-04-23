@@ -6,19 +6,39 @@
         max-width: 138rem
 
         .Block-caption
+            width: 30%
+            height: 25vw
 
             h4
                 margin-top: 5rem
 
         .Block-caption > video,
         .Block-caption > img
-            height: 40rem
+            height: 25vw
             object-fit: cover
 
         & > img,
         & > video
-            height: 40rem
+            width: 30%
+            height: 25vw
             object-fit: cover
+
+@media screen and (max-width: 1024px)
+    .Block
+        &__Two-items-crossed-bottom
+
+            .Block-caption
+
+                h4
+
+            .Block-caption > .Video,
+            .Block-caption > img,
+            .Block-caption > div
+                height: 34rem
+
+            & > img,
+            & > video
+                height: 34rem
 
 @media screen and (max-width: 768px)
     .Block
@@ -31,7 +51,7 @@
                 min-width: auto
                 position: relative
                 height: auto
-                width: 90%
+                width: 100%
 
             .Block-caption > video,
             .Block-caption > img
@@ -42,5 +62,5 @@
             & > video
                 position: relative
                 height: auto
-                width: 90%
+                width: 100%
                 margin-bottom: 2rem

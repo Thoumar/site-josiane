@@ -1,9 +1,21 @@
 .Title
     margin: 0rem auto 6rem auto
-    width: 105rem
+    width: 100%
+    max-width: 105rem
 
     img
         text-align: center
         height: 4.8rem
         width: 100%
         object-fit: cover
+
+@media screen and (max-width: 768px)
+    .Title
+
+        img
+
+            height: 3.2rem
+
+@media screen and (max-width: 425px)
+    .Title img
+        height: 2.2rem

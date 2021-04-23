@@ -1,7 +1,7 @@
 .Block
     &__Two-items
         display: flex
-        margin: 0 auto 10rem auto
+        margin: 0 auto 20rem auto
         align-items: flex-start
         justify-content: space-between
 
@@ -23,6 +23,7 @@
 
 @media screen and (max-width: 768px)
     .Block
+
         &__Two-items
             height: auto
             flex-direction: column-reverse
@@ -30,7 +31,8 @@
             .Block-caption
                 min-width: auto
                 height: auto
-                width: 90%
+                width: 100%
+                margin: 0 auto
 
             .Block-caption > .Video,
             .Block-caption > img
@@ -40,5 +42,5 @@
             & > img,
             & > .Video
                 height: auto
-                width: 90%
-                margin-bottom: 2rem
+                width: 100%
+                margin: 0 auto 5rem auto
