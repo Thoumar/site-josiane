@@ -2,7 +2,6 @@ import React from 'react';
 
 import Video from './../Video/Video';
 import Scroller from './../Scroller/Scroller';
-import logoBlueFull from './../../images/logos/logo_blue_full.png';
 
 import './Header.sass';
 
@@ -24,7 +23,6 @@ const Header = ({ cover, title, subtitle }) => {
             <div className="Header__Title">
                 { title ? <h1>{title}</h1> : null }
                 { subtitle ? <span>{subtitle}</span> : null }
-                { title || subtitle ? null : <img src={logoBlueFull} alt="Logo Josiane" /> }
             </div>
             { backgroundMedia }
             <Scroller text="Scroll" />

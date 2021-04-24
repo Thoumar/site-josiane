@@ -21,7 +21,7 @@ const Routes = () => {
 
     const setProjectList = () => projects.map((project, i) => {
 
-		const recommendedProjects = projects
+		const recommendedProjects = [...projects]
 			.sort(() => Math.random() - 0.5)
 			.filter(reco => reco.filters !== project.filters)
 			.slice(0, 3)

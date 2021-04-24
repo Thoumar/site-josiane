@@ -20,6 +20,8 @@
     transform: translateX(-50%)
     justify-content: space-between
     font: normal normal 13px/15px "HelveticaNeue"
+    animation: opacityOff 2s normal forwards
+    animation-delay: 3s
 
     &::before
         content: ""
@@ -29,6 +31,12 @@
         background: #CCCCCC
         -webkit-animation: move-line 2s linear infinite
         animation: move-line 2s linear infinite
+
+@keyframes opacityOff
+    0%
+        opacity: 1
+    100%
+        opacity: 0
 
 @media screen and (max-width: 768px)
     .Scroller
