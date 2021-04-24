@@ -16,13 +16,17 @@
 
         > li
             color: #7F7F7F
-            margin: 0 4rem
             cursor: pointer
+            width: 17rem
+            font-family: 'HelveticaNeueLight'
+            font-size: 1.1rem
+            transition: all .2s
 
             &.active
+                font-family: 'HelveticaNeueBold'
                 color: #025295
 
-    .filter-container
+    &__Container
         margin: 0 auto
         width: 100%
         display: flex
@@ -30,25 +34,27 @@
         justify-content: space-around
         padding: 0
 
-        .filter-item
-            background-position: center
-            position: relative
-            cursor: pointer
-            overflow: hidden
+    &__Item
+        overflow: hidden
+        cursor: pointer
+        width: 33.33%
+
+        &:after
+            content: ""
             display: block
-            width: 33.33%
-            height: 70rem
-            box-sizing: border-box
+            padding-bottom: 100%
 
-            video
-                position: absolute
-                top: 0
-                left: 0
-                height: 100%
+        div
+            position: absolute
+            width: 100%
+            height: 100%
+
+            img
                 width: 100%
-                z-index: -1
+                height: 100%
+                object-fit: cover
 
-            span
+            .Isotope__Description
                 padding: 0 0 4rem 4rem
                 box-sizing: border-box
                 height: 100%
@@ -56,18 +62,34 @@
                 font-size: 2rem
                 font-weight: bold
                 color: white
-                background: rgba(2, 82, 149, 0.5)
-                display: flex
+                background: rgba(2, 82, 149, 0.7)
                 bottom: 0
-                justify-content: flex-start
-                align-items: flex-end
                 transform: translateY(-100%)
                 opacity: 0
                 transition: all .3s ease
+                display: flex
+                flex-direction: column
+                justify-content: flex-end
+                align-items: flex-start
 
-        .filter-item:hover span
-            opacity: 1
-            transform: translateY(0)
+                & > span:nth-child(1)
+                    margin-bottom: 0.5rem
+                    font-family: 'HelveticaNeueMedium'
+                    letter-spacing: 1px
+                    font-weight: 500
+                    color: white
+
+                & > span:nth-child(2)
+                    text-align: left
+                    font-size: 1.3rem
+                    margin: 0
+                    color: white
+                    font-weight: 500
+                    letter-spacing: 1.1px
+
+    &__Item:hover .Isotope__Description
+        opacity: 1
+        transform: translateY(0)
 
 @media screen and (max-width: 465px)
     .Isotope .filter-container .filter-item

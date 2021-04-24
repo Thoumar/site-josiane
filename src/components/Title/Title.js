@@ -1,12 +1,12 @@
 import './Title.sass'
 
-const Title = ({ scrollRef, content, alt, withMarginTop }) => {
+const Title = ({ scrollRef, text, withMarginTop }) => {
     return (
         <h2
             className="Title"
-            style={{ marginTop: withMarginTop ? "16rem" : "0" }}
+            style={{ marginTop: withMarginTop ? "12rem" : "0" }}
             scroll-ref={scrollRef}>
-                <img src={content} alt={alt} />
+                {text}
         </h2>
     )
 }

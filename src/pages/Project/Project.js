@@ -175,8 +175,10 @@ const Project = ({ project, others }) => {
                                 key={k}
                                 className="Suggestions__item"
                                 onClick={() => { history.push(item.path) }}>
+                                <div>
                                     <img src={item.isotope_cover.url} alt="Suggestion project" />
                                     <span>{ item.title }</span>
+                                </div>
                             </div>
                         )
                     })

@@ -1,6 +1,6 @@
 
 import React, { useRef } from 'react';
-import logoBlue from './../../images/logos/logo_blue.png';
+import logoBlue from './../../images/logos/logo_blue.svg';
 import logoCousines from './../../images/logos/logo_cousines.svg';
 
 import { useHistory } from 'react-router-dom';

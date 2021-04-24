@@ -10,8 +10,8 @@ const Isotope = ({ projects, scrollRef }) => {
     const [filterKey, setFilterKey] = useState('*')
 
     useEffect(() => {
-        isotope.current = new IsoTope('.filter-container', {
-            itemSelector: '.filter-item',
+        isotope.current = new IsoTope('.Isotope__Container', {
+            itemSelector: '.Isotope__Item',
             layoutMode: 'fitRows',
         })
         return () => isotope.current.destroy()
@@ -34,56 +34,23 @@ const Isotope = ({ projects, scrollRef }) => {
                     <li className={filterKey === "causes" ? "active" : ""} onClick={handleFilterKeyChange('causes')}>Les grandes causes</li>
                     <li className={filterKey === "activations" ? "active" : ""} onClick={handleFilterKeyChange('activations')}>Les activations</li>
                 </ul>
-                <ul className="filter-container">
+                <ul className="Isotope__Container">
                     {
                         projects.map((project, i) => {
-                            console.log(project.isotope_cover.ext)
-                            switch (project.isotope_cover.ext) {
-                                case '.png':
-                                    return (
-                                        <div
-                                            key={i}
-                                            className={"filter-item" + (project.filters ? " " + project.filters : "")}
-                                            onClick={() => { history.push(project.path) }} 
-                                            style={{
-                                                backgroundImage: "url(" + project.isotope_cover.url + ")",
-                                                backgroundSize: "cover"
-                                            }}>
+                            return (
+                                <div
+                                    key={i}
+                                    className={"Isotope__Item" + (project.filters ? " " + project.filters : "")}
+                                    onClick={() => { history.push(project.path) }}>
+                                    <div>
+                                        <img src={project.isotope_cover.url} alt="Isotope item" />
+                                        <div className="Isotope__Description">
                                             <span>{ project.title }</span>
+                                            <span>{ project.subtitle }</span>
                                         </div>
-                                    )
-                                case '.jpg':
-                                    return (
-                                        <div
-                                            key={i}
-                                            className={"filter-item" + (project.filters ? " " + project.filters : "")}
-                                            onClick={() => { history.push(project.path) }} 
-                                            style={{
-                                                backgroundImage: "url(" + project.isotope_cover.url + ")",
-                                                backgroundSize: "cover"
-                                            }}>
-                                            <span>{ project.title }</span>
-                                        </div>
-                                    )
-                                case '.mp4':
-                                    return (
-                                        <div
-                                            key={i}
-                                            className={"filter-item" + (project.filters ? " " + project.filters : "")}
-                                            onClick={() => { history.push(project.path) }} 
-                                            style={{
-                                                backgroundImage: "url(" + project.isotope_cover.url + ")",
-                                                backgroundSize: "cover"
-                                            }}>
-                                            <video controls autoPlay muted width="100%" height="100%">
-                                                <source src={project.isotope_cover.url} />
-                                            </video>
-                                            <span>{ project.title }</span>
-                                        </div>
-                                    )
-                                default:
-                                    return null
-                            }
+                                    </div>
+                                </div>
+                            )
                         })
                     }
                 </ul>

@@ -14,8 +14,12 @@
     &__Text
         font-size: 1.3rem
         color: rgba(0, 0, 0, 0.5)
-        height: 10rem
-        width: 30rem
+
+        height: 8rem
+        width: 26rem
+        cursor: pointer
+        letter-spacing: 2.2px
+        font-family: 'HelveticaNeueMedium'
         border: 5px solid #F2F2F2
         display: inline-flex
         justify-content: center
@@ -53,12 +57,18 @@
         text-align: left
 
         h4
-            font-size: 2rem
+            font-family: 'HelveticaNeueMedium'
+            font-weight: 100
+            letter-spacing: 4px
+            font-size: 1.5rem
             color: #025295
-            margin-top: 6.5rem
 
         p
-            font-size: 2.5rem
+            font-family: "HelveticaNeueExtraLight"
+            font-size: 1.7rem
+            color: rgba(0, 0, 0, 0.5)
+            letter-spacing: 0.5px
+            line-height: 1.9rem
 
     &__Carousel
         width: 65%
@@ -116,28 +126,31 @@
         min-width: 35rem
         display: block
         padding-left: 5rem
+        text-align: left
 
     &__Name
-        text-align: left
-        font: italic bold 40px/30px HelveticaNeue
-        letter-spacing: 0.8px
-        color: #000000
+        font-family: 'HelveticaNeueBold'
+        font-style: italic
+        font-size: 3.5rem
+        color: rgba(0, 0, 0, .5)
         margin-top: 1rem
-        margin-bottom: .5rem
+        margin-bottom: -.5rem
 
     &__Position
-        text-align: left
-        font: italic 300 25px/30px HelveticaNeue
-        letter-spacing: 0.5px
-        color: #000000
+        font-family: 'HelveticaNeueLight'
+        font-style: italic
+        font-size: 2rem
+        color: rgba(0, 0, 0, .5)
+        letter-spacing: 0.3px
         width: 100%
         display: inline-block
 
     &__Description
-        text-align: left
-        font: normal 300 24px/30px HelveticaNeue
-        letter-spacing: 0.48px
-        color: #000000
+        font-family: "HelveticaNeueExtraLight"
+        font-size: 1.7rem
+        color: rgba(0, 0, 0, 0.5)
+        letter-spacing: 0.5px
+        line-height: 1.9rem
 
 @media screen and (max-width: 465px)
     .Cta
@@ -168,7 +181,6 @@
 
 .Person
     &__Description
-        font-size: 2rem
 
     &__Text
         min-width: 35rem

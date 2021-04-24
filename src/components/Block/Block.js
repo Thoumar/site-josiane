@@ -65,7 +65,7 @@ const getSizeClass = (size) => {
 const VideoItem = ({ url, background }) => {
     return (
         <div style={{ backgroundImage: "url('" + background + "')"}}>
-            <Video source={url} />
+            <Video source={url} controls={false} />
         </div>
     )
 }
@@ -88,7 +88,7 @@ const renderItem = ({ ext, url, alt, background }, index) => {
     }
 }
 
-const renderFirstItem = (item, { title, domain, short_description }, index) => {
+const renderFirstItem = (item, { title, subtitle, short_description }, index) => {
     return (
         // <Parallax className="Block-caption" y={[20, -20]} tagOuter="div" key={index + "-first-item"}>
         //     {renderItem(item)}
@@ -100,15 +100,14 @@ const renderFirstItem = (item, { title, domain, short_description }, index) => {
         <div className="Block-caption" key={index + "-first-item"}>
             {renderItem(item)}
             <h4>{title}</h4>
-            {parse(short_description)}
-            {parse(`<p>${domain}</p>`)}
+            <p>{subtitle || ""}</p>
         </div>
     )
 }
 
 const Block = ({ data, handleClick }) => {
     console.log(data)
-    const { path, title, disposition, domain,short_description, previews, size } = data
+    const { path, title, disposition, subtitle, short_description, previews, size } = data
     const dispositionClass = " " + getDispositionClass(disposition)
     const sizeClass = " " + getSizeClass(size)
 
@@ -117,7 +116,7 @@ const Block = ({ data, handleClick }) => {
                 {
                     previews.map((item, i) => {
                         if(i === 0) {
-                            return renderFirstItem(item, { title, domain, short_description })
+                            return renderFirstItem(item, { title, subtitle, short_description })
                         } else {
                             return renderItem(item, i)
                         }

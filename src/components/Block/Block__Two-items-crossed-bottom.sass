@@ -3,13 +3,13 @@
         display: flex
         align-items: center
         justify-content: flex-start
-        margin: 0 auto 18rem auto
+        margin: 0 auto 13rem auto
 
         .Block-caption
-            width: 51%
+            width: 60%
             z-index: 2
-            margin-left: 3rem
-            margin-top: 3rem
+            margin-left: 0rem
+            margin-top: 0rem
 
             h4
                 margin-top: 7rem
@@ -21,16 +21,18 @@
             height: 56rem
             object-fit: cover
 
+        & > div:not(.Block-caption),
         & > img,
         & > video
-            height: 48rem
             object-fit: cover
-            margin-right: 3rem
-            width: 52.5%
-            position: absolute
-            top: 22rem
-            right: 0
+            margin-right: 0rem
             z-index: 2
+            position: absolute
+            width: 55%
+            top: 11rem
+            height: 30rem
+            right: 0
+            transform: translateX(5rem)
 
 @media screen and (max-width: 1024px)
     .Block

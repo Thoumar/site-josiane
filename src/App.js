@@ -7,7 +7,6 @@ import Routes from './Routes';
 
 // Style
 import './App.sass';
-import './fonts/HelveticaNeue.ttf';
 
 const App = () => {
 	return (

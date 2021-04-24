@@ -12,7 +12,7 @@ import pauseIcon from './../../images/icons/pause.png';
 
 import './Video.sass'
 
-const Video = ({ autoPlay, source }) => {
+const Video = ({ autoPlay, source, controls }) => {
 
     
     const playerRef = useRef(null);
@@ -95,33 +95,38 @@ const Video = ({ autoPlay, source }) => {
 
     return (
         <div className="Video">
-            <div className="Video__Controls">
-                <div>
-                    <img className="Video__Button Video__Button--play" src={playIconSrc} alt={""} onClick={() => { handlePlayPause() }} />
-                    <img className="Video__Button Video__Button--mute" src={soundIconSrc} alt={""} onClick={() => { handleSetSoundState() }} />
-                </div>
-                <div>
-                    {
-                        fullScreenState ? (
-                            <ReactSlider
-                                className="Video__Slider"
-                                thumbClassName="Video__Thumb"
-                                onMouseDown={handleSeekMouseDown}
-                                onMouseUp={handleSeekMouseUp}
-                                trackClassName="Video__Track"
-                                value={played * 100}
-                                onChange={handleSeekChange}
-                                renderThumb={(props, state) => {
-                                    return (
-                                        <div {...props}></div>
-                                    )
-                                }}
-                            />
-                        ) : null
-                    }
-                </div>
-                <img className="Video__Button Video__Button--fullscreen" src={fullscreenIcon} alt={""} onClick={() => { handleSetFullScreenState() }} />
-            </div>
+            {
+                controls ? (
+                    <div className="Video__Controls">
+                        <div>
+                            <img className="Video__Button Video__Button--play" src={playIconSrc} alt={""} onClick={() => { handlePlayPause() }} />
+                            <img className="Video__Button Video__Button--mute" src={soundIconSrc} alt={""} onClick={() => { handleSetSoundState() }} />
+                        </div>
+                        <div>
+                            {
+                                fullScreenState ? (
+                                    <ReactSlider
+                                        className="Video__Slider"
+                                        thumbClassName="Video__Thumb"
+                                        onMouseDown={handleSeekMouseDown}
+                                        onMouseUp={handleSeekMouseUp}
+                                        trackClassName="Video__Track"
+                                        value={played * 100}
+                                        onChange={handleSeekChange}
+                                        renderThumb={(props, state) => {
+                                            return (
+                                                <div {...props}></div>
+                                            )
+                                        }}
+                                    />
+                                ) : null
+                            }
+                        </div>
+                        <img className="Video__Button Video__Button--fullscreen" src={fullscreenIcon} alt={""} onClick={() => { handleSetFullScreenState() }} />
+                    </div>
+                ) : null
+            }
+            
             <ReactPlayer
                 ref={playerRef}
                 playing={playing}

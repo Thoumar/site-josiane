@@ -98,16 +98,15 @@ const Home = ({ projects, peoples }) => {
                 
                 <Title
                     scrollRef="josiane"
-                    alt="Maman des marques"
-                    withMarginTop={true}
-                    content={titleMamamDesMarques} />
+                    text="la maman des marques"
+                    withMarginTop={true} />
 
                 <Paragraph
-                    htmlText={"Josiane redonne du bon sens.<br />Aux marques en quête d’idées pour grandir durablement.<br />A la société en recherche de valeurs et d’actes porteurs de progrès.<br />Au modèle des agences tenu de se réinventer. <br />C’est peut-être pour cela que Josiane a été élue agence challenger de l’année."} />
+                    htmlText={"Josiane redonne du <i>bon sens</i>.<br />Aux marques en quête d’idées pour grandir durablement.<br />A la société en recherche de valeurs et d’actes porteurs de progrès.<br />Au modèle des agences tenu de se réinventer. <br />C’est peut-être pour cela que Josiane a été élue <br />agence challenger de l’année."} />
                 
                 <Title
                     alt="Maman des marques"
-                    text={"Le travail"}
+                    text={"le travail"}
                     content={titleLeTravail} /> 
                 {
                     projects.map((project, index) =>
@@ -118,17 +117,17 @@ const Home = ({ projects, peoples }) => {
                     )
                 }
                 <div className="Cta" onClick={() => setShowIsotope(!showIsotope)}>
-                    <img className={"Cta__Arrow Cta__Arrow--left" + (showIsotope ? " reverse" : "")} src={arrowIcon} alt="Arrow icon" />
-                    <div className="Cta__Text">TOUT LE<br />TRAVAIL</div>
-                    <img className={"Cta__Arrow Cta__Arrow--right" + (showIsotope ? " reverse" : "")} src={arrowIcon} alt="Arrow icon" />
+                    {/* <img className={"Cta__Arrow Cta__Arrow--left" + (showIsotope ? " reverse" : "")} src={arrowIcon} alt="Arrow icon" /> */}
+                    <div className="Cta__Text">TOUT LE TRAVAIL</div>
+                    {/* <img className={"Cta__Arrow Cta__Arrow--right" + (showIsotope ? " reverse" : "")} src={arrowIcon} alt="Arrow icon" /> */}
                 </div>
                 {
                     showIsotope ? <Isotope scrollRef="work" projects={projects} /> : null
                 }
+
                 <Title
                     alt="La Famille"
-                    text={"Le famille"}
-                    content={titleLaFamille} /> 
+                    text={"la famille"} /> 
 
                 <div className="Family" scroll-ref="family">
                     <div className="Family__Text">
@@ -165,13 +164,17 @@ const Home = ({ projects, peoples }) => {
                         </Carousel>
                     </div>
                 </div>
+
                 
                 <Logo color="cousines" type="static" isUnderHeader={true} />
                 
+                <Title
+                    alt="Les cousines"
+                    text={"les cousines"} /> 
+
                 <Parallax
                     title={"FAMILLE D’EXPERTS"}
-                    htmlText={"Les Cousines entrechoquent les cultures grâce à 100 personnalités – et pas une de plus – reconnues pour leurs expériences et expertises qui répondent aux nouveaux enjeux de transformation des entreprises :  - Stratégie d’entreprise (Business model, Corporate, RSE) - Stratégie opérationnelle (Data & transformation digitale, Marketing 360°, Communications spécialisées) - Conduite du changement (Coaching, Formation, Transformation des organisations)."}
-                    background={paraBackground} />
+                    htmlText={"Les Cousines entrechoquent les cultures grâce à 100 personnalités – et pas une de plus – reconnues pour leurs expériences et expertises qui répondent aux nouveaux enjeux de transformation des entreprises :  - Stratégie d’entreprise (Business model, Corporate, RSE) - Stratégie opérationnelle (Data & transformation digitale, Marketing 360°, Communications spécialisées) - Conduite du changement (Coaching, Formation, Transformation des organisations)."} />
 
 				<Footer scrollRef="contact" />
             </main>

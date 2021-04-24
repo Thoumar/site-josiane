@@ -10,7 +10,7 @@
     overflow: hidden
     align-items: center
     flex-direction: column
-    justify-content: space-around
+    justify-content: center
     transition: all .6s cubic-bezier(1, 0, 0, 1)
 
     &__Lang
@@ -22,38 +22,43 @@
     &__Item:not(.Menu__Lang)
         cursor: pointer
         position: relative
+        margin: 2rem
 
         button
             cursor: pointer !important
+            color: #025295
+            font-family: "HelveticaNeueBorder"
             font-size: 3rem
             background: transparent
-            font-family: "HelveticaNeue"
             border: 0 solid transparent
-            transition: all .2s cubic-bezier(.5, 0, 0, .5)
 
-        span
-            position: absolute
-            top: 0
-            left: 0
-            width: 200%
-            right: 0
-            opacity: 0
-            color: white
-            font-family: "HelveticaNeue"
-            letter-spacing: 6px
-            text-shadow: -1px 0 #025295, 0 1px #025295, 1px 0 #025295, 0 -1px #025295
-            bottom: 0
-            font-size: 3rem
-            transition: all .2s cubic-bezier(.5, 0, 0, .5)
+    .Social
+        position: absolute
+        bottom: 6rem
 
-    &__Item:hover
+        // span
+        //     position: absolute
+        //     top: 0
+        //     left: 0
+        //     width: 200%
+        //     right: 0
+        //     opacity: 0
+        //     color: white
+        //     font-family: "HelveticaNeue"
+        //     letter-spacing: 6px
+        //     text-shadow: -1px 0 #025295, 0 1px #025295, 1px 0 #025295, 0 -1px #025295
+        //     bottom: 0
+        //     font-size: 3rem
+        //     transition: all .2s cubic-bezier(.5, 0, 0, .5)
 
-        button
-            transform: translateY(-5px) translateX(-3px)
+    // &__Item:hover
 
-        span
-            opacity: 1
-            transform: translateY(1rem) translateX(1rem)
+    //     button
+    //         transform: translateY(-5px) translateX(-3px)
+
+    //     span
+    //         opacity: 1
+    //         transform: translateY(1rem) translateX(1rem)
 
     &__Switcher
         position: fixed
