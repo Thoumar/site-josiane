@@ -20,20 +20,19 @@ const Routes = () => {
     const [peoples, setPeoples] = useState([]);
 
     const setProjectList = () => projects.map((project, i) => {
-		const randProjects = []
 
-		for (var j = 0; j < 3; j++) {
-			var rand = projects[Math.floor(Math.random() * projects.length)];
-			randProjects.push(rand);
-		}
-						
+		const recommendedProjects = projects
+			.sort(() => Math.random() - 0.5)
+			.filter(reco => reco.filters !== project.filters)
+			.slice(0, 3)
+
 		return (
             <Route
                 key={"r" + i}
                 path={'/' + project.path}>
 				<Project
 					project={project}
-					others={randProjects}
+					others={recommendedProjects}
 					key={"p" + i}
 				/>
 			</Route>

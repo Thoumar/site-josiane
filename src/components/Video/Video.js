@@ -12,7 +12,7 @@ import pauseIcon from './../../images/icons/pause.png';
 
 import './Video.sass'
 
-const Video = ({ source }) => {
+const Video = ({ autoPlay, source }) => {
 
     
     const playerRef = useRef(null);
@@ -20,7 +20,7 @@ const Video = ({ source }) => {
     const [fullScreenState, setFullScreenState] = useState(false);
 
     const [state, setState] = useState({
-        playing: true,
+        playing: autoPlay || true,
         controls: false,
         light: false,
         muted: true,

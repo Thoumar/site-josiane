@@ -64,14 +64,13 @@ const ProjectVideo = ({ data }) => {
             {
                 data.title && data.description
                     ? (
-
                         <div className="Component__Video-caption">
                             <h4>{data.title}</h4>
                             <p>{data.description}</p>
                         </div>
                     ) : null
             }
-            <Video source={data.Source.url} />
+            <Video autoPlay={false} source={data.Source.url} />
         </div>
     )
 }
@@ -171,37 +170,17 @@ const Project = ({ project, others }) => {
             <div className="Project__Suggestions">
                 {
                     others.map((item, k) => {
-                        switch (item.cover.ext) {
-                            case '.png':
-                                return (
-                                    <div
-                                    key={k}
-                                        className="suggestion-item"
-                                        onClick={() => { history.push(item.path) }} 
-                                        style={{
-                                            backgroundImage: "url(" + item.cover.url + ")",
-                                            backgroundSize: "cover"
-                                        }}>
-                                            <span>{ item.title }</span>
-                                    </div>
-                                )
-                            case '.mp4':
-                                    return (
-                                        <div
-                                            key={k}
-                                            className="suggestion-item"
-                                            onClick={() => { history.push(item.path) }}>
-                                            <span>{ item.title }</span>
-                                            <video controls autoPlay muted width="100%" height="100%">
-                                                <source src={item.cover.url} />
-                                            </video>
-                                        </div>
-                                    )
-                            default:
-                                return null
-                        }
-                })
-            }
+                        return (
+                            <div
+                                key={k}
+                                className="Suggestions__item"
+                                onClick={() => { history.push(item.path) }}>
+                                    <img src={item.isotope_cover.url} alt="Suggestion project" />
+                                    <span>{ item.title }</span>
+                            </div>
+                        )
+                    })
+                }
             </div>
             <Footer scrollRef="contact" />
         </div>

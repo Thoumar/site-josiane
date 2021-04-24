@@ -48,40 +48,44 @@
         display: flex
         flex-wrap: wrap
         justify-content: space-around
-        padding: 0
 
-        .suggestion-item
-            position: relative
-            cursor: pointer
-            overflow: hidden
-            display: block
-            width: 50rem
-            height: 50rem
+.Suggestions
+    &__item
+        width: 30%
+        position: relative
+        // position: relative
+        cursor: pointer
+        overflow: hidden
+        // display: block
+        // width: 25rem
+        // height: 25rem
+        // box-sizing: border-box
+
+        span
+            height: 100%
+            width: 100%
+            font-size: 2rem
+            font-weight: bold
+            color: white
+            background-color: rgba(0, 0, 0, 0.5)
+            display: flex
+            position: absolute
+            top: 0
+            left: 0
+            padding: 1rem
             box-sizing: border-box
+            justify-content: center
+            align-items: center
+            transform: translateY(-100%)
+            opacity: 0
+            transition: all .3s ease
 
-            span
-                height: 100%
-                width: 100%
-                font-size: 2rem
-                font-weight: bold
-                color: white
-                background-color: rgba(0, 0, 0, 0.5)
-                display: flex
-                position: absolute
-                top: 0
-                left: 0
-                justify-content: center
-                align-items: center
-                transform: translateY(-100%)
-                opacity: 0
-                transition: all .3s ease
+        img
+            width: 100%
 
-            video
-                object-fit: cover
-
-        .suggestion-item:hover span
-            opacity: 1
-            transform: translateY(0)
+    &__item:hover span
+        opacity: 1
+        transform: translateY(0)
 
 .Component
 
