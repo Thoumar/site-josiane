@@ -11,12 +11,6 @@ import Paragraph from './../../components/Paragraph/Paragraph';
 import Parallax from './../../components/Parallax/Parallax';
 
 import titleLeTravail from './../../images/titles/le_travail.svg'
-import titleMamamDesMarques from './../../images/titles/maman_des_marques.svg';
-import titleLaFamille from './../../images/titles/la_famille.svg'
-
-import arrowIcon from './../../images/icons/arrow.svg';
-
-import paraBackground from './../../images/backgrounds/parallax_background.png';
 
 import Carousel, { consts } from 'react-elastic-carousel';
 
