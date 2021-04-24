@@ -37,7 +37,8 @@ const Isotope = ({ projects, scrollRef }) => {
                 <ul className="filter-container">
                     {
                         projects.map((project, i) => {
-                            switch (project.cover.ext) {
+                            console.log(project.isotope_cover.ext)
+                            switch (project.isotope_cover.ext) {
                                 case '.png':
                                     return (
                                         <div

@@ -54,7 +54,7 @@ const Home = ({ projects, peoples }) => {
             setTimeout(function () {
                 setMenuState({ iOpen: false })
                 document.querySelector('[scroll-ref="' + position + '"]')
-                    .scrollIntoView({behavior: "smooth", block: "top", inline: "center"});
+                    .scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
 
             }, 200)
         }

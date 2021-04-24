@@ -64,7 +64,7 @@ const getSizeClass = (size) => {
 
 const VideoItem = ({ url, background }) => {
     return (
-        <div className={"Block-illustration Block-illustration-video"} style={{ backgroundImage: "url('" + background + "')"}}>
+        <div style={{ backgroundImage: "url('" + background + "')"}}>
             <Video source={url} />
         </div>
     )
@@ -75,11 +75,11 @@ const renderItem = ({ ext, url, alt, background }, index) => {
     switch (ext) {
         case '.png':
             return (
-                <img className="Block-illustration Block-illustration-image" src={url} alt={alt} key={index + "-picture-item"} />
+                <img src={url} alt={alt} key={index + "-picture-item"} />
             )
         case '.jpg':
             return (
-                <img className="Block-illustration Block-illustration-image" src={url} alt={alt} key={index + "-picture-item"} />
+                <img src={url} alt={alt} key={index + "-picture-item"} />
             )
         case '.mp4':
             return (<VideoItem url={url} background={background} />)

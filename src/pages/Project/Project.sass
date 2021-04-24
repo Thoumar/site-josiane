@@ -28,6 +28,7 @@
         position: relative
         margin: 0 auto 15rem auto
         color: #7F7F7F
+        width: 70%
         max-width: 148rem
         border-left: 2px solid #EAEAEA
         padding: 20rem 0 0 2rem
@@ -43,7 +44,7 @@
 
     &__Suggestions
         margin: 0 auto 10rem auto
-        width: 80%
+        width: 70%
         display: flex
         flex-wrap: wrap
         justify-content: space-around
@@ -54,11 +55,9 @@
             cursor: pointer
             overflow: hidden
             display: block
-            padding: 1rem
-            width: 33.33%
-            height: auto
+            width: 50rem
+            height: 50rem
             box-sizing: border-box
-            border: 3px solid white
 
             span
                 height: 100%
@@ -76,6 +75,9 @@
                 transform: translateY(-100%)
                 opacity: 0
                 transition: all .3s ease
+
+            video
+                object-fit: cover
 
         .suggestion-item:hover span
             opacity: 1
@@ -102,6 +104,7 @@
         justify-content: center
         align-items: center
         position: relative
+        width: 70%
         max-width: 150rem
         margin: 15rem auto
         flex-direction: column
@@ -133,11 +136,11 @@
     box-shadow: 0px 5px 20px 4px rgba(158, 158, 158, 0.2)
 
 .Carousel__Single-Image
-    // max-width: 80%
-    // transform: scale(1.4)
+    width: 70%
 
 .Component__Carousel
     min-height: 70rem
+    width: 70%
 
     &::before
         content: ""
@@ -206,6 +209,7 @@
             cursor: pointer
 
 .Component__Single-carousel
+    width: 70%
     max-width: 150rem
 
     &::before
