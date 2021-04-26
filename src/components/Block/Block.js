@@ -16,8 +16,6 @@ import './Block__Two-items-crossed-bottom-squared.sass';
 
 import Video from './../Video/Video';
 
-import parse from 'html-react-parser'
-
 
 // Disposition classmatcher
 const getDispositionClass = (disposition) => {
