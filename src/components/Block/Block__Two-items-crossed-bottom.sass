@@ -21,8 +21,7 @@
             object-fit: cover
 
         & > div:not(.Block-caption),
-        & > img,
-        & > video
+        & > img
             object-fit: cover
             margin-right: 0rem
             z-index: 2
@@ -44,11 +43,11 @@
             .Block-caption > .Video,
             .Block-caption > img,
             .Block-caption > div
-                height: 34rem
+                width: 100%;
 
-            & > img,
-            & > video
-                height: 34rem
+            & > div:not(.Block-caption),
+            & > img
+                width: 100%;
 
 @media screen and (max-width: 768px)
     .Block
@@ -66,13 +65,14 @@
             .Block-caption > .Video,
             .Block-caption > img
                 height: auto
-                width: auto
+                width: 100%
                 margin: 0 auto
 
-            & > img,
-            & > .Video
+            & > div:not(.Block-caption),
+            & > img
                 position: relative
                 height: auto
                 top: 0
                 width: 100%
                 margin: 0 auto 2rem auto
+                transform: unset

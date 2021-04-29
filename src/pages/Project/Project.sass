@@ -87,6 +87,7 @@
 
             img
                 width: 100%
+                height: 100%
                 object-fit: cover
 
     &__item:hover span
@@ -155,8 +156,8 @@
     &::before
         content: ""
         background-color: #F2F2F2
-        height: 118%
-        width: 118rem
+        height: 100%
+        width: 120%
         position: absolute
         left: 50%
         transform: translate(-50%, -42%)
@@ -328,3 +329,26 @@
 
 .Component__Carousel > .rec.rec-carousel-wrapper > div
     margin-top: 10rem
+
+    
+.Logo
+    z-index: 100;
+    position: relative;
+
+    img
+        position: absolute;
+
+    .Logo__Josiane
+        width: 11rem;
+        top: 5rem;
+        left: 5rem;
+
+    .Logo__Cousines
+        width: 26rem;
+        top: 5rem;
+        left: 5rem;
+    
+    &.flying
+
+        img
+            position: fixed;

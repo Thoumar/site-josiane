@@ -2,28 +2,28 @@
     &__Three-items-gallery
         display: flex
         justify-content: space-between
-        margin: 0 auto 11rem auto
+        margin: 0 auto 14rem auto
 
         .Block-caption
-            width: 30%
+            width: 22rem
 
             h4
                 margin-top: 5rem
 
-        .Block-caption > video,
+        .Block-caption .Video,
         .Block-caption > img
-            height: 25vw
+            height: 22rem
             object-fit: cover
 
         & > img,
         & > video
-            width: 30%
+            width: 22rem
             height: 22rem
             object-fit: cover
 
 @media screen and (max-width: 1024px)
     .Block
-        &__Two-items-crossed-bottom
+        &__Three-items-gallery
 
             .Block-caption
 
@@ -32,11 +32,11 @@
             .Block-caption > .Video,
             .Block-caption > img,
             .Block-caption > div
-                height: 34rem
+                height: auto
 
             & > img,
             & > video
-                height: 34rem
+                height: 22rem
 
 @media screen and (max-width: 768px)
     .Block
@@ -50,6 +50,12 @@
                 position: relative
                 height: auto
                 width: 100%
+
+                .Video
+                    height: auto
+
+                video
+                    height: auto !important
 
             .Block-caption > video,
             .Block-caption > img
