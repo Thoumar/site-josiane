@@ -114,7 +114,7 @@ const Project = ({ project, others }) => {
 		};
 	}, [pathname]);
 
-	const { cover, title, subtitle, long_description, content } = project;
+	const { cover, title, subtitle, long_description, Content } = project;
 
 	const handleLinkClick = () => {
 		setMenuState({ isOpen: false });
@@ -133,7 +133,7 @@ const Project = ({ project, others }) => {
 
 			<div className="Project__Description" dangerouslySetInnerHTML={{ __html: long_description }}></div>
 
-			{content ? content.map((component, key) => getComponent(component, key)) : null}
+			{Content ? Content.map((component, key) => getComponent(component, key)) : null}
 
 			<Title text="Suggestions" customStyle={{ marginBottom: "5rem" }} />
 
