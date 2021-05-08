@@ -3,19 +3,19 @@ import React, { useState, useRef } from "react";
 import ReactPlayer from "react-player";
 import ReactSlider from "react-slider";
 
-import soundOnIcon from "./../../images/icons/sound_on.png";
-import soundOffIcon from "./../../images/icons/sound_off.png";
-import fullscreenIcon from "./../../images/icons/fullscreen.png";
+import soundOnIcon from "./../../images/icons/sound_on.svg";
+import soundOffIcon from "./../../images/icons/sound_off.svg";
+import fullscreenIcon from "./../../images/icons/fullscreen.svg";
 
-import playIcon from "./../../images/icons/play.png";
-import pauseIcon from "./../../images/icons/pause.png";
+import playIcon from "./../../images/icons/play.svg";
+import pauseIcon from "./../../images/icons/pause.svg";
 
 import "./Video.sass";
 
-const Video = ({ autoPlay, source, controls, clicked, fullscreen }) => {
+const Video = ({ autoPlay, source, controls, clicked }) => {
 	const playerRef = useRef(null);
 
-	const [fullScreenState, setFullScreenState] = useState(fullscreen);
+	const [fullScreenState, setFullScreenState] = useState(false);
 
 	const [state, setState] = useState({
 		playing: autoPlay,
@@ -73,10 +73,6 @@ const Video = ({ autoPlay, source, controls, clicked, fullscreen }) => {
 			}
 		}
 	};
-
-	// useEffect(() => {
-	// 	setFullScreenState()
-	// }, [])
 
 	const soundIconSrc = muted ? soundOffIcon : soundOnIcon;
 	const playIconSrc = playing ? pauseIcon : playIcon;

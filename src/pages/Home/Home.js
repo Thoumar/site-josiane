@@ -155,7 +155,7 @@ const Home = ({ projects, peoples }) => {
 				<Cousines
 					background={bgCousines}
 					title="FAMILLE D’EXPERTS"
-					htmlText="<b>Les Cousines entrechoquent les cultures grâce <br>à 100 personnalités – et pas une de plus – reconnues <br>pour leurs expériences et expertises qui répondent aux <br>nouveaux enjeux de transformation des entreprises : </b><br>- Stratégie d’entreprise (Business model, Corporate, RSE) <br>- Stratégie opérationnelle (Data & transformation digitale, Marketing 360°, Communications spécialisées) <br>- Conduite du changement (Coaching, Formation, <br>Transformation des organisations)."
+					htmlText="<b>Les Cousines entrechoquent les cultures grâce <br />à 100 personnalités – et pas une de plus – reconnues <br>pour leurs expériences et expertises qui répondent aux <br>nouveaux enjeux de transformation des entreprises : </b><br>- Stratégie d’entreprise (Business model, Corporate, RSE) <br>- Stratégie opérationnelle (Data & transformation digitale, <br /> Marketing 360°, Communications spécialisées) <br>- Conduite du changement (Coaching, Formation, <br>Transformation des organisations)."
 				/>
 				<Footer scrollRef="contact" />
 			</main>
