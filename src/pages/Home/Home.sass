@@ -167,20 +167,45 @@
     img
         position: absolute;
 
+    &__Et
+        width: 2rem
+        top: 8.5rem
+        left: 5rem
+        opacity: 0
+        transition: all .2s
+
     &__Josiane
-        width: 11rem
+        width: 9rem
         top: 5rem
         left: 5rem
 
     &__Cousines
-        width: 26rem
-        top: 5rem
+        width: 17rem
+        top: 11rem
         left: 5rem
     
     &.flying
-
+            
         img
-            position: fixed
+            position: fixed;
+
+.Logo.flying .Logo__Et
+    width: 2rem
+    top: 8.5rem
+    left: 5rem
+    opacity: 1
+
+.Logo.flying .Logo__Josiane
+    width: 9rem
+    top: 5rem
+    left: 5rem
+
+
+.Logo.flying .Logo__Cousines  
+    width: 17rem  
+    top: 11rem
+    left: 5rem
+
 
 @media screen and (max-width: 1024px)
     .Logo

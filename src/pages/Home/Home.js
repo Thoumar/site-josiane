@@ -13,7 +13,10 @@ import Button from "./../../components/Button/Button";
 import titleLeTravail from "./../../images/titles/le_travail.svg";
 
 import logoBlue from "./../../images/logos/logo_blue.svg";
-import logoCousines from "./../../images/logos/logo_cousines.svg";
+import logoLesCousines from "./../../images/logos/les_cousines.svg";
+import logoEtCousines from "./../../images/logos/et_cousines.svg";
+
+import bgCousines from "./../../images/backgrounds/cousines_background.jpg";
 
 import Carousel, { consts } from "react-elastic-carousel";
 
@@ -138,9 +141,12 @@ const Home = ({ projects, peoples }) => {
 						</Carousel>
 					</div>
 				</div>
+
 				<div className="Logo" ref={logoCousinesRef}>
-					<img className="Logo__Picture Logo__Cousines" src={logoCousines} onClick={() => history.push("/")} alt="Cousines Logo" />
+					<img className="Logo__Picture Logo__Et" src={logoEtCousines} onClick={() => history.push("/")} alt="Et Logo" />
+					<img className="Logo__Picture Logo__Cousines" src={logoLesCousines} onClick={() => history.push("/")} alt="Cousines Logo" />
 				</div>
+
 				<Title
 					alt="Les cousines"
 					text="les cousines"
@@ -150,7 +156,9 @@ const Home = ({ projects, peoples }) => {
 						marginBottom: "8rem",
 					}}
 				/>
+
 				<Cousines
+					background={bgCousines}
 					title="FAMILLE D’EXPERTS"
 					htmlText="Les Cousines entrechoquent les cultures grâce à 100 personnalités – et pas une de plus – reconnues pour leurs expériences et expertises qui répondent aux nouveaux enjeux de transformation des entreprises :  - Stratégie d’entreprise (Business model, Corporate, RSE) - Stratégie opérationnelle (Data & transformation digitale, Marketing 360°, Communications spécialisées) - Conduite du changement (Coaching, Formation, Transformation des organisations)."
 				/>
