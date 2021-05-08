@@ -24,8 +24,8 @@ import "./Home.sass";
 
 import { useHistory } from "react-router";
 
-import arrowRight from "./../../images/icons/arrow_right.png";
-import arrowLeft from "./../../images/icons/arrow_left.png";
+import arrowRight from "./../../images/icons/arrow_right.svg";
+import arrowLeft from "./../../images/icons/arrow_left.svg";
 
 const Home = ({ projects, peoples }) => {
 	const history = useHistory();
@@ -49,12 +49,7 @@ const Home = ({ projects, peoples }) => {
 				logoCousinesRef.current.classList.remove("flying");
 			}
 		};
-		// document.querySelector(".Home").addEventListener("mousedown", function () {
-		// 	if (menuState.isOpen) {
-		// 		setMenuState({ isOpen: false });
-		// 	}
-		// });
-	}, []);
+	}, [projects]);
 
 	const arrows = ({ type, onClick, isEdge }) => {
 		const pointer = type === consts.PREV ? <img src={arrowLeft} alt="Arrow" /> : <img src={arrowRight} alt="Arrow" />;
@@ -129,7 +124,7 @@ const Home = ({ projects, peoples }) => {
 							{peoples.map((person, key) => {
 								return (
 									<div className="Person" key={key}>
-										<img className="Person__Picture" src={person.profilePicture.url} alt="Cousines Background" />
+										<img className="Person__Picture" src={person?.profilePicture?.url} alt="Cousines Background" />
 										<div className="Person__Text">
 											<h4 className="Person__Name">{person.name}</h4>
 											<span className="Person__Position">{person.position}</span>
@@ -160,7 +155,7 @@ const Home = ({ projects, peoples }) => {
 				<Cousines
 					background={bgCousines}
 					title="FAMILLE D’EXPERTS"
-					htmlText="Les Cousines entrechoquent les cultures grâce à 100 personnalités – et pas une de plus – reconnues pour leurs expériences et expertises qui répondent aux nouveaux enjeux de transformation des entreprises :  - Stratégie d’entreprise (Business model, Corporate, RSE) - Stratégie opérationnelle (Data & transformation digitale, Marketing 360°, Communications spécialisées) - Conduite du changement (Coaching, Formation, Transformation des organisations)."
+					htmlText="<b>Les Cousines entrechoquent les cultures grâce <br>à 100 personnalités – et pas une de plus – reconnues <br>pour leurs expériences et expertises qui répondent aux <br>nouveaux enjeux de transformation des entreprises : </b><br>- Stratégie d’entreprise (Business model, Corporate, RSE) <br>- Stratégie opérationnelle (Data & transformation digitale, Marketing 360°, Communications spécialisées) <br>- Conduite du changement (Coaching, Formation, <br>Transformation des organisations)."
 				/>
 				<Footer scrollRef="contact" />
 			</main>

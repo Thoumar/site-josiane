@@ -19,7 +19,7 @@ const Cousines = ({ scrollRef, title, htmlText, background }) => {
 		<section className="Cousines" ref={bgCousines} style={{ backgroundImage: "url(" + background + ")" }}>
 			<h2 className="Cousines__Title">{title}</h2>
 			<p className="Cousines__Paragraph" dangerouslySetInnerHTML={{ __html: htmlText }}></p>
-			<Button text="Rencontrez les cousines" click={() => alert("redirection")} />
+			<Button text="Rencontrez les cousines" click={() => window.open("https://www.lescousinesde.josiane.fr/fr/")} />
 		</section>
 	);
 };

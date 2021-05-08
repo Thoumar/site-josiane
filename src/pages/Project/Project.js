@@ -15,8 +15,8 @@ import Header from "./../../components/Header/Header";
 import Title from "./../../components/Title/Title";
 import Menu from "./../../components/Menu/Menu";
 
-import arrowRight from "./../../images/icons/arrow_right.png";
-import arrowLeft from "./../../images/icons/arrow_left.png";
+import arrowRight from "./../../images/icons/arrow_right.svg";
+import arrowLeft from "./../../images/icons/arrow_left.svg";
 import Video from "../../components/Video/Video";
 
 const arrows = ({ type, onClick, isEdge }) => {
@@ -51,8 +51,8 @@ const ProjectCarousel = ({ data }) => (
 );
 
 const ProjectVideo = ({ data }) => {
-	console.log(data.borders);
-	console.log(data.shadows);
+	// console.log(data.borders);
+	// console.log(data.shadows);
 	return (
 		<div className={"Component__Video" + (data.borders ? " with-borders" : "") + (data.shadows ? " with-shadows" : "")}>
 			{data.title && data.description ? (
@@ -79,22 +79,6 @@ const ProjectImage = ({ data }) => {
 		</div>
 	);
 };
-
-// const ProjectSingleCarousel = ({ data }) => (
-// 	<div className="Component__Single-carousel">
-// 		{data.title && data.description ? (
-// 			<div className="Component__Single-carousel-caption">
-// 				<h4>{data.title}</h4>
-// 				<p>{data.description}</p>
-// 			</div>
-// 		) : null}
-// 		<Carousel itemsToShow={data.itemsToShow || 3} pagination={false} outerSpacing={5} renderArrow={arrows}>
-// 			{data.Pictures.map((pic, key) => (
-// 				<Picture key={key} className={"Carousel__Single-Image"} url={pic.url} />
-// 			))}
-// 		</Carousel>
-// 	</div>
-// );
 
 const getComponent = (component, componentKey) => {
 	switch (component.__component) {
@@ -151,7 +135,7 @@ const Project = ({ project, others }) => {
 
 			{content ? content.map((component, key) => getComponent(component, key)) : null}
 
-			<Title text="Suggestions" customStyle={{ marginBottom: "10rem" }} />
+			<Title text="Suggestions" customStyle={{ marginBottom: "5rem" }} />
 
 			<div className="Project__Suggestions">
 				{others.map((item, k) => {

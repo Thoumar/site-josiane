@@ -15,7 +15,7 @@
     margin: 10rem auto 17rem auto
 
     &__Text
-        width: 30%
+        width: 26%
         text-align: left
 
         h4
@@ -33,12 +33,15 @@
             line-height: 1.9rem
 
     &__Carousel
-        width: 110%
+        width: 70%
+        height: auto
+        padding: 0 5rem
         margin-top: 5rem
         position: relative
         display: flex
         justify-content: center
         align-items: center
+        box-sizing: border-box
 
         &::before
             content: ""
@@ -64,6 +67,11 @@
                 border: none
                 background: transparent
                 cursor: pointer
+                height: 2rem
+
+                & > img
+                    height: 100%
+                    width: 100%
 
             button:nth-child(3)
                 z-index: 1
@@ -74,6 +82,11 @@
                 border: none
                 background: transparent
                 cursor: pointer
+                height: 2rem
+
+                & > img
+                    height: 100%
+                    width: 100%
 
 .Person
     display: flex
@@ -84,8 +97,8 @@
 
     &__Picture
         object-fit: cover
-        width: 45%
-        margin-left: 5%
+        width: 21rem
+        margin-left: 1%
 
     &__Text
         display: block
@@ -111,11 +124,12 @@
         display: inline-block
 
     &__Description
-        font-family: "HelveticaNeueExtraLight"
-        font-size: 1.7rem
-        color: rgba(0, 0, 0, 0.5)
-        letter-spacing: 0.5px
-        line-height: 1.9rem
+        font-family: "HelveticaNeueExtraLight";
+        font-size: 1.4rem;
+        color: rgba(0, 0, 0, 0.5);
+        letter-spacing: 0.5px;
+        padding: 0 2rem 0 0;
+        line-height: 1.8rem;
 
 @media screen and (max-width: 1440px)
     .Family__Carousel::before
@@ -123,11 +137,10 @@
         background-color: #F8F8F8
         position: absolute
         top: 50%
-        left: 20rem
-        height: 120%
+        left: 17rem
+        height: 110%
         width: 65%
         transform: translateY(-50%)
-
     
 @media screen and (max-width: 768px)
     .Family
@@ -165,7 +178,7 @@
     position: relative
 
     img
-        position: absolute;
+        position: absolute
 
     &__Et
         width: 2rem
@@ -187,7 +200,7 @@
     &.flying
             
         img
-            position: fixed;
+            position: fixed
 
 .Logo.flying .Logo__Et
     width: 2rem
