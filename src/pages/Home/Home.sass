@@ -4,44 +4,6 @@
 
 .Home > *:not(.Parallax)
 
-.Cta
-    display: inline-flex
-    justify-content: center
-    align-items: center
-    margin-bottom: 12rem
-    width: 100%
-
-    &__Text
-        font-size: 1.3rem
-        color: rgba(0, 0, 0, 0.5)
-        height: 8rem
-        width: 26rem
-        cursor: pointer
-        letter-spacing: 2.2px
-        font-family: 'HelveticaNeueMedium'
-        border: 5px solid #F2F2F2
-        display: inline-flex
-        justify-content: center
-        align-items: center
-        letter-spacing: rgba(0, 0, 0, 0.5)
-        line-height: rgba(0, 0, 0, 0.5)
-
-    &__Arrow
-        height: 4rem
-        transition: all ease .6s
-
-        &--right
-            margin-left: 3rem
-
-        &--left
-            margin-right: 3rem
-
-        &--right.reverse
-            transform: rotate(-180deg)
-
-        &--left.reverse
-            transform: rotate(180deg)
-
 .Family
     display: flex
     margin-top: 10rem
@@ -189,10 +151,6 @@
             height: 60%
             width: 80%
             transform: translateY(-50%)
-
-@media screen and (max-width: 465px)
-    .Cta
-        margin-bottom: 10rem
         
 .Person
     &__Description
@@ -202,23 +160,36 @@
         padding-right: 3rem
 
 .Logo
-    z-index: 100;
-    position: relative;
+    z-index: 100
+    cursor: pointer
+    position: relative
 
     img
         position: absolute;
 
-    .Logo__Josiane
-        width: 11rem;
-        top: 5rem;
-        left: 5rem;
+    &__Josiane
+        width: 11rem
+        top: 5rem
+        left: 5rem
 
-    .Logo__Cousines
-        width: 26rem;
-        top: 5rem;
-        left: 5rem;
+    &__Cousines
+        width: 26rem
+        top: 5rem
+        left: 5rem
     
     &.flying
 
         img
-            position: fixed;
+            position: fixed
+
+@media screen and (max-width: 1024px)
+    .Logo
+        &__Josiane
+            width: 11rem
+            top: 3rem
+            left: 3rem
+
+        &__Cousines
+            width: 26rem
+            top: 3rem
+            left: 3rem

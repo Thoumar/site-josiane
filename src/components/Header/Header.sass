@@ -25,6 +25,8 @@
         transform: translate(-50%, -50%)
         display: flex
         flex-direction: column
+        animation: opacityOff 2s normal forwards
+        animation-delay: 3s
 
         img
             width: 22rem
@@ -42,31 +44,31 @@
             margin-top: 5px
 
     &__Scroller
-        position: absolute
-        bottom: 3rem
-        left: 50%
-        z-index: 2
-        color: white
-        text-align: center
-        transform: translateX(-50%)
-        display: flex
-        justify-content: center
-        align-items: center
-        flex-direction: column
+        //     position: absolute
+    //     bottom: 3rem
+    //     left: 50%
+    //     z-index: 2
+    //     color: white
+    //     text-align: center
+    //     transform: translateX(-50%)
+    //     display: flex
+    //     justify-content: center
+    //     align-items: center
+    //     flex-direction: column
 
-        & span:nth-child(1)
-            height: 10rem
-            background-color: white
-            width: .1rem
-            display: inline-block
-            margin-bottom: 2rem
+    //     & span:nth-child(1)
+    //         height: 10rem
+    //         background-color: white
+    //         width: .1rem
+    //         display: inline-block
+    //         margin-bottom: 2rem
 
-        & span:nth-child(2)
-            font-size: 1.1rem
-            font-weight: 100
-            text-transform: uppercase
-            letter-spacing: 4px
-            margin-top: 5px
+    //     & span:nth-child(2)
+    //         font-size: 1.1rem
+    //         font-weight: 100
+    //         text-transform: uppercase
+    //         letter-spacing: 4px
+    //         margin-top: 5px
 
     video
         height: 100vh
@@ -76,3 +78,11 @@
 
         video
             object-fit: cover
+
+
+@keyframes opacityOff
+    0%
+        opacity: 1
+    100%
+        pointer-events: none
+        opacity: 0

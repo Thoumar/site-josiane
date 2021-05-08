@@ -32,12 +32,6 @@
         -webkit-animation: move-line 2s linear infinite
         animation: move-line 2s linear infinite
 
-@keyframes opacityOff
-    0%
-        opacity: 1
-    100%
-        opacity: 0
-
 @media screen and (max-width: 768px)
     .Scroller
         height: 20rem
@@ -54,3 +48,10 @@
     50%
         -webkit-clip-path: inset(100% 0 0 0)
         clip-path: inset(100% 0 0 0)
+
+@keyframes opacityOff
+    0%
+        opacity: 1
+    100%
+        pointer-events: none
+        opacity: 0

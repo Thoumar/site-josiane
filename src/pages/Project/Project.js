@@ -12,6 +12,7 @@ import { useLocation, useHistory } from "react-router-dom";
 
 import Footer from "./../../components/Footer/Footer";
 import Header from "./../../components/Header/Header";
+import Title from "./../../components/Title/Title";
 import Menu from "./../../components/Menu/Menu";
 
 import arrowRight from "./../../images/icons/arrow_right.png";
@@ -19,12 +20,7 @@ import arrowLeft from "./../../images/icons/arrow_left.png";
 import Video from "../../components/Video/Video";
 
 const arrows = ({ type, onClick, isEdge }) => {
-	const pointer =
-		type === consts.PREV ? (
-			<img src={arrowLeft} alt="Arrow" />
-		) : (
-			<img src={arrowRight} alt="Arrow" />
-		);
+	const pointer = type === consts.PREV ? <img src={arrowLeft} alt="Arrow" /> : <img src={arrowRight} alt="Arrow" />;
 	return (
 		<button onClick={onClick} style={{ display: isEdge ? "none" : "block" }}>
 			{pointer}
@@ -46,12 +42,7 @@ const ProjectCarousel = ({ data }) => (
 				<p>{data.description}</p>
 			</div>
 		) : null}
-		<Carousel
-			itemsToShow={window.innerWidth > 768 ? data.itemsToShow || 3 : 1}
-			pagination={false}
-			outerSpacing={5}
-			renderArrow={arrows}
-		>
+		<Carousel itemsToShow={window.innerWidth > 768 ? data.itemsToShow || 3 : 1} pagination={false} outerSpacing={5} renderArrow={arrows}>
 			{data.Pictures.map((pic, key) => (
 				<Picture key={key} className={"Carousel__Image"} url={pic.url} />
 			))}
@@ -60,60 +51,61 @@ const ProjectCarousel = ({ data }) => (
 );
 
 const ProjectVideo = ({ data }) => {
+	console.log(data.borders);
+	console.log(data.shadows);
 	return (
-		<div className="Component__Video">
+		<div className={"Component__Video" + (data.borders ? " with-borders" : "") + (data.shadows ? " with-shadows" : "")}>
 			{data.title && data.description ? (
 				<div className="Component__Video-caption">
 					<h4>{data.title}</h4>
 					<p>{data.description}</p>
 				</div>
 			) : null}
-			<Video autoPlay={false} source={data.Source.url} />
+			<Video source={data.Source.url} controls />
 		</div>
 	);
 };
 
-const ProjectSingleCarousel = ({ data }) => (
-	<div className="Component__Single-carousel">
-		{data.title && data.description ? (
-			<div className="Component__Single-carousel-caption">
-				<h4>{data.title}</h4>
-				<p>{data.description}</p>
-			</div>
-		) : null}
-		<Carousel
-			itemsToShow={data.itemsToShow || 3}
-			pagination={false}
-			outerSpacing={5}
-			renderArrow={arrows}
-		>
-			{data.Pictures.map((pic, key) => (
-				<Picture key={key} className={"Carousel__Single-Image"} url={pic.url} />
-			))}
-		</Carousel>
-	</div>
-);
+const ProjectImage = ({ data }) => {
+	return (
+		<div className="Component__Image">
+			{data.title && data.description ? (
+				<div className="Component__Image-caption">
+					<h4>{data.title}</h4>
+					<p>{data.description}</p>
+				</div>
+			) : null}
+			<img src={data.Image.url} alt="Project illustration" />
+		</div>
+	);
+};
+
+// const ProjectSingleCarousel = ({ data }) => (
+// 	<div className="Component__Single-carousel">
+// 		{data.title && data.description ? (
+// 			<div className="Component__Single-carousel-caption">
+// 				<h4>{data.title}</h4>
+// 				<p>{data.description}</p>
+// 			</div>
+// 		) : null}
+// 		<Carousel itemsToShow={data.itemsToShow || 3} pagination={false} outerSpacing={5} renderArrow={arrows}>
+// 			{data.Pictures.map((pic, key) => (
+// 				<Picture key={key} className={"Carousel__Single-Image"} url={pic.url} />
+// 			))}
+// 		</Carousel>
+// 	</div>
+// );
 
 const getComponent = (component, componentKey) => {
 	switch (component.__component) {
 		case "project-page.carousel":
-			return (
-				<ProjectCarousel data={component} key={"carousel" + componentKey} />
-			);
+			return <ProjectCarousel data={component} key={"carousel" + componentKey} />;
 		case "project-page.video":
-			if (component.Source) {
-				return <ProjectVideo data={component} key={"video" + componentKey} />;
-			} else {
-				return null;
-			}
-
-		case "project-page.single-carousel":
-			return (
-				<ProjectSingleCarousel
-					data={component}
-					key={"carousel-single" + componentKey}
-				/>
-			);
+			return component.Source ? <ProjectVideo data={component} key={"video" + componentKey} /> : null;
+		case "project-page.image":
+			return component.Image.url ? <ProjectImage data={component} key={"carousel-image" + componentKey} /> : null;
+		// case "project-page.single-carousel":
+		// 	return <ProjectSingleCarousel data={component} key={"carousel-single" + componentKey} />;
 		default:
 			return null;
 	}
@@ -128,65 +120,55 @@ const Project = ({ project, others }) => {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
+
+		window.onscroll = () => {
+			if (window.pageYOffset > logoJosianeRef.current.offsetTop) {
+				logoJosianeRef.current.classList.add("flying");
+			} else {
+				logoJosianeRef.current.classList.remove("flying");
+			}
+		};
 	}, [pathname]);
 
 	const { cover, title, subtitle, long_description, content } = project;
 
-	const handleLinkClick = (position) => {
+	const handleLinkClick = () => {
 		setMenuState({ isOpen: false });
 		history.push("/");
 	};
 
 	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
-
-	window.onscroll = () => {
-		if (window.pageYOffset > logoJosianeRef.current.offsetTop) {
-			logoJosianeRef.current.classList.add("flying");
-		} else {
-			logoJosianeRef.current.classList.remove("flying");
-		}
-	};
-
 	return (
 		<div className="Project">
-			<Menu
-				onLinkClick={handleLinkClick}
-				onSwitchClick={handleSwitchClick}
-				isOpen={menuState.isOpen}
-			/>
+			<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
 
 			<div className="Logo" ref={logoJosianeRef}>
-				<img
-					className="Logo__Picture Logo__Josiane"
-					src={logoBlue}
-					onClick={() => history.push("/")}
-					alt="Josiane Logo"
-				/>
+				<img className="Logo__Picture Logo__Josiane" src={logoBlue} onClick={() => history.push("/")} alt="Josiane Logo" />
 			</div>
 			<Header cover={cover} title={title} subtitle={subtitle} />
 
-			<div
-				className="Project__Description"
-				dangerouslySetInnerHTML={{ __html: long_description }}
-			></div>
+			<div className="Project__Description" dangerouslySetInnerHTML={{ __html: long_description }}></div>
 
-			{content
-				? content.map((component, key) => getComponent(component, key))
-				: null}
+			{content ? content.map((component, key) => getComponent(component, key)) : null}
+
+			<Title text="Suggestions" customStyle={{ marginBottom: "10rem" }} />
 
 			<div className="Project__Suggestions">
 				{others.map((item, k) => {
 					return (
 						<div
 							key={k}
-							className="Suggestions__item"
+							className="Suggestions__Item"
 							onClick={() => {
 								history.push(item.path);
 							}}
 						>
 							<div>
 								<img src={item.isotope_cover.url} alt="Suggestion project" />
-								<span>{item.title}</span>
+								<div className="Suggestions__Description">
+									<span>{project.title}</span>
+									<span>{project.subtitle}</span>
+								</div>
 							</div>
 						</div>
 					);

@@ -31,7 +31,7 @@
         width: 70%
         max-width: 148rem
         border-left: 2px solid #EAEAEA
-        padding: 20rem 0 0 2rem
+        padding: 12rem 0 0 2rem
 
         h4
             margin: 2rem 0 0 0
@@ -50,7 +50,7 @@
         justify-content: space-around
 
 .Suggestions
-    &__item
+    &__Item
         width: 30%
         position: relative
         cursor: pointer
@@ -61,34 +61,54 @@
             display: block
             padding-bottom: 100%
 
-        div
+        div 
             position: absolute
             width: 100%
             height: 100%
-
-            span
-                height: 100%
-                width: 100%
-                font-size: 2rem
-                font-weight: bold
-                color: white
-                background-color: rgba(0, 0, 0, 0.5)
-                display: flex
-                position: absolute
-                top: 0
-                left: 0
-                padding: 1rem
-                box-sizing: border-box
-                justify-content: center
-                align-items: center
-                transform: translateY(-100%)
-                opacity: 0
-                transition: all .3s ease
 
             img
                 width: 100%
                 height: 100%
                 object-fit: cover
+
+            .Suggestions__Description
+                padding: 0 0 4rem 4rem
+                box-sizing: border-box
+                height: 100%
+                width: 100%
+                font-size: 2rem
+                font-weight: bold
+                color: white
+                background: rgba(2, 82, 149, 0.7)
+                bottom: 0
+                transform: translateY(-100%)
+                opacity: 0
+                transition: all .3s ease
+                display: flex
+                flex-direction: column
+                justify-content: flex-end
+                align-items: flex-start
+
+                & > span:nth-child(1)
+                    margin-bottom: 0.5rem
+                    font-family: 'HelveticaNeueMedium'
+                    letter-spacing: 1px
+                    font-weight: 500
+                    color: white
+
+                & > span:nth-child(2)
+                    text-align: left
+                    font-size: 1.3rem
+                    margin: 0
+                    color: white
+                    font-weight: 500
+                    letter-spacing: 1.1px
+
+                    
+    &__Item:hover .Suggestions__Description
+        opacity: 1
+        transform: translateY(0)
+
 
     &__item:hover span
         opacity: 1
@@ -122,82 +142,144 @@
 
         &-caption
             width: 100%
-            padding-bottom: 14rem
+            padding-bottom: 6rem
             border-left: 2px solid #EAEAEA
 
             h4
+                margin-bottom: 0.5rem
+                font-family: 'HelveticaNeueMedium'
+                letter-spacing: 1px
+                font-weight: 500
+                color: #7F7F7F
                 text-align: left
                 padding-left: 2rem
                 text-transform: uppercase
-                font-size: 1.5rem
-                margin-top: 0
-                color: #7F7F7F
-                font-weight: 500
-                letter-spacing: 3px
+                font-size: 1.3rem
+                line-height: 1.7rem
+            
             p
                 text-align: left
                 padding-left: 2rem
-                font-size: 1.5rem
+                font-size: 1.3rem
                 margin: 0
                 color: #7F7F7F
                 font-weight: 500
-                letter-spacing: 3px
+                letter-spacing: 1.1px
+
+                
+    &__Image
+        display: flex
+        justify-content: center
+        align-items: center
+        position: relative
+        width: 70%
+        max-width: 150rem
+        margin: 15rem auto
+        flex-direction: column
+
+        & > img 
+            width: 100%
+
+        &-caption
+            width: 100%
+            padding-bottom: 6rem
+            border-left: 2px solid #EAEAEA
+
+            h4
+                margin-bottom: 0.5rem
+                font-family: 'HelveticaNeueMedium'
+                letter-spacing: 1px
+                font-weight: 500
+                color: #7F7F7F
+                text-align: left
+                padding-left: 2rem
+                text-transform: uppercase
+                font-size: 1.3rem
+                line-height: 1.7rem
+                margin-top: 0
+            
+            p
+                text-align: left
+                padding-left: 2rem
+                font-size: 1.3rem
+                margin: 0
+                color: #7F7F7F
+                font-weight: 500
+                letter-spacing: 1.1px
 
 .Carousel__Image
-    box-shadow: 0px 5px 20px 4px rgba(158, 158, 158, 0.2)
+    width: 100%
+
+    
 
 .Carousel__Single-Image
     width: 70%
 
 .Component__Carousel
-    min-height: 70rem
     width: 70%
 
     &::before
         content: ""
         background-color: #F2F2F2
         height: 100%
-        width: 120%
+        width: 80%
         position: absolute
         left: 50%
-        transform: translate(-50%, -42%)
+        transform: translate(-50%, -40%)
         top: 50%
         z-index: -1
 
     &-caption
         position: absolute
-        top: -12rem
-        left: 4rem
+        top: -6rem
+        left: 0
         height: 100%
         border-left: 2px solid #EAEAEA
 
         h4
+            margin-bottom: 0.5rem
+            font-family: 'HelveticaNeueMedium'
+            letter-spacing: 1px
+            font-weight: 500
+            color: #7F7F7F
             text-align: left
             padding-left: 2rem
             text-transform: uppercase
-            font-size: 1.5rem
+            font-size: 1.3rem
+            line-height: 1.7rem
             margin-top: 0
-            color: #7F7F7F
-            font-weight: 500
-            letter-spacing: 3px
 
         p
             text-align: left
             padding-left: 2rem
-            font-size: 1.5rem
+            font-size: 1.3rem
             margin: 0
             color: #7F7F7F
             font-weight: 500
-            letter-spacing: 3px
+            letter-spacing: 1.1px
 
-    div
+    & > div
+        width: 100%
         z-index: 1
+
+    & .rec-swipable
+        z-index: 1
+        justify-content: space-between
+    
+    & .rec-slider-container
+        overflow: initial
+        margin: 0
+        
+    & .rec-slider
+        margin: 0
 
     .rec-carousel
         .rec-carousel-item
             display: flex
             justify-content: center
             align-items: center
+            width: 30%
+            box-shadow: 0px 0px 12px 6px #e2e2e273
 
         button:nth-child(1)
             z-index: 1
@@ -307,16 +389,20 @@
             border-right: 5px solid #F2F2F2
 
         &__Description
-            margin: auto
+            margin: auto auto 20rem auto
             max-width: none
             padding: 2rem
 
             > p
                 padding: 0
 
-    .Component__Carousel, .Component__Single-carousel
+    .Component__Carousel,
+    .Component__Single-carousel
         position: relative
         margin: 10rem auto 15rem auto
+
+        .rec-slider-container
+            overflow: auto
 
     .Component__Video
         position: relative
@@ -332,23 +418,39 @@
 
     
 .Logo
-    z-index: 100;
-    position: relative;
+    z-index: 100
+    position: relative
+    cursor: pointer
 
     img
-        position: absolute;
+        position: absolute
 
-    .Logo__Josiane
-        width: 11rem;
-        top: 5rem;
-        left: 5rem;
+    &__Josiane
+        width: 11rem
+        top: 5rem
+        left: 5rem
 
-    .Logo__Cousines
-        width: 26rem;
-        top: 5rem;
-        left: 5rem;
+    &__Cousines
+        width: 26rem
+        top: 5rem
+        left: 5rem
     
     &.flying
 
         img
-            position: fixed;
+            position: fixed
+
+@media screen and (max-width: 1024px)
+    .Logo
+        &__Josiane
+            width: 11rem
+            top: 3rem
+            left: 3rem
+
+        &__Cousines
+            width: 26rem
+            top: 3rem
+            left: 3rem
+
+
+.Component__Carousel > div > .rec-carousel
