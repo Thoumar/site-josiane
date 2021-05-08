@@ -150,8 +150,8 @@ const Project = ({ project, others }) => {
 							<div>
 								<img src={item.isotope_cover.url} alt="Suggestion project" />
 								<div className="Suggestions__Description">
-									<span>{project.title}</span>
-									<span>{project.subtitle}</span>
+									<span>{item.title}</span>
+									<span>{item.subtitle}</span>
 								</div>
 							</div>
 						</div>
