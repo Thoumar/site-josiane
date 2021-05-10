@@ -25,7 +25,8 @@
 
     &__Description
         font-size: 1.5rem
-        position: relative
+        position: relative    
+        line-height: 1.9rem
         margin: 0 auto 15rem auto
         color: #7F7F7F
         width: 70%
@@ -71,38 +72,38 @@
                 height: 100%
                 object-fit: cover
 
-            .Suggestions__Description
-                padding: 0 0 4rem 4rem
-                box-sizing: border-box
-                height: 100%
-                width: 100%
-                font-size: 2rem
-                font-weight: bold
-                color: white
-                background: rgba(2, 82, 149, 0.7)
-                bottom: 0
-                transform: translateY(-100%)
-                opacity: 0
-                transition: all .3s ease
-                display: flex
-                flex-direction: column
-                justify-content: flex-end
-                align-items: flex-start
+    &__Description
+        padding: 0 0 4rem 4rem
+        box-sizing: border-box
+        height: 100%
+        width: 100%
+        font-size: 2rem
+        font-weight: bold
+        color: white
+        background: rgba(2, 82, 149, 0.7)
+        bottom: 0
+        transform: translateY(-100%)
+        opacity: 0
+        transition: all .3s ease
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        align-items: flex-start
 
-                & > span:nth-child(1)
-                    margin-bottom: 0.5rem
-                    font-family: 'HelveticaNeueMedium'
-                    letter-spacing: 1px
-                    font-weight: 500
-                    color: white
+        & > span:nth-child(1)
+            margin-bottom: 0.5rem
+            font-family: 'HelveticaNeueMedium'
+            letter-spacing: 1px
+            font-weight: 500
+            color: white
 
-                & > span:nth-child(2)
-                    text-align: left
-                    font-size: 1.3rem
-                    margin: 0
-                    color: white
-                    font-weight: 500
-                    letter-spacing: 1.1px
+        & > span:nth-child(2)
+            text-align: left
+            font-size: 1.3rem
+            margin: 0
+            color: white
+            font-weight: 500
+            letter-spacing: 1.1px
 
                     
     &__Item:hover .Suggestions__Description
@@ -110,25 +111,73 @@
         transform: translateY(0)
 
 
-    &__item:hover span
+    &__Item:hover span
         opacity: 1
         transform: translateY(0)
 
 .Component
 
-    &__Carousel,
-    &__Single-carousel
+    &__Carousel
         position: relative
         margin: 30rem auto 28rem auto
+        width: 70%
+        
+        .rec.rec-carousel-wrapper
+            width: 120%
+            margin-left: -10%
+            
+            & > div
+                margin-top: 10rem
 
-        .slick-slide img
-            width: 100%
 
-        .slick-slide
-            margin: 0 20px
+                button:nth-child(1),
+                button:nth-child(3),
+                    z-index: 1
+                    position: absolute
+                    height: 8rem
+                    display: block
+                    width: 8rem
+                    border: none
+                    background: transparent
+                    cursor: pointer
+                    top: 60%
 
-        .slick-list
-            margin: 0 -20px
+                button:nth-child(1)
+                    left: 0
+                    transform: translate(-30%, -50%)
+
+                button:nth-child(3)
+                    right: 0
+                    transform: translate(30%, -50%)
+
+        &-caption
+            position: absolute
+            top: -6rem
+            left: 0
+            height: 100%
+            border-left: 2px solid #EAEAEA
+
+            h4
+                margin-bottom: 0.5rem
+                font-family: 'HelveticaNeueMedium'
+                letter-spacing: 1px
+                font-weight: 500
+                color: #7F7F7F
+                text-align: left
+                padding-left: 2rem
+                text-transform: uppercase
+                font-size: 1.3rem
+                line-height: 1.7rem
+                margin-top: 0
+
+            p
+                text-align: left
+                padding-left: 2rem
+                font-size: 1.3rem
+                margin: 0
+                color: #7F7F7F
+                font-weight: 500
+                letter-spacing: 1.1px
 
     &__Video
         display: flex
@@ -177,8 +226,10 @@
         margin: 15rem auto
         flex-direction: column
 
-        & > img 
+        & > img     
+            max-height: 66rem
             width: 100%
+            object-fit: cover
 
         &-caption
             width: 100%
@@ -207,169 +258,268 @@
                 font-weight: 500
                 letter-spacing: 1.1px
 
-.Carousel__Image
-    width: 100%
-
+.Carousel
     
+    &__Image
+        height: 45rem
+        box-shadow: 0 0 12px 6px #e2e2e273
 
-.Carousel__Single-Image
-    width: 70%
-
-.Component__Carousel
-    width: 70%
-
-    &::before
-        content: ""
-        background-color: #F2F2F2
-        height: 100%
-        width: 80%
-        position: absolute
-        left: 50%
-        transform: translate(-50%, -40%)
-        top: 50%
-        z-index: -1
-
-    &-caption
-        position: absolute
-        top: -6rem
-        left: 0
-        height: 100%
-        border-left: 2px solid #EAEAEA
-
-        h4
-            margin-bottom: 0.5rem
-            font-family: 'HelveticaNeueMedium'
-            letter-spacing: 1px
-            font-weight: 500
-            color: #7F7F7F
-            text-align: left
-            padding-left: 2rem
-            text-transform: uppercase
-            font-size: 1.3rem
-            line-height: 1.7rem
-            margin-top: 0
-
-        p
-            text-align: left
-            padding-left: 2rem
-            font-size: 1.3rem
-            margin: 0
-            color: #7F7F7F
-            font-weight: 500
-            letter-spacing: 1.1px
-
-    & > div
-        width: 100%
-        z-index: 1
-
-    & .rec-swipable
-        z-index: 1
-        justify-content: space-between
-    
-    & .rec-slider-container
-        overflow: initial
-        margin: 0
+    &__Size-3
+        width: 70%
+        max-width: 90rem
         
-    & .rec-slider
-        margin: 0
-
-    .rec-carousel
-        .rec-carousel-item
-            display: flex
-            justify-content: center
-            align-items: center
-            width: 30%
-            box-shadow: 0px 0px 12px 6px #e2e2e273
-
-        button:nth-child(1)
-            z-index: 1
+        &::before
+            content: ""
+            background-color: #F2F2F2
             position: absolute
-            left: 0
+            left: 50%
+            transform: translate(-50%, -40%)
             top: 50%
-            transform: translate(-30%, -50%)
-            border: none
-            background: transparent
-            cursor: pointer
+            z-index: -1
+            width: 80%
+            height: 65%
 
-        button:nth-child(3)
-            z-index: 1
+        .Component__Carousel-caption
+            left: 2rem
+        
+        .Carousel__Image
+            height: 50rem
+        
+        .rec.rec-carousel-wrapper
+            & > div
+                button:nth-child(1)
+                    left: 0
+                    transform: translate(-100%, -50%)
+
+                button:nth-child(3)
+                    right: 0
+                    transform: translate(100%, -50%)
+
+    &__Size-2
+        width: 50%
+        max-width: 90rem
+
+        &::before
+            content: ""
+            background-color: #F2F2F2
             position: absolute
+            left: 50%
+            transform: translate(-50%, -40%)
             top: 50%
-            right: 0
-            transform: translate(30%, -50%)
-            border: none
-            background: transparent
-            cursor: pointer
+            z-index: -1
+            height: 65%
+            width: 100%
 
-.Component__Single-carousel
-    width: 70%
-    max-width: 150rem
+        .Component__Carousel-caption
+            left: 2rem
 
-    &::before
-        content: ""
-        background-color: #F2F2F2
-        height: 76rem
-        width: 100%
-        position: absolute
-        left: 50%
-        transform: translate(-50%, -50%)
-        top: 50%
-        z-index: -1
+        .Carousel__Image
+            height: 50rem
+        
+        .rec.rec-carousel-wrapper
+            & > div
+                button:nth-child(1)
+                    left: 0
+                    transform: translate(-75%, -50%)
 
-    &-caption
-        width: 100%
-        position: absolute
-        top: -12rem
-        height: 100%
-        border-left: 2px solid #EAEAEA
+                button:nth-child(3)
+                    right: 0
+                    transform: translate(75%, -50%)
 
-        h4
-            text-align: left
-            padding-left: 2rem
-            text-transform: uppercase
-            font-size: 1.5rem
-            margin-top: 0
-            color: #7F7F7F
-            font-weight: 500
-            letter-spacing: 3px
+    &__Size-1
+        width: 40%
+        max-width: 90rem
 
-        p
-            text-align: left
-            padding-left: 2rem
-            font-size: 1.5rem
-            margin: 0
-            color: #7F7F7F
-            font-weight: 500
-            letter-spacing: 3px
-
-    div
-        z-index: 1
-
-    .rec-carousel
-        .rec-carousel-item
-            display: flex
-            justify-content: center
-            align-items: center
-
-        button:nth-child(1)
-            z-index: 1
+        &::before
+            content: ""
+            background-color: #F2F2F2
             position: absolute
-            left: 0
+            left: 50%
+            transform: translate(-50%, -40%)
             top: 50%
-            transform: translate(-30%, -50%)
-            border: none
-            background: transparent
-            cursor: pointer
+            z-index: -1
+            height: 65%
+            width: 120%
+        
+        .Component__Carousel-caption
+            left: 5em
+            height: 50%
+            
+        .Carousel__Image
+            height: 75rem
+        
+        .rec.rec-carousel-wrapper
+            & > div
+                button:nth-child(1)
+                    left: 0
+                    transform: translate(-50%, -50%)
 
-        button:nth-child(3)
-            z-index: 1
-            position: absolute
-            top: 50%
-            right: 0
-            transform: translate(30%, -50%)
-            border: none
-            background: transparent
-            cursor: pointer
+                button:nth-child(3)
+                    right: 0
+                    transform: translate(50%, -50%)
+        
+@media screen and (max-width: 1440px)
+
+    .Carousel
+        &__Size-3
+            .Carousel__Image
+                height: 38rem
+
+    .Carousel
+        &__Size-2
+            .Carousel__Image
+                height: 36rem
+                
+@media screen and (max-width: 1024px)
+
+    .Carousel
+        &__Size-3
+            .Carousel__Image
+                height: 45rem
+
+    .Carousel
+        &__Size-2
+            .Carousel__Image
+                height: 40rem
+                
+    .Carousel
+        &__Size-1
+            .Carousel__Image
+                height: 60rem;
+
+        
+//         button:nth-child(1)
+//             z-index: 1
+//             position: absolute
+//             left: 0
+//             top: 50%
+//             transform: translate(-30%, -50%)
+//             border: none
+//             background: transparent
+//             cursor: pointer
+
+//         button:nth-child(3)
+//             z-index: 1
+//             position: absolute
+//             top: 50%
+//             right: 0
+//             transform: translate(30%, -50%)
+//             border: none
+//             background: transparent
+//             cursor: pointer
+
+
+
+//     & > div
+//         width: 100%
+//         z-index: 1
+
+//     & .rec-swipable
+//         z-index: 1
+//         justify-content: space-between
+    
+//     & .rec-slider-container
+//         overflow: initial
+//         margin: 0
+        
+//     & .rec-slider
+//         margin: 0
+
+//     .rec-carousel
+//         .rec-carousel-item
+//             display: flex
+//             justify-content: center
+//             align-items: center
+
+//         button:nth-child(1)
+//             z-index: 1
+//             position: absolute
+//             left: 0
+//             top: 50%
+//             transform: translate(-30%, -50%)
+//             border: none
+//             background: transparent
+//             cursor: pointer
+
+//         button:nth-child(3)
+//             z-index: 1
+//             position: absolute
+//             top: 50%
+//             right: 0
+//             transform: translate(30%, -50%)
+//             border: none
+//             background: transparent
+//             cursor: pointer
+
+// .Component__Single-carousel
+//     width: 70%
+//     max-width: 150rem
+
+//     &::before
+//         content: ""
+//         background-color: #F2F2F2
+//         height: 76rem
+//         width: 100%
+//         position: absolute
+//         left: 50%
+//         transform: translate(-50%, -50%)
+//         top: 50%
+//         z-index: -1
+
+//     &-caption
+//         width: 100%
+//         position: absolute
+//         top: -12rem
+//         height: 100%
+//         border-left: 2px solid #EAEAEA
+
+//         h4
+//             text-align: left
+//             padding-left: 2rem
+//             text-transform: uppercase
+//             font-size: 1.5rem
+//             margin-top: 0
+//             color: #7F7F7F
+//             font-weight: 500
+//             letter-spacing: 3px
+
+//         p
+//             text-align: left
+//             padding-left: 2rem
+//             font-size: 1.5rem
+//             margin: 0
+//             color: #7F7F7F
+//             font-weight: 500
+//             letter-spacing: 3px
+
+//     div
+//         z-index: 1
+
+//     .rec-carousel
+//         .rec-carousel-item
+//             display: flex
+//             justify-content: center
+//             align-items: center
+
+//         button:nth-child(1)
+//             z-index: 1
+//             position: absolute
+//             left: 0
+//             top: 50%
+//             transform: translate(-30%, -50%)
+//             border: none
+//             background: transparent
+//             cursor: pointer
+
+//         button:nth-child(3)
+//             z-index: 1
+//             position: absolute
+//             top: 50%
+//             right: 0
+//             transform: translate(30%, -50%)
+//             border: none
+//             background: transparent
+//             cursor: pointer
 
 @media screen and (max-width: 768px)
 
@@ -396,10 +546,7 @@
             > p
                 padding: 0
 
-    .Component__Carousel,
-    .Component__Single-carousel
-        position: relative
-        margin: 10rem auto 15rem auto
+    .Component__Carousel
 
         .rec-slider-container
             overflow: auto
@@ -407,44 +554,6 @@
     .Component__Video
         position: relative
         margin: 10rem auto 15rem auto
-
-.Component__Single-carousel > div > div > div > div > div > div > div > div
-    display: flex
-    align-items: center
-    justify-content: center
-
-.Component__Carousel > .rec.rec-carousel-wrapper > div
-    margin-top: 10rem
-
-    
-// .Logo
-//     z-index: 100
-//     position: relative
-//     cursor: pointer
-
-//     img
-//         position: absolute
-
-//     &__Et
-//         width: 11rem
-//         top: 5rem
-//         left: 5rem
-//         opacity: 0
-
-//     &__Josiane
-//         width: 11rem
-//         top: 5rem
-//         left: 5rem
-
-//     &__Cousines
-//         width: 26rem
-//         top: 5rem
-//         left: 5rem
-    
-//     &.flying
-
-//         img
-//             position: fixed
 
 @media screen and (max-width: 1024px)
     .Logo
@@ -457,6 +566,3 @@
             width: 26rem
             top: 3rem
             left: 3rem
-
-
-.Component__Carousel > div > .rec-carousel

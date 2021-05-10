@@ -35,7 +35,7 @@ const Picture = ({ className, url }) => (
 );
 
 const ProjectCarousel = ({ data }) => (
-	<div className="Component__Carousel">
+	<div className={"Component__Carousel" + " Carousel__Size-" + data.itemsToShow}>
 		{data.title && data.description ? (
 			<div className="Component__Carousel-caption">
 				<h4>{data.title}</h4>
@@ -51,8 +51,6 @@ const ProjectCarousel = ({ data }) => (
 );
 
 const ProjectVideo = ({ data }) => {
-	// console.log(data.borders);
-	// console.log(data.shadows);
 	return (
 		<div className={"Component__Video" + (data.borders ? " with-borders" : "") + (data.shadows ? " with-shadows" : "")}>
 			{data.title && data.description ? (
@@ -88,8 +86,6 @@ const getComponent = (component, componentKey) => {
 			return component.Source ? <ProjectVideo data={component} key={"video" + componentKey} /> : null;
 		case "project-page.image":
 			return component.Image.url ? <ProjectImage data={component} key={"carousel-image" + componentKey} /> : null;
-		// case "project-page.single-carousel":
-		// 	return <ProjectSingleCarousel data={component} key={"carousel-single" + componentKey} />;
 		default:
 			return null;
 	}
@@ -106,7 +102,7 @@ const Project = ({ project, others }) => {
 		window.scrollTo(0, 0);
 
 		window.onscroll = () => {
-			if (window.pageYOffset > logoJosianeRef.current.offsetTop) {
+			if (window?.pageYOffset > logoJosianeRef?.current?.offsetTop) {
 				logoJosianeRef.current.classList.add("flying");
 			} else {
 				logoJosianeRef.current.classList.remove("flying");
@@ -139,23 +135,67 @@ const Project = ({ project, others }) => {
 
 			<div className="Project__Suggestions">
 				{others.map((item, k) => {
-					return (
-						<div
-							key={k}
-							className="Suggestions__Item"
-							onClick={() => {
-								history.push(item.path);
-							}}
-						>
-							<div>
-								<img src={item.isotope_cover.url} alt="Suggestion project" />
-								<div className="Suggestions__Description">
-									<span>{item.title}</span>
-									<span>{item.subtitle}</span>
+					console.log(item);
+
+					switch (item.isotope_cover.ext) {
+						case ".png":
+							return (
+								<div
+									key={k}
+									className="Suggestions__Item"
+									onClick={() => {
+										history.push(item.path);
+									}}
+								>
+									<div>
+										<img src={item.isotope_cover.url} alt="Suggestion project" />
+										<div className="Suggestions__Description">
+											<span>{item.title}</span>
+											<span>{item.subtitle}</span>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-					);
+							);
+
+						case ".jpg":
+							return (
+								<div
+									key={k}
+									className="Suggestions__Item"
+									onClick={() => {
+										history.push(item.path);
+									}}
+								>
+									<div>
+										<img src={item.isotope_cover.url} alt="Suggestion project" />
+										<div className="Suggestions__Description">
+											<span>{item.title}</span>
+											<span>{item.subtitle}</span>
+										</div>
+									</div>
+								</div>
+							);
+						case ".mp4":
+							return (
+								<div
+									key={k}
+									className="Suggestions__Item"
+									onClick={() => {
+										history.push(item.path);
+									}}
+								>
+									<div>
+										<Video source={item.isotope_cover.url} />
+										<div className="Suggestions__Description">
+											<span>{item.title}</span>
+											<span>{item.subtitle}</span>
+										</div>
+									</div>
+								</div>
+							);
+						default:
+							break;
+					}
 				})}
 			</div>
 			<Footer scrollRef="contact" />
