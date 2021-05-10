@@ -35,7 +35,7 @@ const Picture = ({ className, url }) => (
 );
 
 const ProjectCarousel = ({ data }) => (
-	<div className={"Component__Carousel" + " Carousel__Size-" + data.itemsToShow}>
+	<div className={"Component__Carousel  Carousel__Size-" + data.itemsToShow}>
 		{data.title && data.description ? (
 			<div className="Component__Carousel-caption">
 				<h4>{data.title}</h4>
@@ -135,8 +135,6 @@ const Project = ({ project, others }) => {
 
 			<div className="Project__Suggestions">
 				{others.map((item, k) => {
-					console.log(item);
-
 					switch (item.isotope_cover.ext) {
 						case ".png":
 							return (
@@ -194,7 +192,7 @@ const Project = ({ project, others }) => {
 								</div>
 							);
 						default:
-							break;
+							return null;
 					}
 				})}
 			</div>
