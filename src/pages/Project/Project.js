@@ -4,16 +4,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import Carousel, { consts } from "react-elastic-carousel";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import logoBlue from "./../../images/logos/logo_blue.svg";
 
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import Footer from "./../../components/Footer/Footer";
 import Header from "./../../components/Header/Header";
 import Title from "./../../components/Title/Title";
-import Menu from "./../../components/Menu/Menu";
 
 import arrowRight from "./../../images/icons/arrow_right.svg";
 import arrowLeft from "./../../images/icons/arrow_left.svg";
@@ -91,12 +90,10 @@ const getComponent = (component, componentKey) => {
 	}
 };
 
-const Project = ({ project, others }) => {
-	const history = useHistory();
+const Project = ({ project, others, history }) => {
 	const logoJosianeRef = useRef(null);
 
 	const { pathname } = useLocation();
-	const [menuState, setMenuState] = useState({ isOpen: false });
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -112,16 +109,8 @@ const Project = ({ project, others }) => {
 
 	const { cover, title, subtitle, long_description, Content } = project;
 
-	const handleLinkClick = () => {
-		setMenuState({ isOpen: false });
-		history.push("/");
-	};
-
-	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
 	return (
 		<div className="Project">
-			<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
-
 			<div className="Logo" ref={logoJosianeRef}>
 				<img className="Logo__Picture Logo__Josiane" src={logoBlue} onClick={() => history.push("/")} alt="Josiane Logo" />
 			</div>

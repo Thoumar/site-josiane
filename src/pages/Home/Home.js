@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 
-import Menu from "./../../components/Menu/Menu";
 import Block from "../../components/Block/Block";
 import Title from "./../../components/Title/Title";
 import Footer from "./../../components/Footer/Footer";
@@ -22,21 +21,19 @@ import Carousel, { consts } from "react-elastic-carousel";
 
 import "./Home.sass";
 
-import { useHistory } from "react-router";
-
 import arrowRight from "./../../images/icons/arrow_right.svg";
 import arrowLeft from "./../../images/icons/arrow_left.svg";
 
-const Home = ({ projects, peoples }) => {
-	const history = useHistory();
+const Home = ({ projects, peoples, scroll, history }) => {
+	console.log(scroll);
 
 	const logoJosianeRef = useRef(null);
 	const logoCousinesRef = useRef(null);
 
-	const [menuState, setMenuState] = useState({ isOpen: false });
 	const [showIsotope, setShowIsotope] = useState(false);
 
 	useEffect(() => {
+		console.log(scroll.link);
 		window.onscroll = () => {
 			if (window.pageYOffset > logoJosianeRef.current.offsetTop) {
 				logoJosianeRef.current.classList.add("flying");
@@ -49,64 +46,73 @@ const Home = ({ projects, peoples }) => {
 				logoCousinesRef.current.classList.remove("flying");
 			}
 		};
-	}, [projects]);
 
-	const arrows = ({ type, onClick, isEdge }) => {
-		const pointer = type === consts.PREV ? <img src={arrowLeft} alt="Arrow" /> : <img src={arrowRight} alt="Arrow" />;
-		return (
-			<button onClick={onClick} style={{ display: isEdge ? "none" : "block" }}>
-				{pointer}
-			</button>
-		);
-	};
-
-	const handleLinkClick = (position) => {
-		if (document.querySelector('[scroll-ref="' + position + '"]')) {
-			setMenuState({ iOpen: false });
-			document.querySelector('[scroll-ref="' + position + '"]').scrollIntoView({
-				behavior: "smooth",
-				block: "start",
-				inline: "center",
-			});
-		} else if (position === "work") {
-			setShowIsotope(true);
+		if (document.querySelector('[scroll-ref="' + scroll.link + '"]')) {
+			if (scroll.link === "work") {
+				setShowIsotope(true);
+			}
 			setTimeout(function () {
-				setMenuState({ iOpen: false });
-				document.querySelector('[scroll-ref="' + position + '"]').scrollIntoView({
+				document.querySelector('[scroll-ref="' + scroll.link + '"]').scrollIntoView({
 					behavior: "smooth",
 					block: "start",
 					inline: "center",
 				});
-			}, 200);
+			}, 300);
+			// setMenuState({ isOpen: false });
 		}
+	}, [scroll.link]);
+
+	const arrows = ({ type, onClick }) => {
+		const pointer = type === consts.PREV ? <img src={arrowLeft} alt="Arrow" /> : <img src={arrowRight} alt="Arrow" />;
+		return <button onClick={onClick}>{pointer}</button>;
 	};
 
-	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
+	const familyCarouselRef = useRef(null);
+
+	const onNextStart = (currentItem, nextItem) => {
+		if (currentItem.index === nextItem.index) {
+			// We hit the last item, go to first item
+			familyCarouselRef.current.goTo(0);
+		}
+	};
+	const onPrevStart = (currentItem, nextItem) => {
+		if (currentItem.index === nextItem.index) {
+			// We hit the first item, go to last item
+			familyCarouselRef.current.goTo(peoples.length);
+		}
+	};
 
 	if (projects.length >= 1) {
 		return (
 			<main className="Home">
-				<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
 				<Header
 					cover={{
 						url: "https://res.cloudinary.com/thoumar/video/upload/v1616334851/1_Farming_Simulator_19_Farming_and_furious_d598ade095.mp4",
 					}}
 				/>
+
 				<div className="Logo" ref={logoJosianeRef}>
 					<img className="Logo__Picture Logo__Josiane" src={logoBlue} onClick={() => history.push("/")} alt="Josiane Logo" />
 				</div>
+
 				<Title scrollRef="josiane" text="la maman des marques" customStyle={{ marginTop: "12rem" }} />
+
 				<Paragraph
 					htmlText={
 						"Josiane redonne du <i>bon sens</i>.<br />Aux marques en quête d’idées pour grandir durablement.<br />A la société en recherche de valeurs et d’actes porteurs de progrès.<br />Au modèle des agences tenu de se réinventer. <br />C’est peut-être pour cela que Josiane a été élue <br />agence challenger de l’année."
 					}
 				/>
+
 				<Title alt="Maman des marques" text={"le travail"} content={titleLeTravail} />
+
 				{projects.map((project, index) => (
-					<Block key={index} data={project} handleClick={() => history.push(project.path)} />
+					<Block history={history} key={index} data={project} handleClick={() => history.push(project.path)} />
 				))}
-				<Button text="TOUT LE TRAVAIL" click={() => setShowIsotope(!showIsotope)} withMarginBottom />
+
+				<Button text="TOUT LE TRAVAIL" click={() => setShowIsotope(!showIsotope)} customStyle={{ marginBottom: "7rem" }} />
+
 				{showIsotope ? <Isotope scrollRef="work" projects={projects} /> : null}
+
 				<Title alt="La Famille" text={"la famille"} scrollRef="family" />
 				<div className="Family">
 					<div className="Family__Text">
@@ -120,7 +126,17 @@ const Home = ({ projects, peoples }) => {
 						</p>
 					</div>
 					<div className="Family__Carousel">
-						<Carousel itemsToShow={1} outerSpacing={5} renderArrow={arrows} pagination={false}>
+						<Carousel
+							itemsToShow={1}
+							outerSpacing={5}
+							ref={familyCarouselRef}
+							renderArrow={arrows}
+							pagination={false}
+							infinite={true}
+							onPrevStart={onPrevStart}
+							onNextStart={onNextStart}
+							disableArrowsOnEnd={false}
+						>
 							{peoples.map((person, key) => {
 								return (
 									<div className="Person" key={key}>

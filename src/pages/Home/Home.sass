@@ -11,7 +11,7 @@
     align-items: center
     flex-direction: row
     max-width: 145rem
-    width: 75%
+    width: 70%
     margin: 10rem auto 17rem auto
 
     &__Text
@@ -28,7 +28,7 @@
         p
             font-family: "HelveticaNeueExtraLight"
             font-size: 1.7rem
-            color: rgba(0, 0, 0, 0.5)
+            color: #7C7C7C
             letter-spacing: 0.5px
             line-height: 1.9rem
 
@@ -45,7 +45,7 @@
 
         &::before
             content: ""
-            background-color: #F8F8F8
+            background-color: #F2F2F2
             position: absolute
             right: 3rem
             top: -6rem
@@ -112,7 +112,7 @@
         font-family: 'HelveticaNeueBold'
         font-style: italic
         font-size: 3.5rem
-        color: rgba(0, 0, 0, .5)
+        color: #7C7C7C
         margin-top: 1rem
         margin-bottom: .5rem
 
@@ -120,7 +120,7 @@
         font-family: 'HelveticaNeueLight'
         font-style: italic
         font-size: 2rem
-        color: rgba(0, 0, 0, .5)
+        color: #7C7C7C
         letter-spacing: 0.3px
         width: 100%
         display: inline-block
@@ -128,7 +128,7 @@
     &__Description
         font-family: "HelveticaNeueExtraLight";
         font-size: 1.4rem;
-        color: rgba(0, 0, 0, 0.5);
+        color: #7C7C7C
         letter-spacing: 0.5px;
         padding: 0 2rem 0 0;
         line-height: 1.8rem;
@@ -185,51 +185,60 @@
     &__Et
         width: 2rem
         top: 8.5rem
-        left: 5rem
+        left: 3rem
         opacity: 0
         transition: all .2s
 
     &__Josiane
         width: 9rem
-        top: 5rem
-        left: 5rem
+        top: 3rem
+        left: 3rem
 
     &__Cousines
         width: 17rem
         top: 11rem
-        left: 5rem
+        left: 3rem
+        opacity: 0
+        transition: all .2s
     
     &.flying
             
         img
             position: fixed
 
-.Logo.flying .Logo__Et
-    width: 2rem
-    top: 8.5rem
-    left: 5rem
-    opacity: 1
+        & .Logo__Et
+            width: 2rem
+            top: 6.5rem
+            left: 3rem
+            opacity: 1
 
-.Logo.flying .Logo__Josiane
-    width: 9rem
-    top: 5rem
-    left: 5rem
+        & .Logo__Josiane
+            width: 9rem
+            left: 3rem
+            top: 3  rem
 
 
-.Logo.flying .Logo__Cousines  
-    width: 17rem  
-    top: 11rem
-    left: 5rem
+        & .Logo__Cousines  
+            width: 17rem  
+            top: 9rem
+            left: 3rem
+            opacity: 1
 
 
 @media screen and (max-width: 1024px)
     .Logo
         &__Josiane
-            width: 11rem
+            width: 9rem
             top: 3rem
             left: 3rem
 
         &__Cousines
-            width: 26rem
-            top: 3rem
+            width: 17rem
+            top: 11rem
+            left: 3rem
+
+            
+        &.flying .Logo__Cousines  
+            width: 17rem  
+            top: 11rem
             left: 3rem

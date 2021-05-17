@@ -16,32 +16,36 @@
 
     &__Content
         display: flex
+        flex-direction: column
         width: 100%
-
         justify-content: center
         margin-top: 3rem
         font-weight: 100
         letter-spacing: 1px
+        align-items: center
 
     &__Side
         display: flex
-        flex-direction: column
 
-        &-left
+        &-top
             align-items: flex-end
-            // width: 50%
+
+            > span:not(:last-child)
+                border-right: 1px solid grey
 
             > span
-                border-right: 1px solid grey
                 margin: 1rem 0 1rem 1rem
                 padding-right: 1rem
 
-        &-right
+        &-bottom
             align-items: flex-start
-            // width: 50%
+
+            > span:not(:last-child)
+                border-right: 1px solid grey
 
             > span
-                margin: 1rem
+                margin: 1rem 0 1rem 1rem
+                padding-right: 1rem
 
     &__Bottom
         width: 100%
