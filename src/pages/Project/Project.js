@@ -9,6 +9,7 @@ import React, { useEffect, useRef } from "react";
 import logoBlue from "./../../images/logos/logo_blue.svg";
 
 import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router";
 
 import Footer from "./../../components/Footer/Footer";
 import Header from "./../../components/Header/Header";
@@ -90,8 +91,9 @@ const getComponent = (component, componentKey) => {
 	}
 };
 
-const Project = ({ project, others, history }) => {
+const Project = ({ project, others }) => {
 	const logoJosianeRef = useRef(null);
+	const history = useHistory();
 
 	const { pathname } = useLocation();
 

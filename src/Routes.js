@@ -56,8 +56,8 @@ const Routes = () => {
 	}, []);
 
 	const handleLinkClick = (position) => {
-		history.push("/");
 		setScrollIntent({ link: position });
+		history.push("/");
 	};
 
 	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
@@ -67,7 +67,7 @@ const Routes = () => {
 		<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} loading={isLoading} />,
 		<Switch>
 			<Route exact path="/">
-				<Home history={history} scrollIntent={scrollIntent} projects={projects} peoples={peoples} />
+				<Home history={history} scroll={scrollIntent} projects={projects} peoples={peoples} />
 			</Route>
 			{setProjectList()}
 		</Switch>,

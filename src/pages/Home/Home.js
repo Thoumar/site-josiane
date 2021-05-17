@@ -17,6 +17,8 @@ import logoEtCousines from "./../../images/logos/et_cousines.svg";
 
 import bgCousines from "./../../images/backgrounds/cousines_background.jpg";
 
+import { useHistory } from "react-router";
+
 import Carousel, { consts } from "react-elastic-carousel";
 
 import "./Home.sass";
@@ -24,11 +26,12 @@ import "./Home.sass";
 import arrowRight from "./../../images/icons/arrow_right.svg";
 import arrowLeft from "./../../images/icons/arrow_left.svg";
 
-const Home = ({ projects, peoples, scroll, history }) => {
+const Home = ({ projects, peoples, scroll }) => {
 	console.log(scroll);
 
 	const logoJosianeRef = useRef(null);
 	const logoCousinesRef = useRef(null);
+	const history = useHistory();
 
 	const [showIsotope, setShowIsotope] = useState(false);
 
