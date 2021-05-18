@@ -1,7 +1,6 @@
 // React and Librairies
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Switch, Route } from "react-router-dom";
-import Menu from "./components/Menu/Menu";
 
 // Pages
 import Home from "./pages/Home/Home";
