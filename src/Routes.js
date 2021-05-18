@@ -16,8 +16,6 @@ const serverUri = process.env.REACT_APP_BASE_URL || "https://admin-josiane.herok
 
 const Routes = () => {
 	const history = useHistory();
-	const [menuState, setMenuState] = useState({ isOpen: false });
-	const [scrollIntent, setScrollIntent] = useState({ link: "" });
 
 	const [isLoading, setLoadingState] = useState(true);
 	const [projects, setProjects] = useState([]);
@@ -55,19 +53,11 @@ const Routes = () => {
 		});
 	}, []);
 
-	const handleLinkClick = (position) => {
-		setScrollIntent({ link: position });
-		history.push("/");
-	};
-
-	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
-
 	return [
 		<Loader loading={isLoading} />,
-		<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} loading={isLoading} />,
 		<Switch>
 			<Route exact path="/">
-				<Home history={history} scroll={scrollIntent} projects={projects} peoples={peoples} />
+				<Home history={history} projects={projects} peoples={peoples} />
 			</Route>
 			{setProjectList()}
 		</Switch>,

@@ -77,6 +77,8 @@ const Video = ({ autoPlay, source, controls, clicked }) => {
 	const soundIconSrc = muted ? soundOffIcon : soundOnIcon;
 	const playIconSrc = playing ? pauseIcon : playIcon;
 
+	console.log(source);
+
 	return (
 		<div className="Video">
 			{controls ? (

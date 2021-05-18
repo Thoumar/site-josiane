@@ -6,6 +6,7 @@ import Footer from "./../../components/Footer/Footer";
 import Header from "./../../components/Header/Header";
 import Isotope from "./../../components/Isotope/Isotope";
 import Paragraph from "./../../components/Paragraph/Paragraph";
+import Menu from "./../../components/Menu/Menu";
 import Cousines from "../../components/Cousines/Cousines";
 import Button from "./../../components/Button/Button";
 
@@ -26,17 +27,51 @@ import "./Home.sass";
 import arrowRight from "./../../images/icons/arrow_right.svg";
 import arrowLeft from "./../../images/icons/arrow_left.svg";
 
-const Home = ({ projects, peoples, scroll }) => {
-	console.log(scroll);
-
+const Home = ({ projects, peoples }) => {
 	const logoJosianeRef = useRef(null);
 	const logoCousinesRef = useRef(null);
 	const history = useHistory();
 
+	const [menuState, setMenuState] = useState({ isOpen: false });
 	const [showIsotope, setShowIsotope] = useState(false);
 
+	const handleLinkClick = (position) => {
+		console.log("clicked");
+		history.push("/#" + position);
+		checkScrollPosition();
+	};
+
+	const checkScrollPosition = () => {
+		if (window.location.hash) {
+			const target = window.location.hash.replace("#", "");
+			console.log(target);
+			if (target === "work") {
+				setShowIsotope(true);
+				setTimeout(function () {
+					if (document.querySelector('[scroll-ref="' + target + '"]')) {
+						document.querySelector('[scroll-ref="' + target + '"]').scrollIntoView({
+							behavior: "smooth",
+							block: "start",
+							inline: "center",
+						});
+					}
+				}, 300);
+			} else {
+				if (document.querySelector('[scroll-ref="' + target + '"]')) {
+					document.querySelector('[scroll-ref="' + target + '"]').scrollIntoView({
+						behavior: "smooth",
+						block: "start",
+						inline: "center",
+					});
+				}
+			}
+		}
+	};
+
+	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
+
 	useEffect(() => {
-		console.log(scroll.link);
+		checkScrollPosition();
 		window.onscroll = () => {
 			if (window.pageYOffset > logoJosianeRef.current.offsetTop) {
 				logoJosianeRef.current.classList.add("flying");
@@ -49,21 +84,7 @@ const Home = ({ projects, peoples, scroll }) => {
 				logoCousinesRef.current.classList.remove("flying");
 			}
 		};
-
-		if (document.querySelector('[scroll-ref="' + scroll.link + '"]')) {
-			if (scroll.link === "work") {
-				setShowIsotope(true);
-			}
-			setTimeout(function () {
-				document.querySelector('[scroll-ref="' + scroll.link + '"]').scrollIntoView({
-					behavior: "smooth",
-					block: "start",
-					inline: "center",
-				});
-			}, 300);
-			// setMenuState({ isOpen: false });
-		}
-	}, [scroll.link]);
+	}, []);
 
 	const arrows = ({ type, onClick }) => {
 		const pointer = type === consts.PREV ? <img src={arrowLeft} alt="Arrow" /> : <img src={arrowRight} alt="Arrow" />;
@@ -88,6 +109,7 @@ const Home = ({ projects, peoples, scroll }) => {
 	if (projects.length >= 1) {
 		return (
 			<main className="Home">
+				<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
 				<Header
 					cover={{
 						url: "https://res.cloudinary.com/thoumar/video/upload/v1616334851/1_Farming_Simulator_19_Farming_and_furious_d598ade095.mp4",
