@@ -59,14 +59,14 @@ const getSizeClass = (size) => {
 };
 
 // Render functions
-const renderItem = ({ ext, url, alt }, handleClick, index) => {
+const renderItem = ({ ext, url, alternativeText }, handleClick, index) => {
 	switch (ext) {
 		case ".png":
-			return <img src={url} alt={alt} key={index + "-picture-item"} onClick={handleClick} />;
+			return <img src={url} alt={alternativeText} key={index + "-picture-item"} onClick={handleClick} />;
 		case ".jpg":
-			return <img src={url} alt={alt} key={index + "-picture-item"} onClick={handleClick} />;
+			return <img src={url} alt={alternativeText} key={index + "-picture-item"} onClick={handleClick} />;
 		case ".mp4":
-			return <Video source={url} autoPlay clicked={handleClick} />;
+			return <Video source={url} alt={alternativeText} autoPlay clicked={handleClick} />;
 		default:
 			return null;
 	}
@@ -83,6 +83,8 @@ const renderFirstItem = (item, { title, subtitle }, handleClick, index) => {
 };
 
 const Block = ({ data, handleClick, key }) => {
+	console.log(data.previews);
+
 	const { title, disposition, subtitle, previews, size } = data;
 	const dispositionClass = " " + getDispositionClass(disposition);
 	const sizeClass = " " + getSizeClass(size);

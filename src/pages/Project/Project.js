@@ -120,6 +120,8 @@ const Project = ({ project, others }) => {
 
 	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
 
+	console.log(project);
+
 	return (
 		<div className="Project">
 			<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />

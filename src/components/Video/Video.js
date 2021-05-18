@@ -12,7 +12,7 @@ import pauseIcon from "./../../images/icons/pause.svg";
 
 import "./Video.sass";
 
-const Video = ({ autoPlay, source, controls, clicked }) => {
+const Video = ({ autoPlay, source, controls, clicked, alt }) => {
 	const playerRef = useRef(null);
 
 	const [fullScreenState, setFullScreenState] = useState(false);
@@ -77,8 +77,6 @@ const Video = ({ autoPlay, source, controls, clicked }) => {
 	const soundIconSrc = muted ? soundOffIcon : soundOnIcon;
 	const playIconSrc = playing ? pauseIcon : playIcon;
 
-	console.log(source);
-
 	return (
 		<div className="Video">
 			{controls ? (
@@ -87,7 +85,7 @@ const Video = ({ autoPlay, source, controls, clicked }) => {
 						<img
 							className="Video__Button Video__Button--play"
 							src={playIconSrc}
-							alt={""}
+							alt="Icon play video"
 							onClick={() => {
 								handlePlayPause();
 							}}
@@ -95,7 +93,7 @@ const Video = ({ autoPlay, source, controls, clicked }) => {
 						<img
 							className="Video__Button Video__Button--mute"
 							src={soundIconSrc}
-							alt={""}
+							alt="Icon mute video"
 							onClick={() => {
 								handleSetSoundState();
 							}}
@@ -120,7 +118,7 @@ const Video = ({ autoPlay, source, controls, clicked }) => {
 					<img
 						className="Video__Button Video__Button--fullscreen"
 						src={fullscreenIcon}
-						alt={""}
+						alt="Icon fullscreen video"
 						onClick={() => {
 							handleSetFullScreenState();
 						}}
