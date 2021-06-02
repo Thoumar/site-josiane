@@ -5,6 +5,7 @@
   "dependencies": {
     "@agney/react-loading": "^0.1.2",
     "@babel/helper-builder-react-jsx": "^7.12.13",
+    "@babel/helper-builder-react-jsx-experimental": "^7.12.11",
     "@babel/plugin-transform-react-jsx": "^7.14.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
