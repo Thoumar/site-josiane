@@ -90,14 +90,7 @@ const Video = ({ autoPlay, source, controls, clicked, alt }) => {
 								handlePlayPause();
 							}}
 						/>
-						<img
-							className="Video__Button Video__Button--mute"
-							src={soundIconSrc}
-							alt="Icon mute video"
-							onClick={() => {
-								handleSetSoundState();
-							}}
-						/>
+						<img className="Video__Button Video__Button--mute" src={soundIconSrc} alt="Icon mute video" onClick={() => handleSetSoundState()} />
 					</div>
 					<div>
 						{fullScreenState ? (
@@ -126,17 +119,7 @@ const Video = ({ autoPlay, source, controls, clicked, alt }) => {
 				</div>
 			) : null}
 
-			<ReactPlayer
-				onClick={clicked}
-				ref={playerRef}
-				playing={playing}
-				muted={muted}
-				loop
-				url={source}
-				width="100%"
-				height="100%"
-				onProgress={handleProgress}
-			/>
+			<ReactPlayer onClick={clicked} ref={playerRef} playing={playing} muted={muted} loop url={source} width="100%" height="100%" onProgress={handleProgress} />
 		</div>
 	);
 };
