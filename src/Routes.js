@@ -20,6 +20,8 @@ const Routes = () => {
 	const [projects, setProjects] = useState([]);
 	const [peoples, setPeoples] = useState([]);
 
+	const peoplesList = peoples.sort((a, b) => a.ordre - b.ordre);
+
 	const setProjectList = () =>
 		projects.map((project, i) => {
 			const recommendedProjects = [...projects]
@@ -56,7 +58,7 @@ const Routes = () => {
 		<Loader loading={isLoading} />,
 		<Switch>
 			<Route exact path="/">
-				<Home history={history} projects={projects} peoples={peoples} />
+				<Home history={history} projects={projects} peoples={peoplesList} />
 			</Route>
 			{setProjectList()}
 		</Switch>,

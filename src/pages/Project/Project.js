@@ -36,7 +36,7 @@ const Picture = ({ className, url }) => (
 );
 
 const ProjectCarousel = ({ data }) => (
-	<div className={"Component__Carousel  Carousel__Size-" + data.itemsToShow}>
+	<div className={"Component__Carousel  Carousel__Size-" + data.itemsToShow + (data.background ? " with-background" : "")}>
 		{data.title && data.description ? (
 			<div className="Component__Carousel-caption">
 				<h4>{data.title}</h4>
@@ -48,6 +48,12 @@ const ProjectCarousel = ({ data }) => (
 				<Picture key={key} className={"Carousel__Image"} url={pic.url} />
 			))}
 		</Carousel>
+	</div>
+);
+
+const ProjectText = ({ data }) => (
+	<div className={"Component__Text"}>
+		<div dangerouslySetInnerHTML={{ __html: data.paragraphe }}></div>
 	</div>
 );
 
@@ -87,6 +93,8 @@ const getComponent = (component, componentKey) => {
 			return component.Source ? <ProjectVideo data={component} key={"video" + componentKey} /> : null;
 		case "project-page.image":
 			return component.Image.url ? <ProjectImage data={component} key={"carousel-image" + componentKey} /> : null;
+		case "project-page.texte":
+			return component.paragraph ? <ProjectText data={component} key={"text" + componentKey} /> : null;
 		default:
 			return null;
 	}

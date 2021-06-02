@@ -32,7 +32,7 @@
         width: 70%
         max-width: 148rem
         border-left: 2px solid #EAEAEA
-        padding: 12rem 0 0 2rem
+        padding: 8rem 0 0 2rem
 
         h4
             margin: 2rem 0 0 0
@@ -96,6 +96,8 @@
             letter-spacing: 1px
             font-weight: 500
             color: white
+            display: inline-block
+            width: 90%
 
         & > span:nth-child(2)
             text-align: left
@@ -104,6 +106,8 @@
             color: white
             font-weight: 500
             letter-spacing: 1.1px
+            display: inline-block
+            width: 90%
 
                     
     &__Item:hover .Suggestions__Description
@@ -119,7 +123,7 @@
 
     &__Carousel
         position: relative
-        margin: 30rem auto 28rem auto
+        margin: 20rem auto 28rem auto
         width: 70%
         
         .rec.rec-carousel-wrapper
@@ -186,7 +190,7 @@
         position: relative
         width: 70%
         max-width: 150rem
-        margin: 15rem auto
+        margin: 10rem auto
         flex-direction: column
 
         &-caption
@@ -257,6 +261,19 @@
                 color: #7C7C7C
                 font-weight: 500
                 letter-spacing: 1.1px
+    
+    &__Text
+
+        & > div
+            font-size: 1.5rem
+            position: relative
+            line-height: 1.9rem
+            margin: 0 auto 15rem auto
+            color: #7C7C7C
+            width: 70%
+            max-width: 148rem
+            border-left: 2px solid #EAEAEA
+            padding: 8rem 0 0 2rem
 
 .Carousel
     
@@ -299,22 +316,11 @@
         width: 50%
         max-width: 90rem
 
-        &::before
-            content: ""
-            background-color: #F2F2F2
-            position: absolute
-            left: 50%
-            transform: translate(-50%, -40%)
-            top: 50%
-            z-index: -1
-            height: 65%
-            width: 100%
-
         .Component__Carousel-caption
             left: 2rem
 
         .Carousel__Image
-            height: 50rem
+            height: 60rem
         
         .rec.rec-carousel-wrapper
             & > div
@@ -346,7 +352,7 @@
             height: 50%
             
         .Carousel__Image
-            height: 75rem
+            height: 50rem
         
         .rec.rec-carousel-wrapper
             & > div
@@ -357,6 +363,17 @@
                 button:nth-child(3)
                     right: 0
                     transform: translate(50%, -50%)
+
+.with-background::before
+    content: ""
+    background-color: #F2F2F2
+    position: absolute
+    left: 50%
+    transform: translate(-50%, -40%)
+    top: 50%
+    z-index: -1
+    height: 65%
+    width: 100%
         
 @media screen and (max-width: 1440px)
     .Carousel

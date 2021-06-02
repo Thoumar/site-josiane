@@ -36,7 +36,6 @@ const Home = ({ projects, peoples }) => {
 	const [showIsotope, setShowIsotope] = useState(false);
 
 	const handleLinkClick = (position) => {
-		console.log("clicked");
 		history.push("/#" + position);
 		checkScrollPosition();
 	};
@@ -44,7 +43,6 @@ const Home = ({ projects, peoples }) => {
 	const checkScrollPosition = () => {
 		if (window.location.hash) {
 			const target = window.location.hash.replace("#", "");
-			console.log(target);
 			if (target === "work") {
 				setShowIsotope(true);
 				setTimeout(function () {
@@ -143,8 +141,8 @@ const Home = ({ projects, peoples }) => {
 					<div className="Family__Text">
 						<h4>AGENCE D’IDÉE</h4>
 						<p>
-							Comme nos clients, nos collaborateurs n’ont pas choisi Josiane par hasard. Passés par de grandes entreprises et agences, ils
-							souhaitent revenir à l’essentiel pour retrouver du bon sens, du lien, et le goût des idées.
+							Comme nos clients, nos collaborateurs n’ont pas choisi Josiane par hasard. Passés par de grandes entreprises et agences, ils souhaitent revenir à l’essentiel pour retrouver du bon sens,
+							du lien, et le goût des idées.
 							<br />
 							<br />
 							C’est ça Josiane : une famille pour grandir et faire grandir.
