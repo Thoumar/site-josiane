@@ -70,6 +70,7 @@ const Home = ({ projects, peoples }) => {
 
 	useEffect(() => {
 		checkScrollPosition();
+		console.log("useEffect");
 		window.onscroll = () => {
 			if (window.pageYOffset > logoJosianeRef.current.offsetTop) {
 				logoJosianeRef.current.classList.add("flying");
