@@ -111,7 +111,7 @@ const Home = ({ projects, peoples }) => {
 				<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
 				<Header
 					cover={{
-						url: "https://res.cloudinary.com/thoumar/video/upload/v1616334851/1_Farming_Simulator_19_Farming_and_furious_d598ade095.mp4",
+						url: "https://res.cloudinary.com/thoumar/video/upload/v1622732392/SHOWREEL_JOSIANE_2021_X_zf3szk.mp4",
 					}}
 				/>
 
