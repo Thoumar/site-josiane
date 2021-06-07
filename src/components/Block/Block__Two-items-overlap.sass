@@ -14,10 +14,10 @@
                 margin-top: 5rem
 
         .Block-caption > .Video,
-        .Block-caption > img
+        .Block-caption > .Image > img
             width: 100%
 
-        & > img,
+        & > .Image,
         & > .Video
             right: 0
             top: 50%
@@ -25,6 +25,9 @@
             position: absolute
             transform: translateY(-60%)
             z-index: 2
+        
+        .Image > img
+            width: 100%
 
 @media screen and (max-width: 768px)
     .Block
@@ -49,7 +52,7 @@
                 height: auto
                 width: auto
 
-            & > img,
+            & > .Image,
             & > .Video
                 position: relative
                 height: auto

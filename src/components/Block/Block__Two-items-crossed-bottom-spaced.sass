@@ -17,14 +17,13 @@
             h4
                 margin-top: 5rem
 
-        .Block-caption > .Video,
-        .Block-caption > img
+        .Block-caption > .Video video,
+        .Block-caption > .Image > img
             width: 100%
             object-fit: cover
 
-        & > img,
+        & > .Image,
         & > .Video
-
             box-shadow: 0 0 20px 5px #efefef73
             width: 48%
             position: absolute
@@ -32,6 +31,10 @@
             right: 1rem
             top: 8rem
             z-index: 1
+
+        & > .Image > img
+            width: 100%
+            object-fit: cover
 
 @media screen and (max-width: 768px)
     .Block

@@ -14,15 +14,18 @@
                 margin-top: 1.5rem
 
         .Block-caption > .Video,
-        .Block-caption > img
+        .Block-caption > .Image
             height: 32rem
 
-        & > img
+        & > .Image
             right: 0
             top: 10rem
             width: 59%
             position: absolute
             z-index: 2
+            
+        & > .Image> img
+            width: 100%
 
 @media screen and (max-width: 768px)
     .Block

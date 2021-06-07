@@ -11,11 +11,11 @@
                 margin-top: 5rem
 
         .Block-caption .Video,
-        .Block-caption > img
+        .Block-caption > .Image > img
             height: 22rem
             object-fit: cover
 
-        & > img,
+        & > .Image > img,
         & > .Video
             width: 22rem
             height: 22rem
@@ -30,12 +30,11 @@
                 h4
 
             .Block-caption > .Video,
-            .Block-caption > img,
-            .Block-caption > div
+            .Block-caption > .Image > img,
                 height: auto
 
-            & > img,
-            & > video
+            & > .Image > img,
+            & > .Video
                 height: 22rem
 
 @media screen and (max-width: 768px)

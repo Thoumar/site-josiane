@@ -5,7 +5,6 @@
         align-items: center
         justify-content: space-around
         margin: 0 auto 18rem auto
-        // max-width: 120rem
 
         .Block-caption
             width: 67%
@@ -18,10 +17,11 @@
                 margin-top: 5.5rem
 
         .Block-caption > .Video,
-        .Block-caption > img
+        .Block-caption > .Image > img
+            width: 100%
             object-fit: cover
 
-        & > img,
+        & > .Image,
         & > .Video
             top: 5rem
             right: 4rem
@@ -30,6 +30,9 @@
             object-fit: contain
             position: absolute
             object-position: right
+
+        & > .Image > img
+            width: 100%
 
 @media screen and (max-width: 768px)
     .Block

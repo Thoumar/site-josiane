@@ -6,16 +6,20 @@
     &.hide
         display: none
 
-    &-caption > video,
-    &-caption > img
-        margin-left: -2px
+    .Video,
+    .Image
+        overflow: hidden
 
-    &:hover
-    &-caption > video:hover,
-    &-caption > img:hover,
-    video:hover,
-    img:hover
+    .Image > img,
+    .Video video
+        transform: scale(1.0)
+        transition: all .2s ease
         cursor: pointer
+
+    .Video:hover video,
+    .Image:hover > img
+        cursor: pointer
+        transform: scale(1.1)
 
     &-caption
         box-sizing: border-box
@@ -26,6 +30,10 @@
         align-items: flex-start
         flex-direction: column
         font-size: 1.5rem
+
+        .Video,
+        .Image
+            margin-left: -2px
 
         h4
             margin-top: 7rem

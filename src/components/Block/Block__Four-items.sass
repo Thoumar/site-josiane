@@ -5,7 +5,6 @@
         align-items: flex-end
         margin: 0 auto 16rem auto
         justify-content: space-around
-        // max-width: 119rem
         transform: translateX(-1rem)
 
         .Block-caption
@@ -18,30 +17,26 @@
                 margin-top: 5rem
 
         .Block-caption > .Video,
-        .Block-caption > img
+        .Block-caption > .Image
             width: 100%
             object-fit: cover
             height: calc(100% - 9rem)
 
-        & > img,
+        & > .Image,
         & > .Video
-            z-index: 2
-            object-fit: cover
             height: 21rem
+            z-index: 2
             margin: 1rem 5rem 0rem 0rem
+
+            & > img
+                height: 100%
+                object-fit: cover
 
 @media screen and (max-width: 1024px)
     .Block
         &__Four-items
 
-            .Block-caption
-
-                h4
-
-            .Block-caption > .Video,
-            .Block-caption > img
-
-            & > img,
+            & > .Image,
             & > .Video
                 height: 21rem
 

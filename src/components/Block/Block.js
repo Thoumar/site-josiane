@@ -62,9 +62,17 @@ const getSizeClass = (size) => {
 const renderItem = ({ ext, url, alternativeText }, handleClick, index) => {
 	switch (ext) {
 		case ".png":
-			return <img src={url} alt={alternativeText} key={index + "-picture-item"} onClick={handleClick} />;
+			return (
+				<div className="Image">
+					<img src={url} alt={alternativeText} key={index + "-picture-item"} onClick={handleClick} />
+				</div>
+			);
 		case ".jpg":
-			return <img src={url} alt={alternativeText} key={index + "-picture-item"} onClick={handleClick} />;
+			return (
+				<div className="Image">
+					<img src={url} alt={alternativeText} key={index + "-picture-item"} onClick={handleClick} />
+				</div>
+			);
 		case ".mp4":
 			return <Video source={url} alt={alternativeText} autoPlay clicked={handleClick} />;
 		default:
