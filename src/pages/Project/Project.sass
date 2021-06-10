@@ -123,12 +123,12 @@
 
     &__Carousel
         position: relative
-        margin: 20rem auto 28rem auto
+        margin: 20rem auto 15rem auto
         width: 70%
         
-        .rec.rec-carousel-wrapper
-            width: 120%
-            margin-left: -10%
+        .rec.rec-carousel-wrapper   
+            width: 140%
+            margin-left: -20%
             
             & > div
                 margin-top: 3rem
@@ -284,23 +284,12 @@
     &__Size-3
         width: 70%
         max-width: 90rem
-        
-        // &::before
-        //     content: ""
-        //     background-color: #F2F2F2
-        //     position: absolute
-        //     left: 50%
-        //     transform: translate(-50%, -40%)
-        //     top: 50%
-        //     z-index: -1
-        //     width: 80%
-        //     height: 65%
 
         .Component__Carousel-caption
             left: 2rem
         
         .Carousel__Image
-            height: 50rem
+            // height: 50rem
             margin: 2rem
         
         .rec.rec-carousel-wrapper
@@ -321,18 +310,20 @@
             left: 0rem
 
         .Carousel__Image
-            height: 65rem
+            height: 60rem
             margin: 2rem
         
         .rec.rec-carousel-wrapper
             & > div
+                max-height: 80rem
+
                 button:nth-child(1)
                     left: 0
-                    transform: translate(-75%, -50%)
+                    transform: translate(-100%, -50%)
 
                 button:nth-child(3)
                     right: 0
-                    transform: translate(75%, -50%)
+                    transform: translate(100%, -50%)
 
             .rec-slider-container
                 margin: 0 5rem
@@ -340,17 +331,6 @@
     &__Size-1
         width: 40%
         max-width: 90rem
-
-        // &::before
-        //     content: ""
-        //     background-color: #F2F2F2
-        //     position: absolute
-        //     left: 50%
-        //     transform: translate(-50%, -40%)
-        //     top: 50%
-        //     z-index: -1
-        //     height: 65%
-        //     width: 120%
         
         .Component__Carousel-caption
             left: 0
@@ -362,6 +342,8 @@
         
         .rec.rec-carousel-wrapper
             & > div
+                max-height: 80rem
+
                 button:nth-child(1)
                     left: 0
                     transform: translate(-50%, -50%)
@@ -390,7 +372,7 @@
     .Carousel
         &__Size-2
             .Carousel__Image
-                height: 36rem
+                height: 40rem
                 
 @media screen and (max-width: 1024px)
     .Carousel
@@ -401,12 +383,12 @@
     .Carousel
         &__Size-2
             .Carousel__Image
-                height: 40rem
+                height: 45rem
                 
     .Carousel
         &__Size-1
             .Carousel__Image
-                height: 60rem;
+                height: 60rem
 
 @media screen and (max-width: 768px)
     .Project
@@ -438,3 +420,6 @@
     .Component__Video
         position: relative
         margin: 10rem auto 15rem auto
+
+        .withShadows
+            box-shadow: 0 0 12px 6px #e2e2e273
