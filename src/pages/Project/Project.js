@@ -8,7 +8,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 import logoBlue from "./../../images/logos/logo_blue.svg";
 
-import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router";
 
 import Footer from "./../../components/Footer/Footer";
@@ -110,25 +109,21 @@ const Project = ({ project, others }) => {
 		history.push("/#" + position);
 	};
 
-	const { pathname } = useLocation();
-
 	useEffect(() => {
 		window.scrollTo(0, 0);
 
 		window.onscroll = () => {
-			if (window?.pageYOffset > logoJosianeRef?.current?.offsetTop) {
+			if (logoJosianeRef.current && window?.pageYOffset > logoJosianeRef?.current?.offsetTop) {
 				logoJosianeRef.current.classList.add("flying");
 			} else {
 				logoJosianeRef.current.classList.remove("flying");
 			}
 		};
-	}, [pathname]);
+	});
 
 	const { cover, title, subtitle, long_description, Content } = project;
 
 	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
-
-	console.log(project);
 
 	return (
 		<div className="Project">
