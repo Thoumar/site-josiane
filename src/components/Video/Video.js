@@ -78,19 +78,12 @@ const Video = ({ autoPlay, source, controls, clicked, alt }) => {
 	const playIconSrc = playing ? pauseIcon : playIcon;
 
 	return (
-		<div className="Video">
+		<div className="Video" onClick={handlePlayPause}>
 			{controls ? (
 				<div className="Video__Controls">
 					<div>
-						<img
-							className="Video__Button Video__Button--play"
-							src={playIconSrc}
-							alt="Icon play video"
-							onClick={() => {
-								handlePlayPause();
-							}}
-						/>
-						<img className="Video__Button Video__Button--mute" src={soundIconSrc} alt="Icon mute video" onClick={() => handleSetSoundState()} />
+						<img className="Video__Button Video__Button--play" src={playIconSrc} alt="Icon play video" onClick={handlePlayPause} />
+						<img className="Video__Button Video__Button--mute" src={soundIconSrc} alt="Icon mute video" onClick={handleSetSoundState} />
 					</div>
 					<div>
 						{fullScreenState ? (

@@ -6,22 +6,17 @@ import Scroller from "./../Scroller/Scroller";
 import "./Header.sass";
 
 const Header = ({ cover, title, subtitle }) => {
-	// console.log(cover);
-
 	let backgroundMedia;
 
 	const [fullscreenState, setFullscreenState] = useState();
+	const [titleDisplay, setTitleDisplay] = useState(true);
 
-	const handleSetFullScreen = () => {
-		console.log("go fullscreen");
-		setFullscreenState(true);
-	};
+	const handleSetFullScreen = () => setFullscreenState(false);
+	const handleFadeAnimation = () => setTitleDisplay(false);
 
 	// Fill the background with either a video or an image
 	if (cover?.url?.indexOf(".mp4") > -1) {
-		backgroundMedia = (
-			<Video source={cover.url} alt={cover.alternativeText} controls autoPlay clicked={handleSetFullScreen} fullscreen={fullscreenState} />
-		);
+		backgroundMedia = <Video source={cover.url} alt={cover.alternativeText} controls autoPlay clicked={handleSetFullScreen} fullscreen={fullscreenState} />;
 	} else if (cover?.url?.indexOf(".png") > -1 || cover?.url?.indexOf(".jpg") > -1) {
 		backgroundMedia = (
 			<div className="Header__Background-image">
@@ -32,9 +27,11 @@ const Header = ({ cover, title, subtitle }) => {
 		backgroundMedia = null;
 	}
 
+	console.log(titleDisplay ? "" : " fade-away");
+
 	return (
-		<header className="Header">
-			<div className="Header__Title">
+		<header className="Header" onClick={handleFadeAnimation}>
+			<div className={"Header__Title" + (titleDisplay ? "" : " fade-away")}>
 				{title ? <h1>{title}</h1> : null}
 				{subtitle ? <span>{subtitle}</span> : null}
 			</div>

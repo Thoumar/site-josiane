@@ -111,7 +111,6 @@ const Project = ({ project, others }) => {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-
 		window.onscroll = () => {
 			if (logoJosianeRef.current && window?.pageYOffset > logoJosianeRef?.current?.offsetTop) {
 				logoJosianeRef.current.classList.add("flying");
