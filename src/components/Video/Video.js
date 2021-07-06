@@ -12,7 +12,7 @@ import pauseIcon from "./../../images/icons/pause.svg";
 
 import "./Video.sass";
 
-const Video = ({ autoPlay, source, controls, clicked, alt }) => {
+const Video = ({ autoPlay, source, controls, thumbnail }) => {
 	const playerRef = useRef(null);
 
 	const [fullScreenState, setFullScreenState] = useState(false);
@@ -32,19 +32,16 @@ const Video = ({ autoPlay, source, controls, clicked, alt }) => {
 
 	const { playing, muted, played } = state;
 
-	const handlePlayPause = () => setState({ ...state, playing: !state.playing });
-
-	const handleSetSoundState = () => setState({ ...state, muted: !state.muted });
-
-	const handleSeekMouseDown = (e) => setState({ ...state, seeking: true });
-
+	const handlePlayPause = (value) => setState({ ...state, playing: value });
+	const handleSetSoundState = () => {
+		setState({ ...state, muted: !state.muted });
+	};
+	const handleSeekMouseDown = () => setState({ ...state, seeking: true });
+	const handleSeekChange = (newValue) => playerRef.current.seekTo(newValue / 100);
 	const handleSeekMouseUp = (e, newValue) => {
 		setState({ ...state, seeking: false });
 		playerRef.current.seekTo(newValue / 100);
 	};
-
-	const handleSeekChange = (newValue) => playerRef.current.seekTo(newValue / 100);
-
 	const handleProgress = (changeState) => {
 		if (!state.seeking) {
 			setState({ ...state, ...changeState });
@@ -78,11 +75,19 @@ const Video = ({ autoPlay, source, controls, clicked, alt }) => {
 	const playIconSrc = playing ? pauseIcon : playIcon;
 
 	return (
-		<div className="Video" onClick={handlePlayPause}>
+		<div className="Video">
 			{controls ? (
 				<div className="Video__Controls">
 					<div>
-						<img className="Video__Button Video__Button--play" src={playIconSrc} alt="Icon play video" onClick={handlePlayPause} />
+						<img
+							className="Video__Button Video__Button--play"
+							src={playIconSrc}
+							alt="Icon play video"
+							onClick={(e) => {
+								e.stopPropagation();
+								handlePlayPause(!state.playing);
+							}}
+						/>
 						<img className="Video__Button Video__Button--mute" src={soundIconSrc} alt="Icon mute video" onClick={handleSetSoundState} />
 					</div>
 					<div>
@@ -93,26 +98,27 @@ const Video = ({ autoPlay, source, controls, clicked, alt }) => {
 								onMouseDown={handleSeekMouseDown}
 								onMouseUp={handleSeekMouseUp}
 								trackClassName="Video__Track"
+								light="http://placekitten.com/200/300"
 								value={played * 100}
 								onChange={handleSeekChange}
-								renderThumb={(props, state) => {
-									return <div {...props}></div>;
-								}}
 							/>
 						) : null}
 					</div>
-					<img
-						className="Video__Button Video__Button--fullscreen"
-						src={fullscreenIcon}
-						alt="Icon fullscreen video"
-						onClick={() => {
-							handleSetFullScreenState();
-						}}
-					/>
+					<img className="Video__Button Video__Button--fullscreen" src={fullscreenIcon} alt="Icon fullscreen video" onClick={handleSetFullScreenState} />
 				</div>
 			) : null}
 
-			<ReactPlayer onClick={clicked} ref={playerRef} playing={playing} muted={muted} loop url={source} width="100%" height="100%" onProgress={handleProgress} />
+			<div
+				style={{ height: "100%", width: "100%" }}
+				onClick={(e) => {
+					e.stopPropagation();
+					handlePlayPause(!state.playing);
+				}}
+			>
+				<ReactPlayer ref={playerRef} playing={playing} muted={muted} loop url={source} width="100%" height="100%" onProgress={handleProgress} />
+			</div>
+
+			{thumbnail ? <img className={"Video__Thumbnail" + (playing ? " hide" : " show")} src={thumbnail.url} width="100%" height="100%" alt="video thumbnail" /> : null}
 		</div>
 	);
 };

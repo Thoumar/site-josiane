@@ -3,6 +3,9 @@
     max-width: 80rem
     width: 65%
 
+    .parallax-inner
+        max-width: 100%;
+
     &.hide
         display: none
 
@@ -10,11 +13,12 @@
     .Image
         overflow: hidden
 
-    .Image > img,
+    .Image img,
     .Video video
         transform: scale(1.0)
         transition: all .7s cubic-bezier(0.02, 0.41, 0.53, 0.99)
         cursor: pointer
+        max-width: 100%
 
     .Video:hover video,
     .Image:hover > img
@@ -63,3 +67,16 @@
     .Block
         &-caption
             border-left: 0px solid transparent
+
+@import "./Block__Four-items"
+@import "./Block__Three-items-gallery"
+@import "./Block__Two-items-aligned"
+@import "./Block__Two-items-crossed-bottom-spaced"
+@import "./Block__Two-items-crossed-bottom-squared"
+@import "./Block__Two-items-crossed-bottom"
+@import "./Block__Two-items-crossed-top-overlap"
+@import "./Block__Two-items-crossed-top"
+@import "./Block__Two-items-overlap-inline"
+@import "./Block__Two-items-overlap-squared"
+@import "./Block__Two-items-overlap"
+@import "./Block__Two-items"

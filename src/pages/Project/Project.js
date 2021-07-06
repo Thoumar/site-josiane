@@ -65,14 +65,14 @@ const ProjectVideo = ({ data }) => {
 					<p>{data.description}</p>
 				</div>
 			) : null}
-			<Video source={data.Source.url} controls />
+			<Video thumbnail={data.thumbnail ? data.thumbnail : null} source={data.Source.url} controls />
 		</div>
 	);
 };
 
 const ProjectImage = ({ data }) => {
 	return (
-		<div className="Component__Image">
+		<div className={"Component__Image" + (data.shadows ? " with-shadows" : "")}>
 			{data.title && data.description ? (
 				<div className="Component__Image-caption">
 					<h4>{data.title}</h4>
@@ -120,19 +120,22 @@ const Project = ({ project, others }) => {
 		};
 	});
 
-	const { cover, title, subtitle, long_description, Content } = project;
+	const { cover, title, subtitle, second_subtitle, long_description, Content } = project;
 
 	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
 
+	const Description = () => <div className="Project__Description" dangerouslySetInnerHTML={{ __html: long_description }}></div>;
 	return (
 		<div className="Project">
 			<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
+
 			<div className="Logo" ref={logoJosianeRef}>
 				<img className="Logo__Picture Logo__Josiane" src={logoBlue} onClick={() => history.push("/")} alt="Josiane Logo" />
 			</div>
-			<Header cover={cover} title={title} subtitle={subtitle} />
 
-			<div className="Project__Description" dangerouslySetInnerHTML={{ __html: long_description }}></div>
+			<Header cover={cover ? cover : null} title={title ? title : null} subtitle={subtitle ? subtitle : null} second_subtitle={second_subtitle ? second_subtitle : null} />
+
+			<Description />
 
 			{Content ? Content.map((component, key) => getComponent(component, key)) : null}
 

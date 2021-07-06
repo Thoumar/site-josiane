@@ -3,11 +3,12 @@
         display: flex
         flex-direction: column
         align-items: flex-end
-        margin: 0 auto 16rem auto
+        margin: 0 auto 35rem auto
         justify-content: space-around
         transform: translateX(-1rem)
 
         .Block-caption
+            height: 100%
             width: 73.5%
             position: absolute
             left: 0
@@ -16,28 +17,28 @@
             h4
                 margin-top: 5rem
 
-        .Block-caption > .Video,
-        .Block-caption > .Image
+        .Block-caption .Video,
+        .Block-caption .Image
             width: 100%
             object-fit: cover
             height: calc(100% - 9rem)
 
-        & > .Image,
-        & > .Video
+        & .Image,
+        & .Video
             height: 21rem
             z-index: 2
             margin: 1rem 5rem 0rem 0rem
 
-            & > img
-                height: 100%
+            & img
+                height: 21rem
                 object-fit: cover
 
 @media screen and (max-width: 1024px)
     .Block
         &__Four-items
 
-            & > .Image,
-            & > .Video
+            & .Image,
+            & .Video
                 height: 21rem
 
 @media screen and (max-width: 768px)
@@ -55,13 +56,13 @@
                 position: relative
                 transform: translateY(0)
 
-            .Block-caption > .Video,
-            .Block-caption > img
+            .Block-caption .Video,
+            .Block-caption .Image
                 height: auto
                 width: auto
 
-            & > img,
-            & > .Video
+            & .Image,
+            & .Video
                 height: auto
                 width: 100%
                 margin-bottom: 2rem

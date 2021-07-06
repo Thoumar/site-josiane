@@ -54,15 +54,38 @@ img, video
     html
         font-size: 8px
 
-
+.with-background::before
+    content: ""
+    background-color: #F2F2F2
+    position: absolute
+    left: 50%
+    transform: translate(-50%, -50%)
+    top: 50%
+    z-index: -1
+    height: 60%
+    width: 100%
 
 .with-shadows .rec-carousel-item,
-.with-shadows .Video
+.with-shadows .Video,
+.with-shadows .Image
     box-shadow: 0px 0px 12px 6px #e2e2e273
-
         
 .with-borders .rec-carousel-item,
 .with-borders .Video
     border-radius: 10px
     border: 2px solid #EAEAEA
     overflow: hidden
+
+@import "./components/Block/Block"
+@import "./components/Button/Button"
+@import "./components/Cousines/Cousines"
+@import "./components/Footer/Footer"
+@import "./components/Header/Header"
+@import "./components/Isotope/Isotope"
+@import "./components/Loader/Loader"
+@import "./components/Menu/Menu"
+@import "./components/Paragraph/Paragraph"
+@import "./components/Scroller/Scroller"
+@import "./components/Social/Social"
+@import "./components/Title/Title"
+@import "./components/Video/Video"

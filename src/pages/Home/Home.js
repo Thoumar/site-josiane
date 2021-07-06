@@ -70,7 +70,6 @@ const Home = ({ projects, peoples }) => {
 
 	useEffect(() => {
 		checkScrollPosition();
-		console.log("useEffect");
 		window.onscroll = () => {
 			if (window.pageYOffset > logoJosianeRef.current.offsetTop) {
 				logoJosianeRef.current.classList.add("flying");
@@ -94,13 +93,11 @@ const Home = ({ projects, peoples }) => {
 
 	const onNextStart = (currentItem, nextItem) => {
 		if (currentItem.index === nextItem.index) {
-			// We hit the last item, go to first item
 			familyCarouselRef.current.goTo(0);
 		}
 	};
 	const onPrevStart = (currentItem, nextItem) => {
 		if (currentItem.index === nextItem.index) {
-			// We hit the first item, go to last item
 			familyCarouselRef.current.goTo(peoples.length);
 		}
 	};
@@ -130,7 +127,7 @@ const Home = ({ projects, peoples }) => {
 				<Title alt="Maman des marques" text={"le travail"} content={titleLeTravail} />
 
 				{projects.map((project, index) => (
-					<Block history={history} key={index} data={project} handleClick={() => history.push(project.path)} />
+					<Block history={history} dataKey={index} data={project} handleClick={() => history.push(project.path)} />
 				))}
 
 				<Button text="TOUT LE TRAVAIL" click={() => setShowIsotope(!showIsotope)} customStyle={{ marginBottom: "7rem" }} />

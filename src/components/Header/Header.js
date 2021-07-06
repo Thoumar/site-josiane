@@ -5,7 +5,7 @@ import Scroller from "./../Scroller/Scroller";
 
 import "./Header.sass";
 
-const Header = ({ cover, title, subtitle }) => {
+const Header = ({ cover, title, subtitle, second_subtitle }) => {
 	let backgroundMedia;
 
 	const [fullscreenState, setFullscreenState] = useState();
@@ -27,13 +27,12 @@ const Header = ({ cover, title, subtitle }) => {
 		backgroundMedia = null;
 	}
 
-	console.log(titleDisplay ? "" : " fade-away");
-
 	return (
 		<header className="Header" onClick={handleFadeAnimation}>
 			<div className={"Header__Title" + (titleDisplay ? "" : " fade-away")}>
 				{title ? <h1>{title}</h1> : null}
 				{subtitle ? <span>{subtitle}</span> : null}
+				{second_subtitle ? <span>{second_subtitle}</span> : null}
 			</div>
 			{backgroundMedia}
 			<Scroller text="Scroll" />

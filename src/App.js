@@ -1,21 +1,19 @@
 // React and Librairies
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 // Components
-import Routes from './Routes';
+import Routes from "./Routes";
 
 // Style
-import './App.sass';
+import "./App.sass";
 
-const App = () => {
-	return (
-		<div className="App">
-			<Router>
-                <Routes />
-			</Router>
-		</div>
-	)
-}
+const App = () => (
+	<div className="App">
+		<Router>
+			<Routes />
+		</Router>
+	</div>
+);
 
 export default App;

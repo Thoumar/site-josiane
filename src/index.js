@@ -1,17 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.sass';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ParallaxProvider } from 'react-scroll-parallax';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { ParallaxProvider } from "react-scroll-parallax";
+
+import "./index.sass";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ParallaxProvider>
-      <App />
-    </ParallaxProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<ParallaxProvider>
+			<App />
+		</ParallaxProvider>
+	</React.StrictMode>,
+	document.getElementById("root")
 );
-
-reportWebVitals();
