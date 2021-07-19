@@ -12,7 +12,7 @@
     flex-direction: row
     max-width: 145rem
     width: 70%
-    margin: 10rem auto 17rem auto
+    margin: 10rem auto 12rem auto
 
     &__Text
         width: 26%
@@ -51,8 +51,6 @@
             top: -6rem
             bottom: -8rem
             left: 36rem
-
-            
 
         .rec-carousel
             .rec-carousel-item
@@ -175,10 +173,19 @@
         padding-left: 5rem
         padding-right: 3rem
 
+@keyframes appear
+    0%
+        opacity: 0
+
+    100%
+        opacity: 1
+
 .Logo
+    opacity: 0
     z-index: 100
     cursor: pointer
     position: relative
+    animation: appear 1s ease 7s 1 forwards
 
     img
         position: absolute

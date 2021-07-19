@@ -123,7 +123,7 @@
 
     &__Carousel
         position: relative
-        margin: 20rem auto 15rem auto
+        margin: 20rem auto 12rem auto
         width: 80%
         
         .rec.rec-carousel-wrapper   
@@ -189,7 +189,7 @@
         position: relative
         width: 80%
         max-width: 150rem
-        margin: 10rem auto
+        margin: 10rem auto 10rem auto
         flex-direction: column
 
         &-caption
@@ -226,13 +226,12 @@
         position: relative
         width: 80%
         max-width: 150rem
-        margin: 15rem auto
+        margin: 12rem auto
         flex-direction: column
 
         & > img     
-            max-height: 66rem
             width: 100%
-            object-fit: cover
+            object-fit: contain
 
         &-caption
             width: 100%
@@ -267,7 +266,7 @@
             font-size: 1.5rem
             position: relative
             line-height: 1.9rem
-            margin: 0 auto 15rem auto
+            margin: 0 auto 12rem auto
             color: #7C7C7C
             width: 80%
             max-width: 148rem
@@ -282,7 +281,6 @@
             box-shadow: 0 0 12px 6px #e2e2e273
     
     &__Image
-        // height: 45rem
         width: 100%
         object-fit: contain
 
@@ -294,7 +292,6 @@
             left: 2rem
         
         .Carousel__Image
-            // height: 50rem
             margin: 2rem
         
         .rec.rec-carousel-wrapper
@@ -329,11 +326,11 @@
 
                 button:nth-child(1)
                     left: 0
-                    transform: translate(-115%, -50%)
+                    transform: translate(-200%, -50%)
 
                 button:nth-child(3)
                     right: 0
-                    transform: translate(115%, -50%)
+                    transform: translate(200%, -50%)
 
                 .rec-slider-container
                     margin: 0 5rem
@@ -378,7 +375,14 @@
             .Carousel__Image
                 // height: 55rem
                 background-color: white
+            
+            .rec.rec-carousel-wrapper
+                & > div
+                    button:nth-child(1)
+                        transform: translate(-150%, -50%)
 
+                    button:nth-child(3)
+                        transform: translate(150%, -50%)
     .Carousel
         &__Size-1
             .Carousel__Image
@@ -397,6 +401,14 @@
             .Carousel__Image
                 // height: 45rem
                 background-color: white
+
+            .rec.rec-carousel-wrapper
+                & > div
+                    button:nth-child(1)
+                        transform: translate(-120%, -50%)
+
+                    button:nth-child(3)
+                        transform: translate(120%, -50%)
                 
     .Carousel
         &__Size-1
@@ -429,6 +441,14 @@
 
     .Carousel
         &__Size-2
+            .rec.rec-carousel-wrapper
+                & > div
+                    button:nth-child(1)
+                        transform: translate(-160%, -50%)
+
+                    button:nth-child(3)
+                        transform: translate(160%, -50%)
+                        
             .rec.rec-carousel-wrapper > div > div
                 margin: 0 !important
 

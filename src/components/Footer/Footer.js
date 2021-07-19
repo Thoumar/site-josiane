@@ -1,5 +1,7 @@
 import "./Footer.sass";
 
+import React from "react";
+
 import Social from "./../../components/Social/Social";
 import logoBlue from "./../../images/logos/logo_blue.svg";
 

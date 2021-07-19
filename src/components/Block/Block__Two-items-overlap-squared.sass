@@ -3,7 +3,8 @@
         display: flex
         align-items: center
         justify-content: flex-start
-        margin: 0 auto 25rem auto
+        margin: 0 auto 20rem auto
+        min-height: 65rem
 
         .Block-caption
             width: 75%
@@ -28,11 +29,26 @@
         & > .Image> img
             width: 100%
 
+
+            // min-height: 85rem
+@media screen and (max-width: 1440px)
+    .Block
+        &__Two-items-overlap-squared
+            min-height: 70rem
+
+
+@media screen and (max-width: 1024px)
+    .Block
+        &__Two-items-overlap-squared
+            min-height: 65rem
+
+
 @media screen and (max-width: 768px)
     .Block
         &__Two-items-overlap-squared
             transform: unset
             height: auto
+            min-height: 65rem
             flex-direction: column-reverse
 
             .Block-caption

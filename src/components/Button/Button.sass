@@ -2,7 +2,8 @@
     display: inline-flex
     justify-content: center
     align-items: center
-    margin: 0 auto 12rem auto
+    margin: 0 auto 8rem auto
+    transition: all .2s ease
 
     &__Text
         padding: 2.5rem 2.5rem
@@ -16,6 +17,9 @@
         justify-content: center
         align-items: center
         text-transform: uppercase
+
+    &:hover
+        box-shadow: 0px 0px 12px 6px #e2e2e273
 
 @media screen and (max-width: 1024px)
     .Button

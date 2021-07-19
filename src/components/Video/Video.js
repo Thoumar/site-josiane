@@ -36,12 +36,12 @@ const Video = ({ autoPlay, source, controls, thumbnail }) => {
 	const handleSetSoundState = () => {
 		setState({ ...state, muted: !state.muted });
 	};
-	const handleSeekMouseDown = () => setState({ ...state, seeking: true });
+	// const handleSeekMouseDown = () => setState({ ...state, seeking: true });
 	const handleSeekChange = (newValue) => playerRef.current.seekTo(newValue / 100);
-	const handleSeekMouseUp = (e, newValue) => {
-		setState({ ...state, seeking: false });
-		playerRef.current.seekTo(newValue / 100);
-	};
+	// const handleSeekMouseUp = (e, newValue) => {
+	// 	setState({ ...state, seeking: false });
+	// 	playerRef.current.seekTo(newValue / 100);
+	// };
 	const handleProgress = (changeState) => {
 		if (!state.seeking) {
 			setState({ ...state, ...changeState });
@@ -95,12 +95,13 @@ const Video = ({ autoPlay, source, controls, thumbnail }) => {
 							<ReactSlider
 								className="Video__Slider"
 								thumbClassName="Video__Thumb"
-								onMouseDown={handleSeekMouseDown}
-								onMouseUp={handleSeekMouseUp}
+								// onMouseDown={handleSeekMouseDown}
+								// onMouseUp={handleSeekMouseUp}
 								trackClassName="Video__Track"
 								light="http://placekitten.com/200/300"
 								value={played * 100}
 								onChange={handleSeekChange}
+								// onClick={handleSeekChange}
 							/>
 						) : null}
 					</div>

@@ -31,7 +31,7 @@ const Routes = () => {
 
 			return (
 				<Route key={"r" + i} path={"/" + project.path}>
-					<Project project={project} others={recommendedProjects} key={"p" + i} />
+					<Project key={"r-p-" + i} project={project} others={recommendedProjects} />
 				</Route>
 			);
 		});
@@ -48,15 +48,13 @@ const Routes = () => {
 
 		// Fetch peoples
 		fetch(serverUri + "/people").then((response) => {
-			response.json().then((jsonResponse) => {
-				setPeoples(jsonResponse);
-			});
+			response.json().then((jsonResponse) => setPeoples(jsonResponse));
 		});
 	}, []);
 
 	return [
-		<Loader loading={isLoading} />,
-		<Switch>
+		<Loader key="loader" loading={isLoading} />,
+		<Switch key="switch">
 			<Route exact path="/">
 				<Home history={history} projects={projects} peoples={peoplesList} />
 			</Route>

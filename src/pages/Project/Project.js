@@ -19,36 +19,56 @@ import arrowRight from "./../../images/icons/arrow_right.svg";
 import arrowLeft from "./../../images/icons/arrow_left.svg";
 import Video from "../../components/Video/Video";
 
-const arrows = ({ type, onClick, isEdge }) => {
-	const pointer = type === consts.PREV ? <img src={arrowLeft} alt="Arrow" /> : <img src={arrowRight} alt="Arrow" />;
-	return (
-		<button onClick={onClick} style={{ display: isEdge ? "none" : "block" }}>
-			{pointer}
-		</button>
-	);
-};
-
 const Picture = ({ className, url }) => (
 	<div>
 		<img className={className} src={url} alt="carousel item" />
 	</div>
 );
 
-const ProjectCarousel = ({ data }) => (
-	<div className={"Component__Carousel  Carousel__Size-" + data.itemsToShow + (data.background ? " with-background" : "")}>
-		{data.title && data.description ? (
-			<div className="Component__Carousel-caption">
-				<h4>{data.title}</h4>
-				<p>{data.description}</p>
-			</div>
-		) : null}
-		<Carousel itemsToShow={window.innerWidth > 768 ? data.itemsToShow || 3 : 1} pagination={false} outerSpacing={5} renderArrow={arrows}>
-			{data.Pictures.map((pic, key) => (
-				<Picture key={key} className={"Carousel__Image"} url={pic.url} />
-			))}
-		</Carousel>
-	</div>
-);
+const ProjectCarousel = ({ data }) => {
+	const carousel = useRef(null);
+
+	const arrows = ({ type, onClick }) => {
+		const pointer = type === consts.PREV ? <img src={arrowLeft} alt="Arrow" /> : <img src={arrowRight} alt="Arrow" />;
+		return <button onClick={onClick}>{pointer}</button>;
+	};
+
+	const onNextStart = (currentItem, nextItem) => {
+		if (currentItem.index === nextItem.index) {
+			carousel.current.goTo(0);
+		}
+	};
+	const onPrevStart = (currentItem, nextItem) => {
+		if (currentItem.index === nextItem.index) {
+			carousel.current.goTo(data.Pictures.length);
+		}
+	};
+	return (
+		<div className={"Component__Carousel  Carousel__Size-" + data.itemsToShow + (data.background ? " with-background" : "") + (data.shadows ? " with-shadows" : "")}>
+			{data.title && data.description ? (
+				<div className="Component__Carousel-caption">
+					<h4>{data.title}</h4>
+					<p>{data.description}</p>
+				</div>
+			) : null}
+			<Carousel
+				ref={carousel}
+				itemsToShow={window.innerWidth > 768 ? data.itemsToShow || 3 : 1}
+				pagination={false}
+				infinite={true}
+				outerSpacing={5}
+				onPrevStart={onPrevStart}
+				onNextStart={onNextStart}
+				disableArrowsOnEnd={false}
+				renderArrow={arrows}
+			>
+				{data.Pictures.map((pic, key) => (
+					<Picture key={key} className={"Carousel__Image"} url={pic.url} />
+				))}
+			</Carousel>
+		</div>
+	);
+};
 
 const ProjectText = ({ data }) => (
 	<div className={"Component__Text"}>
@@ -112,7 +132,7 @@ const Project = ({ project, others }) => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		window.onscroll = () => {
-			if (logoJosianeRef.current && window?.pageYOffset > logoJosianeRef?.current?.offsetTop) {
+			if (logoJosianeRef.current && window.pageYOffset > logoJosianeRef.current.offsetTop) {
 				logoJosianeRef.current.classList.add("flying");
 			} else {
 				logoJosianeRef.current.classList.remove("flying");

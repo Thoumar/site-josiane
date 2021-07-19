@@ -68,20 +68,23 @@ const Home = ({ projects, peoples }) => {
 
 	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
 
+	const logoScrollListenerHandler = () => {
+		if (window.pageYOffset > logoJosianeRef.current.offsetTop) {
+			logoJosianeRef.current.classList.add("flying");
+		} else {
+			logoJosianeRef.current.classList.remove("flying");
+		}
+		if (window.pageYOffset > logoCousinesRef.current.offsetTop) {
+			logoCousinesRef.current.classList.add("flying");
+		} else {
+			logoCousinesRef.current.classList.remove("flying");
+		}
+	};
+
 	useEffect(() => {
-		checkScrollPosition();
-		window.onscroll = () => {
-			if (window.pageYOffset > logoJosianeRef.current.offsetTop) {
-				logoJosianeRef.current.classList.add("flying");
-			} else {
-				logoJosianeRef.current.classList.remove("flying");
-			}
-			if (window.pageYOffset > logoCousinesRef.current.offsetTop) {
-				logoCousinesRef.current.classList.add("flying");
-			} else {
-				logoCousinesRef.current.classList.remove("flying");
-			}
-		};
+		window.addEventListener("scroll", logoScrollListenerHandler);
+		// cleanup function occurs on unmount
+		return () => window.removeEventListener("scroll", logoScrollListenerHandler);
 	}, []);
 
 	const arrows = ({ type, onClick }) => {
@@ -106,15 +109,15 @@ const Home = ({ projects, peoples }) => {
 		return (
 			<main className="Home">
 				<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
+
+				<div className="Logo" ref={logoJosianeRef}>
+					<img className="Logo__Picture Logo__Josiane" src={logoBlue} onClick={() => history.push("/")} alt="Josiane Logo" />
+				</div>
 				<Header
 					cover={{
 						url: "https://res.cloudinary.com/thoumar/video/upload/q_auto/v1622732392/SHOWREEL_JOSIANE_2021_X_zf3szk.mp4",
 					}}
 				/>
-
-				<div className="Logo" ref={logoJosianeRef}>
-					<img className="Logo__Picture Logo__Josiane" src={logoBlue} onClick={() => history.push("/")} alt="Josiane Logo" />
-				</div>
 
 				<Title scrollRef="josiane" text="la maman des marques" customStyle={{ marginTop: "12rem" }} />
 
@@ -127,14 +130,22 @@ const Home = ({ projects, peoples }) => {
 				<Title alt="Maman des marques" text={"le travail"} content={titleLeTravail} />
 
 				{projects.map((project, index) => (
-					<Block history={history} dataKey={index} data={project} handleClick={() => history.push(project.path)} />
+					<Block key={index} history={history} dataKey={index} data={project} handleClick={() => history.push(project.path)} />
 				))}
 
-				<Button text="TOUT LE TRAVAIL" click={() => setShowIsotope(!showIsotope)} customStyle={{ marginBottom: "7rem" }} />
+				<Button text="TOUT LE TRAVAIL" click={() => setShowIsotope(!showIsotope)} />
 
 				{showIsotope ? <Isotope scrollRef="work" projects={projects} /> : null}
 
-				<Title alt="La Famille" text={"la famille"} scrollRef="family" />
+				<Title
+					alt="La Famille"
+					text={"la famille"}
+					scrollRef="family"
+					customStyle={{
+						paddingTop: "12rem",
+					}}
+				/>
+
 				<div className="Family">
 					<div className="Family__Text">
 						<h4>AGENCE D’IDÉE</h4>
@@ -161,7 +172,7 @@ const Home = ({ projects, peoples }) => {
 							{peoples.map((person, key) => {
 								return (
 									<div className="Person" key={key}>
-										<img className="Person__Picture" src={person?.profilePicture?.url} alt="Cousines Background" />
+										<img className="Person__Picture" src={person.profilePicture.url} alt="Cousines Background" />
 										<div className="Person__Text">
 											<h4 className="Person__Name">{person.name}</h4>
 											<span className="Person__Position">{person.position}</span>

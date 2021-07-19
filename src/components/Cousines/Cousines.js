@@ -1,5 +1,7 @@
 import Button from "../Button/Button";
 
+import React from "react";
+
 import "./Cousines.sass";
 
 const Cousines = ({ title, htmlText, background }) => (
