@@ -137,14 +137,7 @@ const Home = ({ projects, peoples }) => {
 
 				{showIsotope ? <Isotope scrollRef="work" projects={projects} /> : null}
 
-				<Title
-					alt="La Famille"
-					text={"la famille"}
-					scrollRef="family"
-					customStyle={{
-						paddingTop: "12rem",
-					}}
-				/>
+				<Title alt="La Famille" text={"la famille"} scrollRef="family" customStyle={{ paddingTop: "6rem" }} />
 
 				<div className="Family">
 					<div className="Family__Text">

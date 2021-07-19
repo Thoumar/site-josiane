@@ -132,16 +132,36 @@
         padding: 0 2rem 0 0;
         line-height: 1.8rem;
 
+@media screen and (max-width: 2560px)
+    .Family
+        &__Carousel
+
+            .rec-carousel button:nth-child(1)
+                left: 9rem
+
+            .rec-carousel button:nth-child(3)
+                right: 2rem
+
+            &::before
+                left: 25rem
+
+
 @media screen and (max-width: 1440px)
-    .Family__Carousel::before
-        content: ""
-        background-color: #F8F8F8
-        position: absolute
-        top: 50%
-        left: 17rem
-        height: 128%
-        width: 70%
-        transform: translateY(-50%)
+    .Family
+        &__Carousel
+
+            .rec-carousel button:nth-child(1)
+                left: 5rem
+
+            &::before
+                content: ""
+                background-color: #F8F8F8
+                position: absolute
+                top: 50%
+                left: 17rem
+                height: 128%
+                width: 70%
+                transform: translateY(-50%)
     
 @media screen and (max-width: 768px)
     .Family

@@ -12,7 +12,7 @@ import pauseIcon from "./../../images/icons/pause.svg";
 
 import "./Video.sass";
 
-const Video = ({ autoPlay, source, controls, thumbnail }) => {
+const Video = ({ autoPlay, source, controls, clicked, thumbnail, isClickable }) => {
 	const playerRef = useRef(null);
 
 	const [fullScreenState, setFullScreenState] = useState(false);
@@ -112,8 +112,12 @@ const Video = ({ autoPlay, source, controls, thumbnail }) => {
 			<div
 				style={{ height: "100%", width: "100%" }}
 				onClick={(e) => {
-					e.stopPropagation();
-					handlePlayPause(!state.playing);
+					if (isClickable) {
+						e.stopPropagation();
+						handlePlayPause(!state.playing);
+					} else {
+						clicked();
+					}
 				}}
 			>
 				<ReactPlayer ref={playerRef} playing={playing} muted={muted} loop url={source} width="100%" height="100%" onProgress={handleProgress} />

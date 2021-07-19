@@ -85,7 +85,7 @@ const ProjectVideo = ({ data }) => {
 					<p>{data.description}</p>
 				</div>
 			) : null}
-			<Video autoPlay={true} thumbnail={data.thumbnail ? data.thumbnail : null} source={data.Source.url} controls />
+			<Video autoPlay={true} thumbnail={data.thumbnail ? data.thumbnail : null} source={data.Source.url} controls isClickable={true} />
 		</div>
 	);
 };
@@ -109,11 +109,11 @@ const getComponent = (component, componentKey) => {
 		case "project-page.carousel":
 			return <ProjectCarousel data={component} key={"carousel" + componentKey} />;
 		case "project-page.video":
-			return component.Source ? <ProjectVideo data={component} key={"video" + componentKey} /> : null;
+			return component?.Source ? <ProjectVideo data={component} key={"video" + componentKey} /> : null;
 		case "project-page.image":
-			return component.Image.url ? <ProjectImage data={component} key={"carousel-image" + componentKey} /> : null;
+			return component?.Image?.url ? <ProjectImage data={component} key={"carousel-image" + componentKey} /> : null;
 		case "project-page.texte":
-			return component.paragraph ? <ProjectText data={component} key={"text" + componentKey} /> : null;
+			return component?.paragraph ? <ProjectText data={component} key={"text" + componentKey} /> : null;
 		default:
 			return null;
 	}
@@ -129,16 +129,19 @@ const Project = ({ project, others }) => {
 		history.push("/#" + position);
 	};
 
+	const logoScrollListenerHandler = () => {
+		if (logoJosianeRef.current && window.pageYOffset > logoJosianeRef.current.offsetTop) {
+			logoJosianeRef.current.classList.add("flying");
+		} else {
+			logoJosianeRef.current.classList.remove("flying");
+		}
+	};
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		window.onscroll = () => {
-			if (logoJosianeRef.current && window.pageYOffset > logoJosianeRef.current.offsetTop) {
-				logoJosianeRef.current.classList.add("flying");
-			} else {
-				logoJosianeRef.current.classList.remove("flying");
-			}
-		};
-	});
+		window.addEventListener("scroll", logoScrollListenerHandler);
+		return () => window.removeEventListener("scroll", logoScrollListenerHandler);
+	}, []);
 
 	const { cover, title, subtitle, second_subtitle, long_description, Content } = project;
 

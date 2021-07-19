@@ -13,7 +13,7 @@ const getSizeClass = (size) => (size === "small" ? "Block__Small-width" : "");
 
 // Render functions
 const renderItem = ({ ext, url, alternativeText }, handleClick, index) => {
-	const videoEl = <Video key={"b-v-" + index} source={url} alt={alternativeText} autoPlay clicked={handleClick} />;
+	const videoEl = <Video key={"b-v-" + index} source={url} alt={alternativeText} autoPlay clicked={handleClick} isClickable={false} />;
 	const imageEl = (
 		<div key={"b-i-" + index} className="Image">
 			<img src={url} alt={alternativeText} onClick={handleClick} />
