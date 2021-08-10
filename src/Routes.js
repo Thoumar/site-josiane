@@ -19,6 +19,7 @@ const Routes = () => {
 	const [isLoading, setLoadingState] = useState(true);
 	const [projects, setProjects] = useState([]);
 	const [peoples, setPeoples] = useState([]);
+	const [homeData, setHomeData] = useState({});
 
 	const peoplesList = peoples.sort((a, b) => a.ordre - b.ordre);
 
@@ -50,13 +51,17 @@ const Routes = () => {
 		fetch(serverUri + "/people").then((response) => {
 			response.json().then((jsonResponse) => setPeoples(jsonResponse));
 		});
+
+		fetch(serverUri + "/home").then((response) => {
+			response.json().then((jsonResponse) => setHomeData(jsonResponse));
+		});
 	}, []);
 
 	return [
 		<Loader key="loader" loading={isLoading} />,
 		<Switch key="switch">
 			<Route exact path="/">
-				<Home history={history} projects={projects} peoples={peoplesList} />
+				<Home history={history} homeData={homeData} projects={projects} peoples={peoplesList} />
 			</Route>
 			{setProjectList()}
 		</Switch>,

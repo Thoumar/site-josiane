@@ -9,6 +9,7 @@ import Paragraph from "./../../components/Paragraph/Paragraph";
 import Menu from "./../../components/Menu/Menu";
 import Cousines from "../../components/Cousines/Cousines";
 import Button from "./../../components/Button/Button";
+import Agence from "./../../components/Agence/Agence";
 
 import titleLeTravail from "./../../images/titles/le_travail.svg";
 
@@ -27,7 +28,7 @@ import "./Home.sass";
 import arrowRight from "./../../images/icons/arrow_right.svg";
 import arrowLeft from "./../../images/icons/arrow_left.svg";
 
-const Home = ({ projects, peoples }) => {
+const Home = ({ homeData, projects, peoples }) => {
 	const logoJosianeRef = useRef(null);
 	const logoCousinesRef = useRef(null);
 	const history = useHistory();
@@ -83,7 +84,6 @@ const Home = ({ projects, peoples }) => {
 
 	useEffect(() => {
 		window.addEventListener("scroll", logoScrollListenerHandler);
-		// cleanup function occurs on unmount
 		return () => window.removeEventListener("scroll", logoScrollListenerHandler);
 	}, []);
 
@@ -113,6 +113,7 @@ const Home = ({ projects, peoples }) => {
 				<div className="Logo" ref={logoJosianeRef}>
 					<img className="Logo__Picture Logo__Josiane" src={logoBlue} onClick={() => history.push("/")} alt="Josiane Logo" />
 				</div>
+
 				<Header
 					cover={{
 						url: "https://res.cloudinary.com/thoumar/video/upload/q_auto/v1622732392/SHOWREEL_JOSIANE_2021_X_zf3szk.mp4",
@@ -121,11 +122,13 @@ const Home = ({ projects, peoples }) => {
 
 				<Title scrollRef="josiane" text="la maman des marques" customStyle={{ marginTop: "12rem" }} />
 
-				<Paragraph
+				<Paragraph htmlText={homeData.LaMamanDesMarques} />
+
+				{/* <Paragraph
 					htmlText={
 						"Josiane redonne du <i>bon sens</i>.<br />Aux marques en quête d’idées pour grandir durablement.<br />A la société en recherche de valeurs et d’actes porteurs de progrès.<br />Au modèle des agences tenu de se réinventer. <br />C’est peut-être pour cela que Josiane a été élue <br />agence challenger de l’année."
 					}
-				/>
+				/> */}
 
 				<Title alt="Maman des marques" text={"le travail"} content={titleLeTravail} />
 
@@ -141,14 +144,15 @@ const Home = ({ projects, peoples }) => {
 
 				<div className="Family">
 					<div className="Family__Text">
-						<h4>AGENCE D’IDÉE</h4>
-						<p>
+						<h4>Un modèle hybride</h4>
+						<p>{homeData.LaFamille}</p>
+						{/* <p>
 							Comme nos clients, nos collaborateurs n’ont pas choisi Josiane par hasard. Passés par de grandes entreprises et agences, ils souhaitent revenir à l’essentiel pour retrouver du bon sens,
 							du lien, et le goût des idées.
 							<br />
 							<br />
 							C’est ça Josiane : une famille pour grandir et faire grandir.
-						</p>
+						</p> */}
 					</div>
 					<div className="Family__Carousel">
 						<Carousel
@@ -193,11 +197,27 @@ const Home = ({ projects, peoples }) => {
 					}}
 				/>
 
+				{/* 
 				<Cousines
 					background={bgCousines}
 					title="FAMILLE D’EXPERTS"
 					htmlText="<b>Les Cousines entrechoquent les cultures grâce <br />à 100 personnalités – et pas une de plus – reconnues <br>pour leurs expériences et expertises qui répondent aux <br>nouveaux enjeux de transformation des entreprises : </b><br>- Stratégie d’entreprise (Business model, Corporate, RSE) <br>- Stratégie opérationnelle (Data & transformation digitale, <br /> Marketing 360°, Communications spécialisées) <br>- Conduite du changement (Coaching, Formation, <br>Transformation des organisations)."
+				/> */}
+
+				<Cousines background={bgCousines} title="FAMILLE D’EXPERTS" htmlText={homeData.LesCousines} />
+
+				<Title
+					alt="vie d'agece"
+					text="Vie d'agence"
+					scrollRef="agence"
+					customStyle={{
+						marginTop: "25rem",
+						marginBottom: "8rem",
+					}}
 				/>
+
+				<Agence />
+
 				<Footer scrollRef="contact" />
 			</main>
 		);
