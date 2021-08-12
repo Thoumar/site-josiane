@@ -12,7 +12,7 @@ import pauseIcon from "./../../images/icons/pause.svg";
 
 import "./Video.sass";
 
-const Video = ({ autoPlay, source, controls, clicked, thumbnail, isClickable }) => {
+const Video = ({ autoPlay, source, controls, clicked, thumbnail, isClickable, hasSeekbar, hasPlayBigButton }) => {
 	const playerRef = useRef(null);
 
 	const [fullScreenState, setFullScreenState] = useState(false);
@@ -36,12 +36,7 @@ const Video = ({ autoPlay, source, controls, clicked, thumbnail, isClickable }) 
 	const handleSetSoundState = () => {
 		setState({ ...state, muted: !state.muted });
 	};
-	// const handleSeekMouseDown = () => setState({ ...state, seeking: true });
 	const handleSeekChange = (newValue) => playerRef.current.seekTo(newValue / 100);
-	// const handleSeekMouseUp = (e, newValue) => {
-	// 	setState({ ...state, seeking: false });
-	// 	playerRef.current.seekTo(newValue / 100);
-	// };
 	const handleProgress = (changeState) => {
 		if (!state.seeking) {
 			setState({ ...state, ...changeState });
@@ -76,32 +71,46 @@ const Video = ({ autoPlay, source, controls, clicked, thumbnail, isClickable }) 
 
 	return (
 		<div className="Video">
+			{hasPlayBigButton ? (
+				<img
+					className="Video__Button Video__BigButton--play"
+					src={playIcon}
+					style={{
+						opacity: playing ? "0" : "1",
+					}}
+					alt="Icon play video"
+					onClick={(e) => {
+						e.stopPropagation();
+						handlePlayPause(!state.playing);
+					}}
+				/>
+			) : null}
 			{controls ? (
 				<div className="Video__Controls">
 					<div>
-						<img
-							className="Video__Button Video__Button--play"
-							src={playIconSrc}
-							alt="Icon play video"
-							onClick={(e) => {
-								e.stopPropagation();
-								handlePlayPause(!state.playing);
-							}}
-						/>
+						{!hasPlayBigButton ? (
+							<img
+								className="Video__Button Video__Button--play"
+								src={playIconSrc}
+								alt="Icon play video"
+								onClick={(e) => {
+									e.stopPropagation();
+									handlePlayPause(!state.playing);
+								}}
+							/>
+						) : null}
 						<img className="Video__Button Video__Button--mute" src={soundIconSrc} alt="Icon mute video" onClick={handleSetSoundState} />
 					</div>
+
 					<div>
-						{fullScreenState ? (
+						{hasSeekbar ? (
 							<ReactSlider
 								className="Video__Slider"
 								thumbClassName="Video__Thumb"
-								// onMouseDown={handleSeekMouseDown}
-								// onMouseUp={handleSeekMouseUp}
 								trackClassName="Video__Track"
 								light="http://placekitten.com/200/300"
 								value={played * 100}
 								onChange={handleSeekChange}
-								// onClick={handleSeekChange}
 							/>
 						) : null}
 					</div>

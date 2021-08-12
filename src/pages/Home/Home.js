@@ -207,7 +207,7 @@ const Home = ({ homeData, projects, peoples }) => {
 				<Cousines background={bgCousines} title="FAMILLE D’EXPERTS" htmlText={homeData.LesCousines} />
 
 				<Title
-					alt="vie d'agece"
+					alt="vie d'agence"
 					text="Vie d'agence"
 					scrollRef="agence"
 					customStyle={{
@@ -216,7 +216,7 @@ const Home = ({ homeData, projects, peoples }) => {
 					}}
 				/>
 
-				<Agence />
+				{homeData.ImagesAgence.length ? <Agence pictures={homeData.ImagesAgence} /> : null}
 
 				<Footer scrollRef="contact" />
 			</main>

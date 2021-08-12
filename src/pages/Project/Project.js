@@ -85,7 +85,7 @@ const ProjectVideo = ({ data }) => {
 					<p>{data.description}</p>
 				</div>
 			) : null}
-			<Video autoPlay={false} thumbnail={data.thumbnail ? data.thumbnail : null} source={data.Source.url} controls isClickable={true} />
+			<Video autoPlay={false} thumbnail={data.thumbnail ? data.thumbnail : null} source={data.Source.url} controls isClickable={true} hasPlayBigButton />
 		</div>
 	);
 };
