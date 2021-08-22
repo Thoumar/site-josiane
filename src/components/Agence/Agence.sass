@@ -14,12 +14,20 @@
         & > div
             width: 30rem
             height: 30rem
+            overflow: hidden
+
+            &:hover
+                img
+                    transform: scale(1.15)
 
         & > div > img
             position: relative
             width: 100%
             height: 100%
             object-fit: cover
+            cursor: pointer
+            transition: all .7s cubic-bezier(0, 0.4, 0.5, 1)
+
 
 
     .rec-carousel

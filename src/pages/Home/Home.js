@@ -29,6 +29,8 @@ import arrowRight from "./../../images/icons/arrow_right.svg";
 import arrowLeft from "./../../images/icons/arrow_left.svg";
 
 const Home = ({ homeData, projects, peoples }) => {
+	const familyCarouselRef = useRef(null);
+	const agencyRef = useRef(null);
 	const logoJosianeRef = useRef(null);
 	const logoCousinesRef = useRef(null);
 	const history = useHistory();
@@ -69,13 +71,14 @@ const Home = ({ homeData, projects, peoples }) => {
 
 	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
 
-	const logoScrollListenerHandler = () => {
+	const logoScrollListenerHandler = (e) => {
 		if (window.pageYOffset > logoJosianeRef.current.offsetTop) {
 			logoJosianeRef.current.classList.add("flying");
 		} else {
 			logoJosianeRef.current.classList.remove("flying");
 		}
-		if (window.pageYOffset > logoCousinesRef.current.offsetTop) {
+
+		if (window.pageYOffset > logoCousinesRef.current.offsetTop && window.pageYOffset < logoCousinesRef.current.offsetTop + 700) {
 			logoCousinesRef.current.classList.add("flying");
 		} else {
 			logoCousinesRef.current.classList.remove("flying");
@@ -91,8 +94,6 @@ const Home = ({ homeData, projects, peoples }) => {
 		const pointer = type === consts.PREV ? <img src={arrowLeft} alt="Arrow" /> : <img src={arrowRight} alt="Arrow" />;
 		return <button onClick={onClick}>{pointer}</button>;
 	};
-
-	const familyCarouselRef = useRef(null);
 
 	const onNextStart = (currentItem, nextItem) => {
 		if (currentItem.index === nextItem.index) {
@@ -124,12 +125,6 @@ const Home = ({ homeData, projects, peoples }) => {
 
 				<Paragraph htmlText={homeData.LaMamanDesMarques} />
 
-				{/* <Paragraph
-					htmlText={
-						"Josiane redonne du <i>bon sens</i>.<br />Aux marques en quête d’idées pour grandir durablement.<br />A la société en recherche de valeurs et d’actes porteurs de progrès.<br />Au modèle des agences tenu de se réinventer. <br />C’est peut-être pour cela que Josiane a été élue <br />agence challenger de l’année."
-					}
-				/> */}
-
 				<Title alt="Maman des marques" text={"le travail"} content={titleLeTravail} />
 
 				{projects.map((project, index) => (
@@ -146,13 +141,6 @@ const Home = ({ homeData, projects, peoples }) => {
 					<div className="Family__Text">
 						<h4>Un modèle hybride</h4>
 						<p>{homeData.LaFamille}</p>
-						{/* <p>
-							Comme nos clients, nos collaborateurs n’ont pas choisi Josiane par hasard. Passés par de grandes entreprises et agences, ils souhaitent revenir à l’essentiel pour retrouver du bon sens,
-							du lien, et le goût des idées.
-							<br />
-							<br />
-							C’est ça Josiane : une famille pour grandir et faire grandir.
-						</p> */}
 					</div>
 					<div className="Family__Carousel">
 						<Carousel
@@ -197,13 +185,6 @@ const Home = ({ homeData, projects, peoples }) => {
 					}}
 				/>
 
-				{/* 
-				<Cousines
-					background={bgCousines}
-					title="FAMILLE D’EXPERTS"
-					htmlText="<b>Les Cousines entrechoquent les cultures grâce <br />à 100 personnalités – et pas une de plus – reconnues <br>pour leurs expériences et expertises qui répondent aux <br>nouveaux enjeux de transformation des entreprises : </b><br>- Stratégie d’entreprise (Business model, Corporate, RSE) <br>- Stratégie opérationnelle (Data & transformation digitale, <br /> Marketing 360°, Communications spécialisées) <br>- Conduite du changement (Coaching, Formation, <br>Transformation des organisations)."
-				/> */}
-
 				<Cousines background={bgCousines} title="FAMILLE D’EXPERTS" htmlText={homeData.LesCousines} />
 
 				<Title
@@ -211,12 +192,12 @@ const Home = ({ homeData, projects, peoples }) => {
 					text="Vie d'agence"
 					scrollRef="agence"
 					customStyle={{
-						marginTop: "25rem",
-						marginBottom: "8rem",
+						marginTop: "8rem",
+						marginBottom: "5rem",
 					}}
 				/>
 
-				{homeData.ImagesAgence.length ? <Agence pictures={homeData.ImagesAgence} /> : null}
+				{homeData.ImagesAgence.length ? <Agence ref={agencyRef} pictures={homeData.ImagesAgence} /> : null}
 
 				<Footer scrollRef="contact" />
 			</main>

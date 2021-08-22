@@ -38,6 +38,7 @@ const Agence = ({ pictures }) => {
 			carousel.current.goTo(0);
 		}
 	};
+
 	const onPrevStart = (currentItem, nextItem) => {
 		if (currentItem.index === nextItem.index) {
 			carousel.current.goTo(chunksContainer.length);
