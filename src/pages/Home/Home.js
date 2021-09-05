@@ -111,7 +111,10 @@ const Home = ({ homeData, projects, peoples }) => {
 			<main className="Home">
 				<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
 
-				<div className="Logo" ref={logoJosianeRef}>
+				<div className="Logo" ref={logoJosianeRef} onClick={() => {
+					const el = document.scrollingElement || document.documentElement
+					el.scrollTop = 0
+				}}>
 					<img className="Logo__Picture Logo__Josiane" src={logoBlue} onClick={() => history.push("/")} alt="Josiane Logo" />
 				</div>
 
@@ -170,7 +173,10 @@ const Home = ({ homeData, projects, peoples }) => {
 					</div>
 				</div>
 
-				<div className="Logo" ref={logoCousinesRef}>
+				<div className="Logo" ref={logoCousinesRef} onClick={() => {
+					const el = document.scrollingElement || document.documentElement
+					el.scrollTop = 0
+				}}>
 					<img className="Logo__Picture Logo__Et" src={logoEtCousines} onClick={() => history.push("/")} alt="Et Logo" />
 					<img className="Logo__Picture Logo__Cousines" src={logoLesCousines} onClick={() => history.push("/")} alt="Cousines Logo" />
 				</div>

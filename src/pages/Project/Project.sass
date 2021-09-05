@@ -25,7 +25,7 @@
 
     &__Description
         font-size: 1.5rem
-        position: relative    
+        position: relative
         line-height: 1.9rem
         margin: 0 auto 15rem auto
         color: #7C7C7C
@@ -63,7 +63,7 @@
             display: block
             padding-bottom: 100%
 
-        div 
+        div
             position: absolute
             width: 100%
             height: 100%
@@ -79,7 +79,6 @@
         div
             img
                 transform: scale(1.15)
-
 
     &__Description
         padding: 0 0 4rem 4rem
@@ -118,11 +117,9 @@
             display: inline-block
             width: 90%
 
-                    
     &__Item:hover .Suggestions__Description
         opacity: 1
         transform: translateY(0)
-
 
     &__Item:hover span
         opacity: 1
@@ -134,11 +131,11 @@
         position: relative
         margin: 20rem auto 12rem auto
         width: 80%
-        
-        .rec.rec-carousel-wrapper   
+
+        .rec.rec-carousel-wrapper
             width: 120%
             margin-left: -10%
-            
+
             & > div
                 margin-top: 3rem
 
@@ -217,7 +214,7 @@
                 text-transform: uppercase
                 font-size: 1.3rem
                 line-height: 1.7rem
-            
+
             p
                 text-align: left
                 padding-left: 2rem
@@ -227,7 +224,6 @@
                 font-weight: 500
                 letter-spacing: 1.1px
 
-                
     &__Image
         display: flex
         justify-content: center
@@ -238,7 +234,17 @@
         margin: 12rem auto
         flex-direction: column
 
-        & > img     
+        &.medium
+            width: 70%
+
+        &.small
+            width: 60%
+
+        &.with-shadows
+            & > img
+                box-shadow: 0 0 12px 6px #e2e2e273
+
+        & > img
             width: 100%
             object-fit: contain
 
@@ -259,7 +265,7 @@
                 font-size: 1.3rem
                 line-height: 1.7rem
                 margin-top: 0
-            
+
             p
                 text-align: left
                 padding-left: 2rem
@@ -268,7 +274,7 @@
                 color: #7C7C7C
                 font-weight: 500
                 letter-spacing: 1.1px
-    
+
     &__Text
 
         & > div
@@ -285,10 +291,10 @@
 .Carousel
 
     &.with-shadows
-    
+
         .Carousel__Image
             box-shadow: 0 0 12px 6px #e2e2e273
-    
+
     &__Image
         width: 100%
         object-fit: contain
@@ -299,10 +305,10 @@
 
         .Component__Carousel-caption
             left: 2rem
-        
+
         .Carousel__Image
             margin: 2rem
-        
+
         .rec.rec-carousel-wrapper
             & > div
                 button:nth-child(1)
@@ -328,7 +334,7 @@
 
         .Carousel__Image
             // height: 60rem
-        
+
         .rec.rec-carousel-wrapper
             & > div
                 max-height: 80rem
@@ -350,14 +356,14 @@
     &__Size-1
         width: 40%
         max-width: 90rem
-        
+
         .Component__Carousel-caption
             left: 0
             height: 50%
-            
+
         .Carousel__Image
             background-color: white
-        
+
         .rec.rec-carousel-wrapper
             & > div
                 max-height: 80rem
@@ -369,7 +375,7 @@
                 button:nth-child(3)
                     right: 0
                     transform: translate(120%, -50%)
-        
+
 @media screen and (max-width: 1440px)
     .Carousel
         &__Size-3
@@ -382,7 +388,7 @@
             .Carousel__Image
                 // height: 55rem
                 background-color: white
-            
+
             .rec.rec-carousel-wrapper
                 & > div
                     button:nth-child(1)
@@ -395,7 +401,7 @@
             .Carousel__Image
                 // height: 55rem
                 background-color: white
-                
+
 @media screen and (max-width: 1024px)
     .Carousel
         &__Size-3
@@ -416,7 +422,7 @@
 
                     button:nth-child(3)
                         transform: translate(120%, -50%)
-                
+
     .Carousel
         &__Size-1
             .Carousel__Image
@@ -443,7 +449,6 @@
             max-width: none
             padding: 2rem
 
-
             > p
                 padding: 0
 
@@ -456,7 +461,7 @@
 
                     button:nth-child(3)
                         transform: translate(160%, -50%)
-                        
+
             .rec.rec-carousel-wrapper > div > div
                 margin: 0 !important
 
@@ -468,7 +473,7 @@
         .rec-slider-container
 
     .Component
-        
+
         &__Video
             position: relative
             margin: 10rem auto 15rem auto

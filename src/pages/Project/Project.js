@@ -14,6 +14,7 @@ import Footer from "./../../components/Footer/Footer";
 import Menu from "./../../components/Menu/Menu";
 import Header from "./../../components/Header/Header";
 import Title from "./../../components/Title/Title";
+import Agence from "./../../components/Agence/Agence";
 
 import arrowRight from "./../../images/icons/arrow_right.svg";
 import arrowLeft from "./../../images/icons/arrow_left.svg";
@@ -77,6 +78,7 @@ const ProjectText = ({ data }) => (
 );
 
 const ProjectVideo = ({ data }) => {
+	console.log(data)
 	return (
 		<div className={"Component__Video" + (data.borders ? " with-borders" : "") + (data.shadows ? " with-shadows" : "")}>
 			{data.title && data.description ? (
@@ -92,7 +94,7 @@ const ProjectVideo = ({ data }) => {
 
 const ProjectImage = ({ data }) => {
 	return (
-		<div className={"Component__Image" + (data.shadows ? " with-shadows" : "")}>
+		<div className={"Component__Image" + (data.shadows ? " with-shadows" : "") + (data.Size ? " " + data.Size : "")}>
 			{data.title && data.description ? (
 				<div className="Component__Image-caption">
 					<h4>{data.title}</h4>
@@ -119,9 +121,10 @@ const getComponent = (component, componentKey) => {
 	}
 };
 
-const Project = ({ project, others }) => {
+const Project = ({ project, others, agencyLifePictures }) => {
 	const logoJosianeRef = useRef(null);
 	const history = useHistory();
+	const agencyRef = useRef(null);
 
 	const [menuState, setMenuState] = useState({ isOpen: false });
 
@@ -227,6 +230,19 @@ const Project = ({ project, others }) => {
 					}
 				})}
 			</div>
+
+			<Title
+				alt="vie d'agence"
+				text="Vie d'agence"
+				scrollRef="agence"
+				customStyle={{
+					marginTop: "8rem",
+					marginBottom: "5rem",
+				}}
+			/>
+
+			{agencyLifePictures.length ? <Agence ref={agencyRef} pictures={agencyLifePictures} /> : null}
+
 			<Footer scrollRef="contact" />
 		</div>
 	);

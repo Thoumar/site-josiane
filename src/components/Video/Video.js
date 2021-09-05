@@ -103,7 +103,7 @@ const Video = ({ autoPlay, source, controls, clicked, thumbnail, isClickable, ha
 					</div>
 
 					<div>
-						{hasSeekbar ? (
+						{/* {hasSeekbar ? ( */}
 							<ReactSlider
 								className="Video__Slider"
 								thumbClassName="Video__Thumb"
@@ -112,7 +112,7 @@ const Video = ({ autoPlay, source, controls, clicked, thumbnail, isClickable, ha
 								value={played * 100}
 								onChange={handleSeekChange}
 							/>
-						) : null}
+						{/* ) : null} */}
 					</div>
 					<img className="Video__Button Video__Button--fullscreen" src={fullscreenIcon} alt="Icon fullscreen video" onClick={handleSetFullScreenState} />
 				</div>
