@@ -11,61 +11,77 @@ import { useHistory } from "react-router";
 // Components
 import Loader from "./components/Loader/Loader";
 
-const serverUri = process.env.REACT_APP_BASE_URL || "https://admin-josiane.herokuapp.com";
+const serverUri =
+  process.env.REACT_APP_BASE_URL || "https://admin-josiane.herokuapp.com";
 
 const Routes = () => {
-	const history = useHistory();
+  const history = useHistory();
 
-	const [isLoading, setLoadingState] = useState(true);
-	const [projects, setProjects] = useState([]);
-	const [peoples, setPeoples] = useState([]);
-	const [homeData, setHomeData] = useState({});
+  const [isLoading, setLoadingState] = useState(true);
+  const [projects, setProjects] = useState([]);
+  const [peoples, setPeoples] = useState([]);
+  const [homeData, setHomeData] = useState({});
 
-	const peoplesList = peoples.sort((a, b) => a.ordre - b.ordre);
+  const peoplesList = peoples.sort((a, b) => a.ordre - b.ordre);
 
-	const setProjectList = () =>
-		projects.map((project, i) => {
-			const recommendedProjects = [...projects]
-				.sort(() => Math.random() - 0.5)
-				.filter((reco) => reco.filters !== project.filters)
-				.slice(0, 3);
+  const setProjectList = () =>
+    projects.map((project, i) => {
+      const recommendedProjects = [...projects]
+        .sort(() => Math.random() - 0.5)
+        .filter((reco) => reco.filters !== project.filters)
+        .slice(0, 3);
 
-			return (
-				<Route key={"r" + i} path={"/" + project.path}>
-					<Project key={"r-p-" + i} project={project} agencyLifePictures={homeData.ImagesAgence} others={recommendedProjects} />
-				</Route>
-			);
-		});
+      return (
+        <Route key={"r" + i} path={"/" + project.path}>
+          <Project
+            key={"r-p-" + i}
+            project={project}
+            agencyLifePictures={homeData.ImagesAgence}
+            others={recommendedProjects}
+          />
+        </Route>
+      );
+    });
 
-	useEffect(() => {
-		// Fetch projects
-		fetch(serverUri + "/projects").then((response) => {
-			response.json().then((jsonResponse) => {
-				const jsonProjectsOrdered = jsonResponse.sort((a, b) => a.order - b.order).filter((project) => project.order);
-				setProjects(jsonProjectsOrdered);
-				setLoadingState(false);
-			});
-		});
+  useEffect(() => {
+    // Fetch projects
+    fetch(serverUri + "/projects").then((response) => {
+      response.json().then((jsonResponse) => {
+        const jsonProjectsOrdered = jsonResponse
+          .sort((a, b) => a.order - b.order)
+          .filter((project) => project.order && project.display);
 
-		// Fetch peoples
-		fetch(serverUri + "/people").then((response) => {
-			response.json().then((jsonResponse) => setPeoples(jsonResponse));
-		});
+        setProjects(jsonProjectsOrdered);
+        setLoadingState(false);
+      });
+    });
 
-		fetch(serverUri + "/home").then((response) => {
-			response.json().then((jsonResponse) => setHomeData(jsonResponse));
-		});
-	}, []);
+    // Fetch peoples
+    fetch(serverUri + "/people").then((response) => {
+      response.json().then((jsonResponse) => setPeoples(jsonResponse));
+    });
 
-	return [
-		<Loader key="loader" loading={isLoading} />,
-		<Switch key="switch">
-			<Route exact path="/">
-				<Home history={history} homeData={homeData} projects={projects} peoples={peoplesList} />
-			</Route>
-			{setProjectList()}
-		</Switch>,
-	];
+    fetch(serverUri + "/home").then((response) => {
+      response.json().then((jsonResponse) => {
+        setHomeData(jsonResponse);
+      });
+    });
+  }, []);
+
+  return [
+    <Loader key="loader" loading={isLoading} />,
+    <Switch key="switch">
+      <Route exact path="/">
+        <Home
+          history={history}
+          homeData={homeData}
+          projects={projects}
+          peoples={peoplesList}
+        />
+      </Route>
+      {setProjectList()}
+    </Switch>,
+  ];
 };
 
 export default Routes;

@@ -21,231 +21,307 @@ import arrowLeft from "./../../images/icons/arrow_left.svg";
 import Video from "../../components/Video/Video";
 
 const Picture = ({ className, url }) => (
-	<div>
-		<img className={className} src={url} alt="carousel item" />
-	</div>
+  <div>
+    <img className={className} src={url} alt="carousel item" />
+  </div>
 );
 
 const ProjectCarousel = ({ data }) => {
-	const carousel = useRef(null);
+  const carousel = useRef(null);
 
-	const arrows = ({ type, onClick }) => {
-		const pointer = type === consts.PREV ? <img src={arrowLeft} alt="Arrow" /> : <img src={arrowRight} alt="Arrow" />;
-		return <button onClick={onClick}>{pointer}</button>;
-	};
+  const arrows = ({ type, onClick }) => {
+    const pointer =
+      type === consts.PREV ? (
+        <img src={arrowLeft} alt="Arrow" />
+      ) : (
+        <img src={arrowRight} alt="Arrow" />
+      );
+    return <button onClick={onClick}>{pointer}</button>;
+  };
 
-	const onNextStart = (currentItem, nextItem) => {
-		if (currentItem.index === nextItem.index) {
-			carousel.current.goTo(0);
-		}
-	};
-	const onPrevStart = (currentItem, nextItem) => {
-		if (currentItem.index === nextItem.index) {
-			carousel.current.goTo(data.Pictures.length);
-		}
-	};
-	return (
-		<div className={"Component__Carousel  Carousel__Size-" + data.itemsToShow + (data.background ? " with-background" : "") + (data.shadows ? " with-shadows" : "")}>
-			{data.title && data.description ? (
-				<div className="Component__Carousel-caption">
-					<h4>{data.title}</h4>
-					<p>{data.description}</p>
-				</div>
-			) : null}
-			<Carousel
-				ref={carousel}
-				itemsToShow={window.innerWidth > 768 ? data.itemsToShow || 3 : 1}
-				pagination={false}
-				infinite={true}
-				outerSpacing={5}
-				onPrevStart={onPrevStart}
-				onNextStart={onNextStart}
-				disableArrowsOnEnd={false}
-				renderArrow={arrows}
-			>
-				{data.Pictures.map((pic, key) => (
-					<Picture key={key} className={"Carousel__Image"} url={pic.url} />
-				))}
-			</Carousel>
-		</div>
-	);
+  const onNextStart = (currentItem, nextItem) => {
+    if (currentItem.index === nextItem.index) {
+      carousel.current.goTo(0);
+    }
+  };
+  const onPrevStart = (currentItem, nextItem) => {
+    if (currentItem.index === nextItem.index) {
+      carousel.current.goTo(data.Pictures.length);
+    }
+  };
+  return (
+    <div
+      className={
+        "Component__Carousel  Carousel__Size-" +
+        data.itemsToShow +
+        (data.background ? " with-background" : "") +
+        (data.shadows ? " with-shadows" : "")
+      }
+    >
+      {data.title && data.description ? (
+        <div className="Component__Carousel-caption">
+          <h4>{data.title}</h4>
+          <p>{data.description}</p>
+        </div>
+      ) : null}
+      <Carousel
+        ref={carousel}
+        itemsToShow={window.innerWidth > 768 ? data.itemsToShow || 3 : 1}
+        pagination={false}
+        infinite={true}
+        outerSpacing={5}
+        onPrevStart={onPrevStart}
+        onNextStart={onNextStart}
+        disableArrowsOnEnd={false}
+        renderArrow={arrows}
+      >
+        {data.Pictures.map((pic, key) => (
+          <Picture key={key} className={"Carousel__Image"} url={pic.url} />
+        ))}
+      </Carousel>
+    </div>
+  );
 };
 
-const ProjectText = ({ data }) => (
-	<div className={"Component__Text"}>
-		<div dangerouslySetInnerHTML={{ __html: data.paragraphe }}></div>
-	</div>
-);
+const ProjectText = ({ data }) => {
+  console.log(data);
+  return (
+    <div className={"Component__Text"}>
+      <div dangerouslySetInnerHTML={{ __html: data.text }}></div>
+    </div>
+  );
+};
 
 const ProjectVideo = ({ data }) => {
-	console.log(data)
-	return (
-		<div className={"Component__Video" + (data.borders ? " with-borders" : "") + (data.shadows ? " with-shadows" : "")}>
-			{data.title && data.description ? (
-				<div className="Component__Video-caption">
-					<h4>{data.title}</h4>
-					<p>{data.description}</p>
-				</div>
-			) : null}
-			<Video autoPlay={false} thumbnail={data.thumbnail ? data.thumbnail : null} source={data.Source.url} controls isClickable={true} hasPlayBigButton />
-		</div>
-	);
+  console.log(data);
+  return (
+    <div
+      className={
+        "Component__Video" +
+        (data.borders ? " with-borders" : "") +
+        (data.shadow ? " with-shadows" : "")
+      }
+    >
+      {data.title && data.description ? (
+        <div className="Component__Video-caption">
+          <h4>{data.title}</h4>
+          <p>{data.description}</p>
+        </div>
+      ) : null}
+      <Video
+        autoPlay={false}
+        thumbnail={data.thumbnail ? data.thumbnail : null}
+        source={data.Source.url}
+        controls
+        isClickable={true}
+        hasPlayBigButton
+      />
+    </div>
+  );
 };
 
 const ProjectImage = ({ data }) => {
-	return (
-		<div className={"Component__Image" + (data.shadows ? " with-shadows" : "") + (data.Size ? " " + data.Size : "")}>
-			{data.title && data.description ? (
-				<div className="Component__Image-caption">
-					<h4>{data.title}</h4>
-					<p>{data.description}</p>
-				</div>
-			) : null}
-			<img src={data.Image.url} alt="Project illustration" />
-		</div>
-	);
+  return (
+    <div
+      className={
+        "Component__Image" +
+        (data.shadow ? " with-shadows" : "") +
+        (data.Size ? " " + data.Size : "")
+      }
+    >
+      {data.title && data.description ? (
+        <div className="Component__Image-caption">
+          <h4>{data.title}</h4>
+          <p>{data.description}</p>
+        </div>
+      ) : null}
+      <img src={data.Image.url} alt="Project illustration" />
+    </div>
+  );
 };
 
 const getComponent = (component, componentKey) => {
-	switch (component.__component) {
-		case "project-page.carousel":
-			return <ProjectCarousel data={component} key={"carousel" + componentKey} />;
-		case "project-page.video":
-			return component?.Source ? <ProjectVideo data={component} key={"video" + componentKey} /> : null;
-		case "project-page.image":
-			return component?.Image?.url ? <ProjectImage data={component} key={"carousel-image" + componentKey} /> : null;
-		case "project-page.texte":
-			return component?.paragraph ? <ProjectText data={component} key={"text" + componentKey} /> : null;
-		default:
-			return null;
-	}
+  switch (component.__component) {
+    case "project-page.carousel":
+      return (
+        <ProjectCarousel data={component} key={"carousel" + componentKey} />
+      );
+    case "project-page.video":
+      return component?.Source ? (
+        <ProjectVideo data={component} key={"video" + componentKey} />
+      ) : null;
+    case "project-page.image":
+      return component?.Image?.url ? (
+        <ProjectImage data={component} key={"carousel-image" + componentKey} />
+      ) : null;
+    case "project-page.texte":
+      return component?.text ? (
+        <ProjectText data={component} key={"text" + componentKey} />
+      ) : null;
+    default:
+      return null;
+  }
 };
 
 const Project = ({ project, others, agencyLifePictures }) => {
-	const logoJosianeRef = useRef(null);
-	const history = useHistory();
-	const agencyRef = useRef(null);
+  console.log(project);
+  const logoJosianeRef = useRef(null);
+  const history = useHistory();
 
-	const [menuState, setMenuState] = useState({ isOpen: false });
+  const [menuState, setMenuState] = useState({ isOpen: false });
 
-	const handleLinkClick = (position) => {
-		history.push("/#" + position);
-	};
+  const handleLinkClick = (position) => {
+    history.push("/#" + position);
+  };
 
-	const logoScrollListenerHandler = () => {
-		if (logoJosianeRef.current && window.pageYOffset > logoJosianeRef.current.offsetTop) {
-			logoJosianeRef.current.classList.add("flying");
-		} else {
-			logoJosianeRef.current.classList.remove("flying");
-		}
-	};
+  const logoScrollListenerHandler = () => {
+    if (
+      logoJosianeRef.current &&
+      window.pageYOffset > logoJosianeRef.current.offsetTop
+    ) {
+      logoJosianeRef.current.classList.add("flying");
+    } else {
+      logoJosianeRef.current.classList.remove("flying");
+    }
+  };
 
-	useEffect(() => {
-		window.scrollTo(0, 0);
-		window.addEventListener("scroll", logoScrollListenerHandler);
-		return () => window.removeEventListener("scroll", logoScrollListenerHandler);
-	}, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    window.addEventListener("scroll", logoScrollListenerHandler);
+    return () =>
+      window.removeEventListener("scroll", logoScrollListenerHandler);
+  }, []);
 
-	const { cover, title, subtitle, second_subtitle, long_description, Content } = project;
+  const { cover, title, subtitle, second_subtitle, long_description, Content } =
+    project;
 
-	const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
+  const handleSwitchClick = () => setMenuState({ isOpen: !menuState.isOpen });
 
-	const Description = () => <div className="Project__Description" dangerouslySetInnerHTML={{ __html: long_description }}></div>;
-	return (
-		<div className="Project">
-			<Menu onLinkClick={handleLinkClick} onSwitchClick={handleSwitchClick} isOpen={menuState.isOpen} />
+  const Description = () => (
+    <div
+      className="Project__Description"
+      dangerouslySetInnerHTML={{ __html: long_description }}
+    ></div>
+  );
+  return (
+    <div className="Project">
+      <Menu
+        onLinkClick={handleLinkClick}
+        onSwitchClick={handleSwitchClick}
+        isOpen={menuState.isOpen}
+      />
 
-			<div className="Logo" ref={logoJosianeRef}>
-				<img className="Logo__Picture Logo__Josiane" src={logoBlue} onClick={() => history.push("/")} alt="Josiane Logo" />
-			</div>
+      <div className="Logo" ref={logoJosianeRef}>
+        <img
+          className="Logo__Picture Logo__Josiane"
+          src={logoBlue}
+          onClick={() => history.push("/")}
+          alt="Josiane Logo"
+        />
+      </div>
 
-			<Header cover={cover ? cover : null} title={title ? title : null} subtitle={subtitle ? subtitle : null} second_subtitle={second_subtitle ? second_subtitle : null} />
+      <Header
+        cover={cover ? cover : null}
+        title={title ? title : null}
+        subtitle={subtitle ? subtitle : null}
+        second_subtitle={second_subtitle ? second_subtitle : null}
+      />
 
-			<Description />
+      <Description />
 
-			{Content ? Content.map((component, key) => getComponent(component, key)) : null}
+      {Content
+        ? Content.map((component, key) => getComponent(component, key))
+        : null}
 
-			<Title text="Suggestions" customStyle={{ marginBottom: "5rem" }} />
+      <Title text="Suggestions" customStyle={{ marginBottom: "5rem" }} />
 
-			<div className="Project__Suggestions">
-				{others.map((item, k) => {
-					switch (item.isotope_cover.ext) {
-						case ".png":
-							return (
-								<div
-									key={k}
-									className="Suggestions__Item"
-									onClick={() => {
-										history.push(item.path);
-									}}
-								>
-									<div>
-										<img src={item.isotope_cover.url} alt="Suggestion project" />
-										<div className="Suggestions__Description">
-											<span>{item.title}</span>
-											<span>{item.subtitle}</span>
-										</div>
-									</div>
-								</div>
-							);
+      <div className="Project__Suggestions">
+        {others.map((item, k) => {
+          switch (item.isotope_cover.ext) {
+            case ".png":
+              return (
+                <div
+                  key={k}
+                  className="Suggestions__Item"
+                  onClick={() => {
+                    history.push(item.path);
+                  }}
+                >
+                  <div>
+                    <img
+                      src={item.isotope_cover.url}
+                      alt="Suggestion project"
+                    />
+                    <div className="Suggestions__Description">
+                      <span>{item.title}</span>
+                      <span>{item.subtitle}</span>
+                    </div>
+                  </div>
+                </div>
+              );
 
-						case ".jpg":
-							return (
-								<div
-									key={k}
-									className="Suggestions__Item"
-									onClick={() => {
-										history.push(item.path);
-									}}
-								>
-									<div>
-										<img src={item.isotope_cover.url} alt="Suggestion project" />
-										<div className="Suggestions__Description">
-											<span>{item.title}</span>
-											<span>{item.subtitle}</span>
-										</div>
-									</div>
-								</div>
-							);
-						case ".mp4":
-							return (
-								<div
-									key={k}
-									className="Suggestions__Item"
-									onClick={() => {
-										history.push(item.path);
-									}}
-								>
-									<div>
-										<Video source={item.isotope_cover.url} />
-										<div className="Suggestions__Description">
-											<span>{item.title}</span>
-											<span>{item.subtitle}</span>
-										</div>
-									</div>
-								</div>
-							);
-						default:
-							return null;
-					}
-				})}
-			</div>
+            case ".jpg":
+              return (
+                <div
+                  key={k}
+                  className="Suggestions__Item"
+                  onClick={() => {
+                    history.push(item.path);
+                  }}
+                >
+                  <div>
+                    <img
+                      src={item.isotope_cover.url}
+                      alt="Suggestion project"
+                    />
+                    <div className="Suggestions__Description">
+                      <span>{item.title}</span>
+                      <span>{item.subtitle}</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            case ".mp4":
+              return (
+                <div
+                  key={k}
+                  className="Suggestions__Item"
+                  onClick={() => {
+                    history.push(item.path);
+                  }}
+                >
+                  <div>
+                    <Video source={item.isotope_cover.url} />
+                    <div className="Suggestions__Description">
+                      <span>{item.title}</span>
+                      <span>{item.subtitle}</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            default:
+              return null;
+          }
+        })}
+      </div>
 
-			<Title
-				alt="vie d'agence"
-				text="Vie d'agence"
-				scrollRef="agence"
-				customStyle={{
-					marginTop: "8rem",
-					marginBottom: "5rem",
-				}}
-			/>
+      <Title
+        alt="vie d'agence"
+        text="Vie d'agence"
+        scrollRef="agence"
+        customStyle={{
+          marginTop: "8rem",
+          marginBottom: "5rem",
+        }}
+      />
 
-			{agencyLifePictures.length ? <Agence ref={agencyRef} pictures={agencyLifePictures} /> : null}
+      {/* {agencyLifePictures.length ? (
+        <Agence ref={agencyRef} pictures={agencyLifePictures} />
+      ) : null} */}
 
-			<Footer scrollRef="contact" />
-		</div>
-	);
+      <Footer scrollRef="contact" />
+    </div>
+  );
 };
 
 export default Project;
