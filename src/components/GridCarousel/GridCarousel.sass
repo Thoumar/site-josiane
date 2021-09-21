@@ -1,0 +1,63 @@
+.GridCarousel
+    max-width: 145rem
+    width: 70%
+    margin: 0 auto 20rem auto
+    position: relative
+
+    &__Container
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        grid-gap: 2rem
+        background-color: #fff
+        color: #444
+
+        & > div
+            width: 30rem
+            height: 30rem
+            overflow: hidden
+
+            &:hover
+                img
+                    transform: scale(1.15)
+
+        & > div > img
+            position: relative
+            width: 100%
+            height: 100%
+            object-fit: cover
+            cursor: pointer
+            transition: all .7s cubic-bezier(0, 0.4, 0.5, 1)
+
+    .rec-carousel
+
+        button:nth-child(1)
+            z-index: 1
+            width: 6rem
+            position: absolute
+            left: 0
+            top: 50%
+            transform: translate(-20%, -50%)
+            border: none
+            background: transparent
+            cursor: pointer
+            height: 2rem
+
+            & > img
+                height: 100%
+                width: 100%
+
+        button:nth-child(3)
+            z-index: 1
+            width: 6rem
+            position: absolute
+            top: 50%
+            right: 0
+            transform: translate(20%, -50%)
+            border: none
+            background: transparent
+            cursor: pointer
+            height: 2rem
+
+            & > img
+                height: 100%
+                width: 100%

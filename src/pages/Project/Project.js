@@ -14,11 +14,11 @@ import Footer from "./../../components/Footer/Footer";
 import Menu from "./../../components/Menu/Menu";
 import Header from "./../../components/Header/Header";
 import Title from "./../../components/Title/Title";
-import Agence from "./../../components/Agence/Agence";
 
 import arrowRight from "./../../images/icons/arrow_right.svg";
 import arrowLeft from "./../../images/icons/arrow_left.svg";
 import Video from "../../components/Video/Video";
+import GridCarousel from "../../components/GridCarousel/GridCarousel";
 
 const Picture = ({ className, url }) => (
   <div>
@@ -84,7 +84,6 @@ const ProjectCarousel = ({ data }) => {
 };
 
 const ProjectText = ({ data }) => {
-  console.log(data);
   return (
     <div className={"Component__Text"}>
       <div dangerouslySetInnerHTML={{ __html: data.text }}></div>
@@ -93,7 +92,6 @@ const ProjectText = ({ data }) => {
 };
 
 const ProjectVideo = ({ data }) => {
-  console.log(data);
   return (
     <div
       className={
@@ -158,13 +156,19 @@ const getComponent = (component, componentKey) => {
       return component?.text ? (
         <ProjectText data={component} key={"text" + componentKey} />
       ) : null;
+    case "project-page.grille-carousel":
+      return component?.pictures ? (
+        <GridCarousel
+          pictures={component.pictures}
+          key={"grid-carousel" + componentKey}
+        />
+      ) : null;
     default:
       return null;
   }
 };
 
-const Project = ({ project, others, agencyLifePictures }) => {
-  console.log(project);
+const Project = ({ project, others }) => {
   const logoJosianeRef = useRef(null);
   const history = useHistory();
 

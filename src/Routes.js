@@ -36,7 +36,6 @@ const Routes = () => {
           <Project
             key={"r-p-" + i}
             project={project}
-            agencyLifePictures={homeData.ImagesAgence}
             others={recommendedProjects}
           />
         </Route>
