@@ -1,5 +1,4 @@
 import "./Footer.sass";
-import { useHistory } from "react-router";
 
 import React from "react";
 
@@ -7,13 +6,12 @@ import Social from "./../../components/Social/Social";
 import logoBlue from "./../../images/logos/logo_blue.svg";
 
 const Footer = ({ scrollRef }) => {
-  const history = useHistory();
   return (
     <footer scroll-ref={scrollRef} className="Footer">
       <img
         className="Footer__Title"
         src={logoBlue}
-        onClick={() => history.push("/")}
+        onClick={() => window.scrollTo(0, 0)}
         alt="Josiane Logo"
       />
 

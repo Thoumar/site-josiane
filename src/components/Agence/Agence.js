@@ -6,10 +6,9 @@ import arrowRight from "./../../images/icons/arrow_right.svg";
 import arrowLeft from "./../../images/icons/arrow_left.svg";
 
 import "./Agence.sass";
-import Button from "../Button/Button";
 
-const Picture = ({ url }) => (
-  <div>
+const Picture = ({ url, link }) => (
+  <div onClick={() => window.open("https://" + link, "_blank")}>
     <img src={url} alt="carousel item" />
   </div>
 );
@@ -18,7 +17,7 @@ const PicturesContainer = ({ chunk }) => {
   return (
     <div className="Agence__Container">
       {chunk.map((pic, idx) => (
-        <Picture key={idx} url={pic.url} />
+        <Picture key={idx} url={pic.Image.url} link={pic.link} />
       ))}
     </div>
   );
@@ -77,14 +76,6 @@ const Agence = ({ pictures }) => {
           <PicturesContainer chunk={chunk} key={index} />
         ))}
       </Carousel>
-
-      <Button
-        text="LIEN EXTERNE"
-        customStyle={{
-          marginTop: "10rem",
-        }}
-        click={() => window.open("https://www.google.com", "_blank")}
-      />
     </section>
   );
 };

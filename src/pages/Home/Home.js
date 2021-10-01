@@ -17,8 +17,6 @@ import logoBlue from "./../../images/logos/logo_blue.svg";
 import logoLesCousines from "./../../images/logos/les_cousines.svg";
 import logoEtCousines from "./../../images/logos/et_cousines.svg";
 
-import bgCousines from "./../../images/backgrounds/cousines_background.jpg";
-
 import { useHistory } from "react-router";
 
 import Carousel, { consts } from "react-elastic-carousel";
@@ -193,7 +191,7 @@ const Home = ({ homeData, projects, peoples }) => {
         <div className="Family">
           <div className="Family__Text">
             <h4>Un modèle hybride</h4>
-            <p>{homeData.LaFamille}</p>
+            <p dangerouslySetInnerHTML={{ __html: homeData.LaFamille }}></p>
           </div>
           <div className="Family__Carousel">
             <Carousel
@@ -264,7 +262,7 @@ const Home = ({ homeData, projects, peoples }) => {
         />
 
         <Cousines
-          background={bgCousines}
+          background={homeData.backgroundLesCousines}
           title="FAMILLE D’EXPERTS"
           htmlText={homeData.LesCousines}
         />
@@ -279,8 +277,8 @@ const Home = ({ homeData, projects, peoples }) => {
           }}
         />
 
-        {homeData.ImagesAgence.length ? (
-          <Agence ref={agencyRef} pictures={homeData.ImagesAgence} />
+        {homeData.AgencyCarousel && homeData.AgencyCarousel.length ? (
+          <Agence ref={agencyRef} pictures={homeData.AgencyCarousel} />
         ) : null}
 
         <Footer scrollRef="contact" />

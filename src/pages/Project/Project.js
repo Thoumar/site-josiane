@@ -219,7 +219,7 @@ const Project = ({ project, others }) => {
         <img
           className="Logo__Picture Logo__Josiane"
           src={logoBlue}
-          onClick={() => history.push("/")}
+          onClick={() => window.scrollTo(0, 0)}
           alt="Josiane Logo"
         />
       </div>
@@ -308,21 +308,6 @@ const Project = ({ project, others }) => {
           }
         })}
       </div>
-
-      <Title
-        alt="vie d'agence"
-        text="Vie d'agence"
-        scrollRef="agence"
-        customStyle={{
-          marginTop: "8rem",
-          marginBottom: "5rem",
-        }}
-      />
-
-      {/* {agencyLifePictures.length ? (
-        <Agence ref={agencyRef} pictures={agencyLifePictures} />
-      ) : null} */}
-
       <Footer scrollRef="contact" />
     </div>
   );
