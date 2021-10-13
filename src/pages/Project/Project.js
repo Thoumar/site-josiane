@@ -21,9 +21,7 @@ import Video from "../../components/Video/Video";
 import GridCarousel from "../../components/GridCarousel/GridCarousel";
 
 const Picture = ({ className, url }) => (
-  <div>
-    <img className={className} src={url} alt="carousel item" />
-  </div>
+  <img className={className} src={url} alt="carousel item" />
 );
 
 const ProjectCarousel = ({ data }) => {
@@ -219,7 +217,10 @@ const Project = ({ project, others }) => {
         <img
           className="Logo__Picture Logo__Josiane"
           src={logoBlue}
-          onClick={() => window.scrollTo(0, 0)}
+          onClick={() => {
+            window.scrollTo(0, 0);
+            history.push("/");
+          }}
           alt="Josiane Logo"
         />
       </div>

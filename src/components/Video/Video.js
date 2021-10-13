@@ -41,7 +41,8 @@ const Video = ({
 
   const { playing, muted, played } = state;
 
-  const handlePlayPause = (value) => setState({ ...state, playing: value });
+  const handlePlayPause = (value) =>
+    setState({ ...state, playing: value, muted: !value });
   const handleSetSoundState = () => {
     setState({ ...state, muted: !state.muted });
   };

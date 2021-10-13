@@ -126,14 +126,7 @@ const Home = ({ homeData, projects, peoples }) => {
           isOpen={menuState.isOpen}
         />
 
-        <div
-          className="Logo"
-          ref={logoJosianeRef}
-          onClick={() => {
-            const el = document.scrollingElement || document.documentElement;
-            el.scrollTop = 0;
-          }}
-        >
+        <div className="Logo" ref={logoJosianeRef}>
           <img
             className="Logo__Picture Logo__Josiane"
             src={logoBlue}
@@ -262,7 +255,7 @@ const Home = ({ homeData, projects, peoples }) => {
         />
 
         <Cousines
-          background={homeData.backgroundLesCousines}
+          background={homeData.LesCousinesBackground}
           title="FAMILLE D’EXPERTS"
           htmlText={homeData.LesCousines}
         />
