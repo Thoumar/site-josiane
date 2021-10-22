@@ -22,13 +22,14 @@ const Routes = () => {
   const [peoples, setPeoples] = useState([]);
   const [homeData, setHomeData] = useState({});
 
-  const peoplesList = peoples.sort((a, b) => a.ordre - b.ordre);
+  const peoplesList = peoples.sort((a, b) => a.order - b.order);
 
   const setProjectList = () =>
     projects.map((project, i) => {
       const recommendedProjects = [...projects]
         .sort(() => Math.random() - 0.5)
         .filter((reco) => reco.filters !== project.filters)
+        .sort((a, b) => a.order - b.order)
         .slice(0, 3);
 
       return (
